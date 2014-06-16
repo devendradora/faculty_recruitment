@@ -23,6 +23,10 @@
         <input name = "first_name" type="text" class="form-control input-sm" placeholder="First Name" required>
     </div>
     <div class="form-group">
+        <label>Last Name*</label>
+        <input name = "last_name" type="text" class="form-control input-sm" placeholder="Last Name" required>
+    </div>
+    <div class="form-group">
         <label>Gender*</label>
         <select name = "gender" class = "form-control input-sm" required>
             <option value = "Male">Male</option>
@@ -31,11 +35,7 @@
         </select>
     </div>
     <div class="form-group">
-        <label>Last Name*</label>
-        <input name = "last_name" type="text" class="form-control input-sm" placeholder="Last Name" required>
-    </div>
-    <div class="form-group">
-        <label>Date of Birth*</label>
+        <label>Date of Birth (mm/dd/yyyy)*</label>
         <input name = "dob" type="date" class="form-control input-sm" placeholder="YYYY/MM/DD" required>
     </div>
     <div class="clearfix"></div>
