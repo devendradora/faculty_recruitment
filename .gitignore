@@ -1,0 +1,6 @@
+application/modules/auth/config/ion_auth.php
+application/config/database.php
+/package.json
+/node_modules
+/gruntfile.js
+/uploads

@@ -1,0 +1,7 @@
+<div class="row">
+<div class="col-md-9 panel panel-warning">
+	<div class="panel-heading">
+	Please <a href="<?php echo(URL_HOME.'login');?>">Sign-in</a> to post answer or comment.
+	</div>
+</div>
+</div>
