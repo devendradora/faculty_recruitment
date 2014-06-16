@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 3.5.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 12, 2014 at 08:40 PM
--- Server version: 5.5.37-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4
+-- Generation Time: Jun 16, 2014 at 04:50 PM
+-- Server version: 5.5.34-0ubuntu0.13.04.1
+-- PHP Version: 5.4.9-4ubuntu2.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -28,31 +28,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `faculty_data` (
   `userid` int(10) unsigned NOT NULL,
-  `status` char(8) NOT NULL DEFAULT '00000000',
+  `status` char(10) NOT NULL DEFAULT '0000000000',
+  `photograph` varchar(200) NOT NULL,
+  `post` varchar(50) NOT NULL,
+  `dept` int(11) NOT NULL,
   `applypost` text,
   `personal` text,
   `educational` text,
   `experience` text,
+  `sponsored_projects` text,
   `research` text,
-  `research_pdf` text,
   `contributions` text,
-  `declaration` int(11) DEFAULT NULL,
+  `fee_details` text,
   `filled_pages` int(11) NOT NULL DEFAULT '-1',
   `final_submission` int(11) NOT NULL DEFAULT '0',
-  `place_date` varchar(500) DEFAULT NULL,
-  `instructions` int(11) DEFAULT NULL,
+  `instructions` varchar(200) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `faculty_data`
---
-
-INSERT INTO `faculty_data` (`userid`, `status`, `applypost`, `personal`, `educational`, `experience`, `research`, `research_pdf`, `contributions`, `declaration`, `filled_pages`, `final_submission`, `place_date`, `instructions`, `timestamp`) VALUES
-(1, '11111111', '{"proceed":"1","fee_amount":"456","mode":"1","transaction_no":"12346","application_post":"AP6","application_dept":"4"}', '{"proceed":"0","first_name":"ABHISHEK","gender":"Male","last_name":"SINGH","dob":"2014-04-18","contact_num":"8121210825","address_line_1":"NIT WARANGAL","address_line_2":"WARANGAL","address_city":"WARANGAL","State":"Andhra Pradesh","category":"0","cat_obc_sequence":"","cat_sc_sequence":"","spcl_cat_pda":"0","cat_pda_sequence":""}', '{"proceed":"1","schooling_certificate":["safsf"],"schooling_boardu":["fsasaf"],"schooling_yopass":["safsa"],"schooling_percentage":["fasfas"],"undergraduation_degree":["safsaf"],"undergraduation_branch":["safas"],"undergraduation_boardu":["fsafsaf"],"undergraduation_yopass":["safsa"],"undergraduation_percentage":["fsafsa"],"masters_degree":["safsa"],"masters_branch":["fsaf"],"masters_specialization":["safsaf"],"masters_boardu":["safsa"],"masters_yopass":["fsafsa"],"masters_cgpa":["fsafsa"],"phd_month_year":["sasf"],"phd_awarded_institution":["sfaf"],"phd_awarded_department":["sfafaga"],"phd_thesis":["fsaf"],"phd_dor":["2014-05-07"],"phd_pursuing_institution":["asfasf"],"phd_pursuing_department":["asfsagas"],"phd_submission_synopsis":["2014-05-14"],"phd_submission_thesis":["2014-05-18"]}', '{"proceed":"1","teaching-institution":["X"],"teaching-position":["X"],"teaching-doj":["2014-04-07"],"teaching-dol":["2014-04-09"],"teaching-duration":["X"],"organization-institution":["X"],"organization-position":["X"],"organization-doj":["2014-04-23"],"organization-dol":["2014-04-23"],"organization-duration":["X"],"industry-institution":["X"],"industry-position":["X"],"industry-doj":["2014-04-17"],"industry-dol":["2014-04-30"],"industry-duration":["X"]}', '{"proceed":"0","phd-SCI-journal-coauthors":["1"],"phd-SCI-journal-title":["ABC"],"phd-SCI-journal-name":["XYZ"],"phd-SCI-journal-vol":["1"],"phd-SCI-journal-year":["2009"],"phd-SCI-journal-citations":["85"],"phd-SCI-journal-impact":["10"],"phd-SCI-journal-SCI-no":["123"]}', '{"phd-SCI-journal-pdf":{"1_phd-SCI-journal-pdf_0_ib.pdf":"ib.pdf"}}', '{"proceed":"1","BOS_member":"0"}', 0, 5, 0, '{"place":"Warangal","date":"2014-04-16"}', 1, '2014-05-12 14:57:50'),
-(6, '11111111', '{"proceed":"1","fee_amount":"123455","mode":"1","transaction_no":"1235","application_post":"AP6","application_dept":"1"}', '{"proceed":"1","first_name":"ABHISHEK","gender":"Male","last_name":"SINGH","dob":"2014-04-17","contact_num":"8121210825","address_line_1":"NIT WARANGAL","address_line_2":"WARANGAL","address_city":"WARANGAL","State":"Arunachal Pradesh","category":"1","cat_obc_sequence":"123456","cat_sc_sequence":"","spcl_cat_pda":"0","cat_pda_sequence":""}', '{"proceed":"1","schooling_certificate":["X"],"schooling_boardu":["CBSE"],"schooling_yopass":["2011"],"schooling_percentage":["100"],"undergraduation_degree":["X"],"undegraduation_boardu":["CBSE"],"undegraduation_yopass":["2011"],"undegraduation_percentage":["56"]}', '{"proceed":"1"}', '{"proceed":"1"}', NULL, '{"proceed":"1","BOS_member":"1"}', 0, 7, 0, '{"place":"Warangal","date":"2014-04-08"}', 1, '2014-05-02 08:31:13'),
-(16, '11000000', '{"proceed":"1","fee_amount":"12345","mode":"2","transaction_no":"1234569","application_post":"AP9","application_dept":"8"}', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 1, '2014-05-02 05:03:13');
 
 -- --------------------------------------------------------
 
@@ -67,14 +60,6 @@ CREATE TABLE IF NOT EXISTS `groups` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
---
--- Dumping data for table `groups`
---
-
-INSERT INTO `groups` (`id`, `name`, `description`) VALUES
-(1, 'admin', 'Administrator'),
-(2, 'members', 'General User');
-
 -- --------------------------------------------------------
 
 --
@@ -87,7 +72,22 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
   `login` varchar(100) NOT NULL,
   `time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `personal_files`
+--
+
+CREATE TABLE IF NOT EXISTS `personal_files` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `field` varchar(100) NOT NULL,
+  `original_name` varchar(200) NOT NULL,
+  `stored_name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -100,9 +100,10 @@ CREATE TABLE IF NOT EXISTS `research_files` (
   `userid` int(11) NOT NULL,
   `pdf_col` varchar(200) NOT NULL,
   `idx` int(11) NOT NULL,
-  `filename` varchar(200) NOT NULL,
+  `original_name` varchar(200) NOT NULL,
+  `stored_name` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -129,16 +130,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `company` varchar(100) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`) VALUES
-(1, '127.0.0.1', 'admin', '$2y$08$yWBB1egzmbMvxFEbU1nXtemBf41rmAMTUguAJ14MQJZSnEFyQn2ee', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1399904713, 1, 'Administrator', '', 'ADMIN', '8121210825'),
-(6, '::1', 'abhishek ', '$2y$08$c1/5WaCdfibLfzEgBnS8qOkugLVkfpGtJH44vMA8pavxc.PSOWe7O', NULL, 'abhi15081994@gmail.com', NULL, NULL, NULL, NULL, 1398364517, 1398953475, 1, 'ABHISHEK', '', '0', '8121210825'),
-(16, '127.0.0.1', 'vaibhav ', '$2y$08$Ugw9A61wwz3uZuvJvmmxz.FdNcYkYq2e7ORKfUKk89rxwOOlfZAXq', 'd41150c53e', 'abhi15081993@gmail.com', NULL, NULL, NULL, NULL, 1398787629, 1399006936, 1, 'Vaibhav', '', '0', '8121210825');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -154,17 +146,7 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   UNIQUE KEY `uc_users_groups` (`user_id`,`group_id`),
   KEY `fk_users_groups_users1_idx` (`user_id`),
   KEY `fk_users_groups_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
-
---
--- Dumping data for table `users_groups`
---
-
-INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
-(8, 1, 1),
-(9, 1, 2),
-(15, 6, 2),
-(25, 16, 2);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Constraints for dumped tables
