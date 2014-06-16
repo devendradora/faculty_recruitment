@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends MX_Controller {
+class Auth extends CI_Controller {
 
 	function __construct()
 	{
@@ -56,9 +56,11 @@ class Auth extends MX_Controller {
 		}
 	}
 
+
 	//log the user in
 	function login()
 	{
+
 		$data['title'] = "Login";
 
 		//validate form input
@@ -76,7 +78,7 @@ class Auth extends MX_Controller {
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+				redirect('recruitment', 'refresh');
 			}
 			else
 			{
@@ -221,7 +223,7 @@ class Auth extends MX_Controller {
                 $this->session->set_flashdata('message', $this->ion_auth->messages());
                 redirect("auth/forgot_password", 'refresh');
             }
-            
+
 			//run the forgotten password method to email an activation code to the user
 			$forgotten = $this->ion_auth->forgotten_password($identity->{$this->config->item('identity', 'ion_auth')});
 
@@ -403,7 +405,7 @@ class Auth extends MX_Controller {
 	{
 		$data['title'] = "Create Account";
 		$tables = $this->config->item('tables','ion_auth');
-		
+
 		//validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'xss_clean');
@@ -442,7 +444,7 @@ class Auth extends MX_Controller {
 		   //          '
 		   //          Hi,
 
-		   //          To activate your account click on this '.base_url("auth/activate/".$creationStatus['activationLink']).' 
+		   //          To activate your account click on this '.base_url("auth/activate/".$creationStatus['activationLink']).'
 		   //          Or copy paste the following link in the browser: '.base_url("auth/activate/".$creationStatus['activationLink']).'.
 
 		   //          For doubts contact: wsdc.nitw@gmail.com
@@ -456,7 +458,7 @@ class Auth extends MX_Controller {
 		   //          } else {
 		   //              $stat['message'] = "Account created. Please activate your account before proceeding further";
 		   //          }
-            
+
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
 			redirect("auth/login", 'refresh');
 		}
@@ -531,7 +533,7 @@ class Auth extends MX_Controller {
 		}
 
 		$tables = $this->config->item('tables','ion_auth');
-		
+
 		//validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('create_user_validation_fname_label'), 'required|xss_clean');
 		$this->form_validation->set_rules('last_name', $this->lang->line('create_user_validation_lname_label'), 'xss_clean');
@@ -544,7 +546,7 @@ class Auth extends MX_Controller {
 		if ($this->form_validation->run() == true)
 		{
 			$username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
-			
+
 			$email    = strtolower($this->input->post('email'));
 			$password = $this->input->post('password');
 
