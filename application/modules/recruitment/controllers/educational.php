@@ -15,26 +15,29 @@ class Educational extends Recruitment_Controller {
     public function educational()
     {
         $this->check_correct_page_landing(4);
-
+        // get first, second degree, specializations for populating options
         $this->load->config('specializations');
         $data['fdegree'] = $this->config->item('fdegree');
         $data['fdbranch'] = $this->config->item('fdbranch');
+        $data['sdegree'] = $this->config->item('sdegree');
+        $data['sdspecialization'] = $this->config->item('sdspecialization');
+        $data['sdareasofspecialization'] = $this->config->item('sdareasofspecialization');
+
 
         $data['completed']=$this->get_status();
+        // get department & faculty post applied for
         if($data['completed']['applypost'])
         {
             $temp_data=$this->get_data();
             $data['post']=$temp_data['post'];
-
             $data['dept']=$temp_data['dept'];
         }
+        // If already filled get all fields
         if($data['completed']['educational'])
         {
             $data['saved_data']=json_decode($this->get_data('educational'),true);
-            // print_r($data['saved_data']);
         }
-        $data['current_page'] = 'educational';
-        $data['scripts'] = array('educational.js');
+
         $data['adding_functions']=array(
             'schooling_add_row();',
             'undergraduation_add_row();',
@@ -63,8 +66,10 @@ class Educational extends Recruitment_Controller {
             'phd_month_year',
             'phd_dor'
             );
-        //$data[]
+
         $data['form_name']='education_form';
+        $data['current_page'] = 'educational';
+        $data['scripts'] = array('educational.js');
         $this->_render_page_new('educational','custom_js/common',$data);
     }
     public function submit()
@@ -78,7 +83,6 @@ class Educational extends Recruitment_Controller {
         else
         {
             $value=json_encode($_POST);
-        // print_r($value);
             $userid=$this->ion_auth->get_user_id();
             $query=$this->recruitment_model->insert_data($userid,'educational',$value,'3');
             if($query==true)
@@ -90,7 +94,7 @@ class Educational extends Recruitment_Controller {
                 }
                 else
                 {
-                    redirect('recruitment/sponsored','refresh');
+                    redirect('recruitment/experience','refresh');
                 }
             }
             else

@@ -158,7 +158,7 @@ function undergraduation_add_row() {
             <?php
             $output = '';
             foreach ($fdbranch[$dept][$post] as $key => $bran) {
-                $output .= "['$key', '$bran'], ";
+                $output .= "'$bran', ";
             }
 
             echo rtrim($output, ", ");
@@ -176,20 +176,32 @@ function masters_add_row() {
     var noColumns=8;
     var options=new Array(
         [
-        <?php
-        if($dept>=9 && $dept<=12)
-        {
-            echo '"MSc-Tech","MA","M Sc"';
-        }
-        if($dept >=1 && $dept<=8)
-            echo '"M.Tech","M.E"';
-        if($dept==13)
-        {
-                echo '"MBA"';
-        }
-         ?>],
-        [],
-        [],
+            <?php
+                $output = '';
+                foreach ($sdegree[$dept][$post] as $key => $deg) {
+                    $output .= "'"."$deg"."', ";
+                }
+                echo rtrim($output, ", ");
+            ?>
+        ],
+        [
+            <?php
+                $output = '';
+                foreach ($sdspecialization[$dept][$post] as $key => $spe) {
+                    $output .= "'"."$spe"."', ";
+                }
+                echo rtrim($output, ", ");
+            ?>
+        ],
+        [
+            <?php
+                $output = '';
+                foreach ($sdareasofspecialization[$dept][$post] as $key => $spe) {
+                    $output .= "'"."$spe"."', ";
+                }
+                echo rtrim($output, ", ");
+            ?>
+        ],
         [],[],[],[],[]
         );
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"masters",options);
