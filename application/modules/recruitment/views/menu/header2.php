@@ -45,7 +45,7 @@
           <?php if (isset($completed['research']) && $completed['research'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
-          Visual Research Output
+          Publications
         </a>
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "contributions")?"active":""; ?>">

@@ -1,11 +1,11 @@
 <div class="container" style="border:1px dotted;padding:1%;">
 	<div class="row clearfix">
-		<div class="row">	
+		<div class="row">
 			<table class="table">
 				<tbody>
 					<tr>
 						<td>
-							<img src="<?php echo base_url('assets/images/nitw.png'); ?>" />	
+							<img src="<?php echo base_url('assets/images/nitw.png'); ?>" />
 						</td>
 						<td>
 							<h2 class="text-center">
@@ -32,7 +32,7 @@
 				<div class="row">
 					<label class="col-md-6">Mode of Payment:</label>
 					<span class="col-md-6">
-						<?php 
+						<?php
 						switch ($applypost['mode']) {
 							case '1':
 							echo 'DD';
@@ -54,7 +54,7 @@
 				<div class="row">
 					<label class="col-md-6">Application for the post of:</label>
 					<span class="col-md-6">
-						<?php 
+						<?php
 						switch ($applypost['application_post']) {
 							case 'AP6':
 							echo 'Assistant professor on contract (AGP6000)';
@@ -78,7 +78,7 @@
 				<div class="row">
 					<label class="col-md-6">Application for the post of:</label>
 					<span class="col-md-6">
-						<?php  
+						<?php
 						switch($applypost['application_dept'])
 						{
 							case '1':
@@ -135,7 +135,7 @@
 		</h3>
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<?php 
+				<?php
 				unset($personal['proceed']);
 				foreach ($personal as $key => $value) {
 					if($key=='category')
@@ -149,7 +149,7 @@
 
 					<div class="row">
 						<label class="col-md-6">Category</label>
-						<span class="col-md-6"><?php 
+						<span class="col-md-6"><?php
 							switch ($personal['category']) {
 								case '0':
 								echo 'OP';
@@ -166,7 +166,7 @@
 						</div>
 						<div class="row">
 							<label class="col-md-6">Special category PDA</label>
-							<span class="col-md-6"><?php 
+							<span class="col-md-6"><?php
 								switch ($personal['spcl_cat_pda']) {
 									case '0':
 									echo 'No';
@@ -203,12 +203,12 @@
 								</thead>
 								<tbody>
 
-									<?php 
+									<?php
 
 									foreach ($education['schooling_certificate'] as $key => $value) {
 										$count=$key+1;
 										?>
-										<tr>	
+										<tr>
 											<td><?php echo $count; ?></td>
 											<td><?php echo $value; ?></td>
 											<td><?php echo $education['schooling_boardu'][$key] ?></td>
@@ -240,7 +240,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<?php 
+										<?php
 
 										foreach ($education['undergraduation_degree'] as $key => $value) {
 											$count=$key+1;
@@ -258,7 +258,7 @@
 									</table>
 								</div>
 							</div>
-							<?php 
+							<?php
 							if(isset($education['masters_degree'])){ ?>
 							<div class="row clearfix">
 								<div class="col-md-12 column">
@@ -281,7 +281,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php 
+											<?php
 
 											foreach ($education['masters_degree'] as $key => $value) {
 												$count=$key+1;
@@ -294,14 +294,14 @@
 													<td><?php echo $education['masters_boardu'][$key] ?></td>
 													<td><?php echo $education['masters_yopass'][$key] ?></td>
 													<td><?php echo $education['masters_cgpa'][$key] ?></td>
-												</tr>	
+												</tr>
 												<?php }  ?>
 											</tbody>
 										</table>
 									</div>
 								</div>
 								<?php } ?>
-								<?php 
+								<?php
 								if(isset($education['phd_month_year'])){ ?>
 
 								<div class="row clearfix">
@@ -323,7 +323,7 @@
 												</tr>
 											</thead>
 											<tbody>
-												<?php 	
+												<?php
 												foreach ($education['phd_month_year'] as $key => $value) {
 													$count=$key+1;
 													?>
@@ -340,7 +340,7 @@
 										</div>
 									</div>
 									<?php } ?>
-									<?php 
+									<?php
 									if(isset($education['phd_dor'])){ ?>
 
 									<div class="row clearfix">
@@ -363,7 +363,7 @@
 													</tr>
 												</thead>
 												<tbody>
-													<?php 	
+													<?php
 													foreach ($education['phd_dor'] as $key => $value) {
 														$count=$key+1;
 														?>
@@ -381,17 +381,17 @@
 											</div>
 										</div>
 										<?php } ?>
-										<?php 
-										if(isset($experience['teaching-institution']) || 
+										<?php
+										if(isset($experience['teaching-institution']) ||
 											isset($experience['organization-institution']) ||
-											isset($experience['industry-institution']) 
+											isset($experience['industry-institution'])
 											) {?>
 											<h3 class="text-primary text-center">
 												<span>Experience</span>
 											</h3>
 											<?php } ?>
 											<?php
-											foreach ($tables['experience'] as $key => $value) { 
+											foreach ($tables['experience'] as $key => $value) {
 												if(isset($experience[$value.'-institution'])){
 													?>
 													<div class="row clearfix">
@@ -424,7 +424,7 @@
 																	</tr>
 																</thead>
 																<tbody>
-																	<?php 	
+																	<?php
 																	foreach ($experience[$value.'-institution'] as $key2 => $value2) {
 																		$count=$key2+1;
 																		?>
@@ -451,13 +451,13 @@
 														if($all_saved_files!=FALSE)
 															$saved_files_data=$all_saved_files->result_array();
 														?>
-														
+
 														<h3 class="text-primary text-center">
-															<span>Visual Research Output Record</span>
+															<span>Publications</span>
 														</h3>
 
 														<?php } ?>
-														<?php if(isset($research['phd-SCI-journal-coauthors'])){ ?>		
+														<?php if(isset($research['phd-SCI-journal-coauthors'])){ ?>
 														<h4 class="text-primary">
 															<b>Publications from out of PhD work</b>
 														</h4>
@@ -482,7 +482,7 @@
 																				Name Of Journal
 																			</th>
 
-																			<th>Vol &amp; Issue</th>                    
+																			<th>Vol &amp; Issue</th>
 																			<th>Year of publication</th>
 																			<th>
 																				#Citations
@@ -497,8 +497,8 @@
 																		</tr>
 																	</thead>
 																	<tbody>
-																		<?php 
-																		
+																		<?php
+
 																		foreach ($research['phd-SCI-journal-coauthors'] as $key2 => $value2) {
 																			$count=$key2+1;
 																			?>
@@ -513,9 +513,9 @@
 																				<td><?php echo $research['phd-SCI-journal-impact'][$key2] ?></td>
 																				<td><?php echo $research['phd-SCI-journal-SCI-no'][$key2] ?></td>
 																				<td>
-																					<?php 
-																					for ($i=0; $i < sizeof($saved_files_data); $i++) { 
-																						
+																					<?php
+																					for ($i=0; $i < sizeof($saved_files_data); $i++) {
+
 																						if($saved_files_data[$i]['pdf_col']=='phd-SCI-journal' && $saved_files_data[$i]['idx']==$key2)
 																							echo $saved_files_data[$i]['original_name'];
 																					}
@@ -528,9 +528,9 @@
 																		</tbody>
 																	</table>
 																</div>
-															</div>								
+															</div>
 															<?php } ?>
-															<?php if(isset($research['phd-non-SCI-journal-coauthors'])){ ?>		
+															<?php if(isset($research['phd-non-SCI-journal-coauthors'])){ ?>
 
 															<div class="row clearfix">
 																<div class="col-md-12 column">
@@ -565,8 +565,8 @@
 																			</tr>
 																		</thead>
 																		<tbody>
-																			<?php 	
-																			
+																			<?php
+
 																			foreach ($research['phd-non-SCI-journal-coauthors'] as $key2 => $value2) {
 																				$count=$key2+1;
 																				?>
@@ -580,8 +580,8 @@
 																					<td><?php echo $research['phd-non-SCI-journal-citations'][$key2] ?></td>
 																					<td><?php echo $research['phd-non-SCI-journal-impact'][$key2] ?></td>
 																					<td>
-																						<?php 
-																						for ($i=0; $i < sizeof($saved_files_data); $i++) { 
+																						<?php
+																						for ($i=0; $i < sizeof($saved_files_data); $i++) {
 
 																							if($saved_files_data[$i]['pdf_col']=='phd-non-SCI-journal' && $saved_files_data[$i]['idx']==$key2)
 																								echo $saved_files_data[$i]['original_name'];
@@ -595,10 +595,10 @@
 																			</tbody>
 																		</table>
 																	</div>
-																</div>								
+																</div>
 																<?php } ?>
 																<!-- outside phd-->
-																<?php if(isset($research['phd-outside-SCI-journal-coauthors'])){ ?>		
+																<?php if(isset($research['phd-outside-SCI-journal-coauthors'])){ ?>
 																<h4 class="text-primary">
 																	<b>Publications outside Phd work</b>
 																</h4>
@@ -637,8 +637,8 @@
 																				</tr>
 																			</thead>
 																			<tbody>
-																				<?php 	
-																				
+																				<?php
+
 																				foreach ($research['phd-outside-SCI-journal-coauthors'] as $key2 => $value2) {
 																					$count=$key2+1;
 																					?>
@@ -653,8 +653,8 @@
 																						<td><?php echo $research['phd-outside-SCI-journal-impact'][$key2] ?></td>
 																						<td><?php echo $research['phd-outside-SCI-journal-SCI-no'][$key2] ?></td>
 																						<td>
-																							<?php 
-																							for ($i=0; $i < sizeof($saved_files_data); $i++) { 
+																							<?php
+																							for ($i=0; $i < sizeof($saved_files_data); $i++) {
 
 																								if($saved_files_data[$i]['pdf_col']=='phd-outside-SCI-journal' && $saved_files_data[$i]['idx']==$key2)
 																									echo $saved_files_data[$i]['original_name'];
@@ -668,9 +668,9 @@
 																				</tbody>
 																			</table>
 																		</div>
-																	</div>								
+																	</div>
 																	<?php } ?>
-																	<?php if(isset($research['phd-outside-non-SCI-journal-coauthors'])){ ?>		
+																	<?php if(isset($research['phd-outside-non-SCI-journal-coauthors'])){ ?>
 
 																	<div class="row clearfix">
 																		<div class="col-md-12 column">
@@ -704,8 +704,8 @@
 																					</tr>
 																				</thead>
 																				<tbody>
-																					<?php 	
-																					
+																					<?php
+
 																					foreach ($research['phd-outside-non-SCI-journal-coauthors'] as $key2 => $value2) {
 																						$count=$key2+1;
 																						?>
@@ -719,8 +719,8 @@
 																							<td><?php echo $research['phd-outside-non-SCI-journal-citations'][$key2] ?></td>
 																							<td><?php echo $research['phd-outside-non-SCI-journal-impact'][$key2] ?></td>
 																							<td>
-																								<?php 
-																								for ($i=0; $i < sizeof($saved_files_data); $i++) { 
+																								<?php
+																								for ($i=0; $i < sizeof($saved_files_data); $i++) {
 
 																									if($saved_files_data[$i]['pdf_col']=='phd-outside-non-SCI-journal' && $saved_files_data[$i]['idx']==$key2)
 																										echo $saved_files_data[$i]['original_name'];
@@ -734,10 +734,10 @@
 																					</tbody>
 																				</table>
 																			</div>
-																		</div>								
+																		</div>
 																		<?php } ?>
 																		<!-- Publications oustide phd work -->
-																		<?php 
+																		<?php
 																		$temp_publications=
 																		array(
 																			'hard-copy-peer-journal' =>'Peer reviewed journals(Hard Copy)' ,
@@ -745,9 +745,9 @@
 																			'conference-journal'=>'Conference papers published in the form of proceedings'
 
 																			);
-																		
+
 																		foreach ($temp_publications as $key => $value) {
-																			if(isset($research[$key.'-coauthors'])){	
+																			if(isset($research[$key.'-coauthors'])){
 
 																				?>
 																				<div class="row clearfix">
@@ -782,8 +782,8 @@
 																								</tr>
 																							</thead>
 																							<tbody>
-																								<?php 	
-																								
+																								<?php
+
 																								foreach ($research[$key.'-coauthors'] as $key2 => $value2) {
 																									$count=$key2+1;
 																									?>
@@ -797,8 +797,8 @@
 																										<td><?php echo $research[$key.'-citations'][$key2] ?></td>
 																										<td><?php echo $research[$key.'-impact'][$key2] ?></td>
 																										<td>
-																											<?php 
-																											for ($i=0; $i < sizeof($saved_files_data); $i++) { 
+																											<?php
+																											for ($i=0; $i < sizeof($saved_files_data); $i++) {
 
 																												if($saved_files_data[$i]['pdf_col']==$key && $saved_files_data[$i]['idx']==$key2)
 																													echo $saved_files_data[$i]['original_name'];
@@ -844,7 +844,7 @@
 																									</tr>
 																								</thead>
 																								<tbody>
-																									<?php 	
+																									<?php
 																									foreach ($research['book-coauthors'] as $key2 => $value2) {
 																										$count=$key2+1;
 																										?>
@@ -888,7 +888,7 @@
 																										</tr>
 																									</thead>
 																									<tbody>
-																										<?php 	
+																										<?php
 																										foreach ($research['patents-group-or-organization'] as $key2 => $value2) {
 																											$count=$key2+1;
 																											?>
@@ -906,14 +906,14 @@
 																									</table>
 																								</div>
 																							</div>
-																							<?php } ?>						
+																							<?php } ?>
 																							<!-- Contributions -->
 																							<h3 class="text-primary text-center">
 																								<span>Contributions to Curricular/Co-curricular activities</span>
 																							</h3>
 																							<div class="row">
 																								<label class="col-md-6">Member of BOS of universities:</label>
-																								<span class="col-md-6"><?php 
+																								<span class="col-md-6"><?php
 																									switch ($contributions['BOS_member']) {
 																										case '1':
 																										echo 'Yes';
@@ -927,7 +927,7 @@
 
 																									?></span>
 																								</div>
-																								<?php 
+																								<?php
 																								$temp_FDP=array(
 																									'attended'=>'Faculty development programs attended',
 																									'conducted'=>'Faculty development programs conducted as coordinator',
@@ -969,7 +969,7 @@
 																														</tr>
 																													</thead>
 																													<tbody>
-																														<?php 	
+																														<?php
 																														foreach ($contributions[$key.'-organization'] as $key2 => $value2) {
 																															$count=$key2+1;
 																															?>
@@ -989,7 +989,7 @@
 																													</table>
 																												</div>
 																											</div>
-																											<?php } } ?>					
+																											<?php } } ?>
 																											<div class="clearfix"></div>
 																											<br>
 																											<!-- Declaration -->
@@ -1005,7 +1005,7 @@
 																															I hereby solemnly declare that the information furnished in previous forms is true and correct
 																															and I am responsible for the veracity of the same.
 																														</p>
-																													</h4>	
+																													</h4>
 																												</div>
 																												<div class="clearfix"></div>
 																												<br>

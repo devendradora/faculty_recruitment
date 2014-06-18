@@ -15,6 +15,12 @@ class Applypost extends Recruitment_Controller {
     public function applypost()
     {
         $this->check_correct_page_landing(2);
+
+        $this->load->config('specializations');
+        $data['departments'] = $this->config->item('departments');
+        $data['fposts'] = $this->config->item('fposts');
+        $data['sdspecializations'] = $this->config->item('sdspecialization');
+
         if(isset($_POST['instructions']) && isset($_POST['name_of_candidate']))
         {
             $userid=$this->ion_auth->get_user_id();
@@ -51,15 +57,14 @@ class Applypost extends Recruitment_Controller {
         }
         else
         {
-            $value=json_encode($_POST);
-            // print_r($value);
+            $value = json_encode($_POST);
             $userid=$this->ion_auth->get_user_id();
             // $query=$this->recruitment_model->insert_data($userid,'applypost',$value,'1');
             // $query2=$this->recruitment_model->insert_data($userid,'post',$_POST['application_post'],'1');
-                //var_dump($_FILES);
+            //var_dump($_FILES);
             $photograph_filename='';
-                if(isset($_FILES['photograph']) )
-                {
+            if(isset($_FILES['photograph']) )
+            {
                 $config['upload_path'] = 'uploads/';
                 $config['allowed_types'] = 'jpg|gif|png';
                 $config['max_size'] = '2024';//maximum size is 1 Mb
@@ -74,14 +79,16 @@ class Applypost extends Recruitment_Controller {
                     $this->session->set_flashdata('error', $this->upload->display_errors());
                     redirect('recruitment/applypost','refresh');
                 }
-                }
+            }
 
             $data_array=array(
                 'post'=>$_POST['application_post'],
                 'dept'=>$_POST['application_dept'],
                 'applypost'=>$value,
-                'photograph'=>$photograph_filename
             );
+            if ($photograph_filename !== '') {
+                $data_array['photograph'] = $photograph_filename;
+            }
             $query=$this->recruitment_model->update_data($userid,$data_array,'1');
             if($query==true)
             {

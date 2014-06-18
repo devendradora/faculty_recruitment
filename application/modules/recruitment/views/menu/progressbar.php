@@ -58,7 +58,7 @@
 	else
 		echo '<span class="text-danger">';
 	?>
-	Visual Research Output
+	Publications
 </span>
 </li>
 <li class="<?php echo (isset($current_page) && $current_page === "contributions")?"active":""; ?>">

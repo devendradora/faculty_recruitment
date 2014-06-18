@@ -91,7 +91,7 @@
 	?>
 	<a href="<?php echo base_url("recruitment/research"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
-	Visual Research Output
+	Publications
 	</a>
 </span>
 </li>

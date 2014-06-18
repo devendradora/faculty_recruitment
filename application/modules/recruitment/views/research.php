@@ -3,7 +3,7 @@
     For each publication, attach a scanned pdf copy of the header page of the publication as an attachment.
 </div> -->
 <form role="form" class="row clearfix" name="research_form" enctype="multipart/form-data" action="<?php echo base_url("recruitment/research/submit"); ?>" method="POST">
-    <legend class="text-center">Visual Research Output Record</legend>
+    <legend class="text-center">Publications</legend>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <?php
