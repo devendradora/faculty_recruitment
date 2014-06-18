@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	<?php 
+	<?php
 	if(isset($files_data) && $files_data!=FALSE)
 	{
 		foreach ($files_data->result() as $key => $value) {
@@ -14,9 +14,9 @@
         	$('#<?php echo $pdf_category ?>_cert_input').empty();
         	$('#<?php echo $pdf_category ?>_cert_input').append('<?php echo $msg ?>');
         	$('#<?php echo $pdf_category ?>_cert_input').append('<?php  echo $handle ?>');
-    <?php 
+    <?php
 		}
-	} 
+	}
 	?>
 	$(".delete_file").click(function(){
         var txt;
@@ -32,7 +32,7 @@
         element_row=$(this).parent().parent();
         category=$(this).data("type");
     $.ajax({
-        url : "<?php echo base_url('recruitment/home/delete_file_details');?>",
+        url : "<?php echo base_url('recruitment/research/delete_file_details');?>",
         type: "POST",
         data : {'id':id,'stored_name':stored_name,'page':'<?php echo $current_page; ?>'},
         beforeSend: function (xhr) {
@@ -46,17 +46,17 @@
                 '<label>Upload relevant certificate pdf</label>'+
                 '<input name = "'+category+'" type="file" class="form-control input-sm">'+
             	'</div>';
-                element_row.html(str); 
+                element_row.html(str);
             }
             else
             {
                 element_row.html('Error occured in deleting.Reload the page');
             }
-            
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
-          
+
         }
     });
 });
@@ -85,7 +85,7 @@ $(document).ready(function() {
 		rules: {
         category_cert_doi: { greaterThan: a },
         pda_cert_doi:{ greaterThan: a }
-        
+
     	},
     	errorClass: "errorcss",
     	error: function(element) {

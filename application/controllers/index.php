@@ -12,7 +12,7 @@ class Index extends MX_Controller {
 
 	public function index()
 	{
-		redirect('recruitment/home');
+		redirect('recruitment/instructions');
 	}
 
 	public function _404()

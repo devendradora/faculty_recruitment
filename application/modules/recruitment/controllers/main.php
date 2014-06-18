@@ -51,7 +51,7 @@ class Main extends MX_Controller
 	{
 		if($this->check_form_submitted()==0)
 		{
-			redirect('recruitment/home/fee_details');
+			redirect('recruitment/fee');
 		}
 		$data['completed']=$this->get_status();
 		$data['current_page']='report';
@@ -72,7 +72,7 @@ class Main extends MX_Controller
 		// print_r($i);
 		if($check_all_previous_filled==0)
 		{
-			$url=sprintf("recruitment/home/%s",$this->data[$i]);
+			$url=sprintf("recruitment/%s",$this->data[$i]);
 			$this->session->set_flashdata('warning', 'Please fill this page and proceed');
 			// print_r($url);
 			redirect($url,'refresh');

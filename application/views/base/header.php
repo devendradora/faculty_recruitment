@@ -51,7 +51,7 @@
                         </li>
                         <?php } ?>
                         <li class="tips <?php echo ($current_section === 'application')?'active':''; ?>" title="Faculty recruitment application">
-                            <a href="<?php echo base_url('recruitment/home'); ?>">
+                            <a href="<?php echo base_url('recruitment/instructions'); ?>">
                                 <span class="glyphicon glyphicon-list-alt"> Application</span><!--  <span class="hidden-sm">Application</span> -->
                             </a>
                         </li>

@@ -3,13 +3,13 @@
     <div class="bs-sidebar hidden-print affix" role="complementary">
      <ul class="nav bs-sidenav">
        <li class="<?php echo (isset($current_page) && $current_page === "instructions")?"active":""; ?>">
-         <a href="<?php echo base_url("recruitment/home/instructions"); ?>">
+         <a href="<?php echo base_url("recruitment/instructions"); ?>">
           Instructions
         </a>
       </li>
 
       <li class="<?php echo (isset($current_page) && $current_page === "applypost")?"active":""; ?>">
-        <a href="<?php echo base_url("recruitment/home/applypost"); ?>">
+        <a href="<?php echo base_url("recruitment/applypost"); ?>">
           <?php if (isset($completed['application']) && $completed['application'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
@@ -17,7 +17,7 @@
         </a>
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "personal")?"active":""; ?>">
-        <a href="<?php echo base_url("recruitment/home/personal"); ?>">
+        <a href="<?php echo base_url("recruitment/personal"); ?>">
           <?php if (isset($completed['personal']) && $completed['personal'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
@@ -25,7 +25,7 @@
         </a>
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "educational")?"active":""; ?>">
-        <a href="<?php echo base_url("recruitment/home/educational"); ?>">
+        <a href="<?php echo base_url("recruitment/educational"); ?>">
           <?php if (isset($completed['educational']) && $completed['educational'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
@@ -33,7 +33,7 @@
         </a>
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "experience")?"active":""; ?>">
-        <a href="<?php echo base_url("recruitment/home/experience"); ?>">
+        <a href="<?php echo base_url("recruitment/experience"); ?>">
           <?php if (isset($completed['experience']) && $completed['experience'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
@@ -41,7 +41,7 @@
         </a>
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "research")?"active":""; ?>">
-        <a href="<?php echo base_url("recruitment/home/research"); ?>">
+        <a href="<?php echo base_url("recruitment/research"); ?>">
           <?php if (isset($completed['research']) && $completed['research'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
@@ -49,7 +49,7 @@
         </a>
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "contributions")?"active":""; ?>">
-        <a href="<?php echo base_url("recruitment/home/contributions"); ?>">
+        <a href="<?php echo base_url("recruitment/contributions"); ?>">
           <?php if (isset($completed['activities']) && $completed['activities'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>

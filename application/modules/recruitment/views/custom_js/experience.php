@@ -82,7 +82,7 @@
         element_row=$(this).parent().parent();
         category=$(this).data("type");
     $.ajax({
-        url : "<?php echo base_url('recruitment/home/delete_file_details');?>",
+        url : "<?php echo base_url('recruitment/research/delete_file_details');?>",
         type: "POST",
         data : {'id':id,'stored_name':stored_name,'page':'research'},
         beforeSend: function (xhr) {
