@@ -24,7 +24,7 @@
                 <option value="">Select post</option>
                 <?php
                 foreach ($fposts as $code => $description) {
-                    echo '<option value="'.$code.'" '.(($saved_data['application_post'] === $code)?'selected':'').' >'.$description.'</option>';
+                    echo '<option value="'.$code.'" '.((isset($saved_data) && $saved_data['application_post'] === $code)?'selected':'').' >'.$description.'</option>';
                 }
                 ?>
             </select>
@@ -35,7 +35,7 @@
                 <option value="">Select department</option>
                 <?php
                     foreach ($departments as $code => $department) {
-                        echo '<option value="'.$code.'" '.(($saved_data['application_dept'] === $code)?'selected':'').' > '.$department.'</option>';
+                        echo '<option value="'.$code.'" '.((isset($saved_data) && $saved_data['application_dept'] === $code)?'selected':'').' > '.$department.'</option>';
                     }
                 ?>
             </select>
@@ -87,42 +87,37 @@
 </form>
 <script>
 
-$(function() {
-    $("#uploadFile").on("change", function()
-    {
-        var files = !!this.files ? this.files : [];
-        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+var specializationsJ = '<?php echo json_encode($sdspecializations); ?>';
+var specializations;
 
-        if (/^image/.test( files[0].type)){ // only image file
-            var reader = new FileReader(); // instance of the FileReader
-            reader.readAsDataURL(files[0]); // read the local file
-
-            reader.onloadend = function(){ // set image data as background of div
-                $("#imagePreview").css("background-image", "url("+this.result+")");
-            }
-        }
-    });
-});
-
-var specializations = '<?php echo json_encode($sdspecializations); ?>';
-
-function populate () {
+function populateOptions () {
+    // getting the faculty position the applicant is applying for
+    var fpost_element = document.getElementById('fpost');
+    var fpost = fpost_element.options[fpost_element.selectedIndex].value;
+    // Implies form hasn't been saved before
+    if (fpost_element.selectedIndex === 0) {return;}
+    // getting department the applicant is applying for
 	var department_element = document.getElementById('department');
 	var department = department_element.options[department_element.selectedIndex].value;
-    var fpost_element = document.getElementById('fpost')
-    var fpost = fpost_element.options[fpost_element.selectedIndex].value;
-	var specialization_element=document.getElementById('specialization');
+
+    console.log(fpost + " : " + department);
+
+    var specialization_element=document.getElementById('specialization');
 	var fc = specialization_element.firstChild;
-    specializations = JSON && JSON.parse(specializations) || $.parseJSON(specializations);
+    // getting specializations for the post & branch selected
+
+    // removing all the options in specialization
 	while( fc ) {
 	    specialization_element.removeChild( fc );
 	    fc = specialization_element.firstChild;
 	}
-	if(department=="") {
+    // If no department is selected, dont display specialization
+	if(department === "") {
         specialization_element.parentNode.style.display="none";
         specialization_element.removeAttribute("required");
         return;
     }
+    // Generating options for specialization accordin to the branch & post selected
     var specs = specializations[department][fpost];
 	for (var i = specs.length - 1; i >= 0; i--) {
 		var new_option=document.createElement('option');
@@ -133,13 +128,12 @@ function populate () {
     specialization_element.parentNode.style.display="block";
 }
 
-$(function() {
-    document.getElementById('department').onchange=populate;
+function fillForm() {
 
     <?php if(isset($saved_data)) : ?>
         document.application_form.application_post.value='<?php echo $saved_data['application_post']; ?>';
         document.application_form.application_dept.value='<?php echo $saved_data['application_dept']; ?>';
-        populate();
+        populateOptions();
         document.application_form.specialization.value='<?php echo $saved_data['specialization']; ?>';
 
         // TO BE REMOVED
@@ -153,47 +147,78 @@ $(function() {
         <?php endif; ?>
 
     <?php endif; ?>
-});
+}
 
-$(".delete_file").click(function(){
-    var txt;
-    var r = confirm("Do you want to delete the file permanently and reload new photograph?");
-    if (r == true) {
-        txt = "You pressed OK!";
-    } else {
-        txt = "You pressed Cancel!";
-        return;
-    }
-    name=$(this).data("filename");
-    element_row=$(this).parent().parent();
-    $.ajax({
-        url : "<?php echo base_url('recruitment/applypost/delete_photograph');?>",
-        type: "POST",
-        data : {'name':name},
-        beforeSend: function (xhr) {
-            element_row.html("Deleting...");
-        },
-        success: function(data, textStatus, jqXHR)
-        {
-            if(data==1)
-            {
-                str='<div class="form-group">'+
-            '<label>Upload Passport size photograph *</label>'+
-            '<input id="uploadFile" type="file" name="photograph" class="img form-control" required />'+
-            '</div>';
-             $("#imagePreview").css("background-image", "url('<?php echo base_url('assets/images/no_pic.gif');?>')");
-                element_row.html(str);
+$(function() {
+
+    specializations = JSON && JSON.parse(specializationsJ) || $.parseJSON(specializationsJ);
+
+    fillForm();
+
+    $('#department').on('change', function() {
+        if ($('#fpost option:selected').val() === "") {
+            alert('You need to select the post before selecting department');
+            return false;
+        }
+        populateOptions();
+    });
+
+    $("#uploadFile").on("change", function() {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+
+            reader.onloadend = function(){ // set image data as background of div
+                $("#imagePreview").css("background-image", "url("+this.result+")");
             }
-            else
-            {
-                element_row.html('Error occured in deleting.Reload the page');
-            }
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-
         }
     });
+
+    $(".delete_file").click(function(){
+        var txt;
+        var r = confirm("Do you want to delete the file permanently and reload new photograph?");
+        if (r == true) {
+            txt = "You pressed OK!";
+        } else {
+            txt = "You pressed Cancel!";
+            return;
+        }
+        name=$(this).data("filename");
+        element_row=$(this).parent().parent();
+        $.ajax({
+            url : "<?php echo base_url('recruitment/applypost/delete_photograph');?>",
+            type: "POST",
+            data : {'name':name},
+            beforeSend: function (xhr) {
+                element_row.html("Deleting...");
+            },
+            success: function(data, textStatus, jqXHR)
+            {
+                if(data==1)
+                {
+                    str='<div class="form-group">'+
+                '<label>Upload Passport size photograph *</label>'+
+                '<input id="uploadFile" type="file" name="photograph" class="img form-control" required />'+
+                '</div>';
+                 $("#imagePreview").css("background-image", "url('<?php echo base_url('assets/images/no_pic.gif');?>')");
+                    element_row.html(str);
+                }
+                else
+                {
+                    element_row.html('Error occured in deleting.Reload the page');
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+
+            }
+        });
+    });
 });
+
+
 </script>

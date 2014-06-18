@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'randomstring';
+$config['encryption_key'] = 'NYZ3044n6uR0S19lKZDdeVMK6kySG7vl';
 
 /*
 |--------------------------------------------------------------------------
@@ -247,7 +247,7 @@ $config['encryption_key'] = 'randomstring';
 $config['sess_cookie_name']		= 'ci_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= FALSE;
-$config['sess_encrypt_cookie']	= FALSE;
+$config['sess_encrypt_cookie']	= TRUE;
 $config['sess_use_database']	= FALSE;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
@@ -371,13 +371,13 @@ $config['modules_locations'] = array(
 | for base controllers and some third-party libraries.
 |
 */
-function __autoload($class)
-{
-    if(strpos($class, 'CI_') !== 0)
-    {
-        @include_once( APPPATH . 'core/'. $class . EXT );
-    }
-}
+// function __autoload($class)
+// {
+//     if(strpos($class, 'CI_') !== 0)
+//     {
+//         @include_once( APPPATH . 'core/'. $class . EXT );
+//     }
+// }
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

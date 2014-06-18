@@ -21,21 +21,21 @@ $fposts['AP8'] = 'Assistant professor (AGP8000)';
 
 // First degree
 
-$fdegree['BT']['AP6'] = array('BE', 'B. Tech or equivalent');
-$fdegree['BT']['AP8'] = array('BE', 'B. Tech', 'equivalent ', 'M.Sc.');
-$fdegree['CH']['AP6'] = array('BE', 'B. Tech or equivalent');
+$fdegree['BT']['AP6'] = array('B.E.', 'B. Tech or equivalent');
+$fdegree['BT']['AP8'] = array('B.E.', 'B. Tech', 'equivalent ', 'M.Sc.');
+$fdegree['CH']['AP6'] = array('B.E.', 'B. Tech or equivalent');
 $fdegree['CY']['AP6'] = array('---');
-$fdegree['CE']['AP6'] = array('BE', 'B. Tech or equivalent');
-$fdegree['CS']['AP6'] = array('BE', 'B. Tech or equivalent');
-$fdegree['EE']['AP6'] = array('BE', 'B. Tech or equivalent');
-$fdegree['EC']['AP6'] = array('BE', 'B. Tech or equivalent');
+$fdegree['CE']['AP6'] = array('B.E.', 'B. Tech or equivalent');
+$fdegree['CS']['AP6'] = array('B.E.', 'B. Tech or equivalent');
+$fdegree['EE']['AP6'] = array('B.E.', 'B. Tech or equivalent');
+$fdegree['EC']['AP6'] = array('B.E.', 'B. Tech or equivalent');
 $fdegree['HS']['AP6'] = array('---');
 $fdegree['MA']['AP6'] = array('---');
-$fdegree['ME']['AP6'] = array('BE', 'B. Tech or equivalent');
-$fdegree['MM']['AP6'] = array('BE', 'B. Tech or equivalent');
+$fdegree['ME']['AP6'] = array('B.E.', 'B. Tech or equivalent');
+$fdegree['MM']['AP6'] = array('B.E.', 'B. Tech or equivalent');
 $fdegree['PH']['AP6'] = array('---');
-$fdegree['SM']['AP6'] = array('BE', 'B. Tech or equivalent');
-$fdegree['SM']['AP7'] = array('BE', 'B. Tech or equivalent ', 'BA', 'B Sc', 'B Com', 'M Com');
+$fdegree['SM']['AP6'] = array('B.E.', 'B. Tech or equivalent');
+$fdegree['SM']['AP7'] = array('B.E.', 'B. Tech or equivalent ', 'BA', 'B Sc', 'B Com', 'M Com');
 
 
 $fdegree['BT']['AP7'] = $fdegree['BT']['AP6'];

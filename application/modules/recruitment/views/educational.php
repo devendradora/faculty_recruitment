@@ -145,20 +145,27 @@ function undergraduation_add_row() {
     var tdsRequired = new Array("","","","","","","");
     var noColumns=7;
     var options=new Array(
-        [<?php
-        if($post=='AP8' && $dept==8)
-            echo '"M.Sc",';
-        if($dept >=1 && $dept<=8 || $dept==13)
-            echo '"B.Tech","B.E","Dual Degree"';
-        if($dept==13)
-        {
-            if($post=="AP7" || $post=="AP8")
-                echo ',"BA","B.Com"';
+        [
+            <?php
+            $output = '';
+            foreach ($fdegree[$dept][$post] as $key => $deg) {
+                $output .= "'"."$deg"."', ";
+            }
+            echo rtrim($output, ", ");
+            ?>
+        ],
+        [
+            <?php
+            $output = '';
+            foreach ($fdbranch[$dept][$post] as $key => $bran) {
+                $output .= "['$key', '$bran'], ";
+            }
 
-        }
-         ?>],
-        [],
-        [],[],[],[],[]
+            echo rtrim($output, ", ");
+            ?>
+        ],
+        [],[],[],[
+        'CGPA', 'Percentage'],[]
         );
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options);
 }

@@ -4,14 +4,16 @@ $(document).ready(function() {
         $("#main-content").toggleClass('cbp-spmenu-push-toright');
         $("#main-content").toggleClass('col-md-12');
         $("#main-content").toggleClass('col-md-10');
-        menuLeft.toggleClass('cbp-spmenu-open');   
+        menuLeft.toggleClass('cbp-spmenu-open');
     });
    $("#user-details").popover();
    $("#instructions-show").popover();
 });
+
 $("#save_details").click(function(){
     $("#proceed_val").val("0");
 });
+
 function remove_button(){
     var col=document.createElement("td");
     var button=document.createElement("button");
@@ -24,13 +26,13 @@ function remove_button(){
     col.appendChild(button);
     return col;
 }
+
 function remove_row() {
     $(this).parents("tr").remove();
 }
+
 function add (tdsNames,tdsTypes,tdsRequired,noColumns,id,options) {
-    
     var required_array_size=tdsRequired.length;
-    // console.log(required_array_size);
     var row=document.createElement("tr");
     for (var i=0; i<noColumns; i++) {
         var tds = document.createElement("td");
@@ -40,11 +42,20 @@ function add (tdsNames,tdsTypes,tdsRequired,noColumns,id,options) {
         {
             var inputfield = document.createElement("select");
             for (var j = options[i].length - 1; j >= 0; j--) {
-            var option=document.createElement("option");
-            option.setAttribute("value", options[i][j]);
-            option.innerHTML=options[i][j];
-            inputfield.appendChild(option);
-        };
+                var option=document.createElement("option");
+                if (typeof options[i][j] !== "object") {
+                    // If value & the option name are the same
+                    option.setAttribute("value", options[i][j]);
+                    option.innerHTML=options[i][j];
+                    inputfield.appendChild(option);
+                } else {
+                    // if value & option name are different
+                    // specify the option as an array of arrays
+                    option.setAttribute("value", options[i][j][0]);
+                    option.innerHTML=options[i][j][1];
+                    inputfield.appendChild(option);
+                }
+            };
         }
         else
         {
@@ -53,7 +64,7 @@ function add (tdsNames,tdsTypes,tdsRequired,noColumns,id,options) {
         if(tdsTypes[i]=="datepicker_year_month")
         {
                 inputfield.setAttribute("type","text");
-                inputfield.setAttribute("data-date-format","mm/yy");  
+                inputfield.setAttribute("data-date-format","mm/yy");
                 inputfield.className = inputfield.className + "datepicker_year_month ";
         }
         else
@@ -63,11 +74,11 @@ function add (tdsNames,tdsTypes,tdsRequired,noColumns,id,options) {
             inputfield.setAttribute("required", tdsRequired[i]);
         if(tdsTypes[i]=="date")
         {
-            inputfield.setAttribute("placeholder", "YYYY-MM-DD");     
+            inputfield.setAttribute("placeholder", "YYYY-MM-DD");
         }
         if(tdsTypes[i]=="number")
         {
-            inputfield.setAttribute("step", "any");  
+            inputfield.setAttribute("step", "any");
         }
         inputfield.className = inputfield.className + "form-control input-sm";
         tds.appendChild(inputfield);

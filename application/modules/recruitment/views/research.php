@@ -24,7 +24,7 @@
     <div class="alert alert-danger">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <p>For each publication, attach a scanned pdf copy of the header page of the publication as an attachment.
-    The size of the pdf attachment should not exceed 1 Mb</p>
+    The size of the pdf attachment should not exceed <b>1 Mb </b></p>
     </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
@@ -118,7 +118,7 @@
 
 
 <hr>
-<h4><b>Publications outside Phd work</b></h3>
+<h4><b>Publications outside Phd work</b></h4>
     <div class="panel panel-default">
         <div class="panel-heading">
             SCI journal publications
@@ -303,7 +303,7 @@
         </div>
     </div>
 
-
+<h4><b>Books / Chapters</b></h4>
     <div class="panel panel-default">
         <div class="panel-heading">Books/Chapter writing</div>
         <div class="panel-body">
@@ -335,6 +335,7 @@
         </div>
     </div>
 
+<h4><b>Patents</b></h4>
 
     <div class="panel panel-default">
         <div class="panel-heading">Patents awarded</div>

@@ -56,7 +56,7 @@ class Recruitment_Controller extends MY_Controller {
 
     function get_data($field=null)
     {
-        $query=$this->recruitment_model->get_faculty_info($this->ion_auth->get_user_id());
+        $query=$this->recruitment_model->get_faculty_info($this->user_id);
 
         $result=$query->result_array();
         if($field==null)

@@ -16,6 +16,10 @@ class Educational extends Recruitment_Controller {
     {
         $this->check_correct_page_landing(4);
 
+        $this->load->config('specializations');
+        $data['fdegree'] = $this->config->item('fdegree');
+        $data['fdbranch'] = $this->config->item('fdbranch');
+
         $data['completed']=$this->get_status();
         if($data['completed']['applypost'])
         {
