@@ -65,15 +65,12 @@ class Applypost extends Recruitment_Controller {
                 $config['max_size'] = '2024';//maximum size is 1 Mb
                 $config['overwrite']=TRUE;
                 $name=$_FILES['photograph']['name'];
-                $newname=str_replace(" ", "_", $name);
-                //  print_r($newname);
-                // return;
+                $newname=$userid."___".str_replace(" ", "_", $name);
                 $config['file_name']=$newname;
                 $photograph_filename=$newname;
                 $this->load->library('upload',$config);
                 if(!$this->upload->do_upload('photograph'))
                 {
-
                     $this->session->set_flashdata('error', $this->upload->display_errors());
                     redirect('recruitment/applypost','refresh');
                 }
