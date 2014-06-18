@@ -1,3 +1,17 @@
+function Seminar_attended_add_row(){
+    var tdsNames = new Array("seminar-attended-organization[]","seminar-attended-program[]","seminar-attended-year[]","seminar-attended-duration[]","seminar-attended-sponsor[]","seminar-attended-agency[]");
+    var tdsTypes = new Array("text" ,"text" ,"text" ,"text" ,"text" ,"text" );
+    var tdsRequired = new Array("","","","","","");
+    var noColumns=6;
+    add(tdsNames,tdsTypes,tdsRequired,noColumns,"Seminar-attended");
+}
+function Seminar_conducted_add_row(){
+    var tdsNames = new Array("seminar-conducted-organization[]","seminar-conducted-program[]","seminar-conducted-year[]","seminar-conducted-duration[]","seminar-conducted-sponsor[]","seminar-conducted-agency[]");
+    var tdsTypes = new Array("text" ,"text" ,"text" ,"text" ,"text" ,"text" );
+    var tdsRequired = new Array("","","","","","");
+    var noColumns=6;
+    add(tdsNames,tdsTypes,tdsRequired,noColumns,"Seminar-conducted");
+}
 function FDP_attended_add_row(){
     var tdsNames = new Array("attended-organization[]","attended-program[]","attended-year[]","attended-duration[]","attended-sponsor[]","attended-agency[]");
     var tdsTypes = new Array("text" ,"text" ,"text" ,"text" ,"text" ,"text" );
@@ -33,6 +47,8 @@ function medals_awarded_add_row () {
     var noColumns=3;
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"medals-awarded");
 }
+$("#Seminar-attended-add-row").click(Seminar_attended_add_row);
+$("#Seminar-conducted-add-row").click(Seminar_conducted_add_row);
 $("#FDP-attended-add-row").click(FDP_attended_add_row);
 $("#FDP-conducted-add-row").click(FDP_conducted_add_row);
 $("#faculty-FDP-add-row").click(FDP_faculty_add_row);

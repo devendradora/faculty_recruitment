@@ -19,6 +19,78 @@
   <!-- <h4><b>Faculty development programs attended</b></h4> -->
   <div class="panel panel-default">
     <div class="panel-heading">
+      Seminar's/Conference's conducted
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              Organization
+            </th>
+            <th>
+              Program
+            </th>
+            <th>
+              Year
+            </th>
+            <th>
+              Duration
+            </th>
+            <th>
+              Sponsoring
+            </th>
+            <th>
+              Agency
+            </th>
+          </tr>
+        </thead>
+        <tbody id="Seminar-conducted">
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-sm btn-default" id="Seminar-conducted-add-row">Add&nbsp; &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Seminar's/Conference's attended
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              Organization
+            </th>
+            <th>
+              Program
+            </th>
+            <th>
+              Year
+            </th>
+            <th>
+              Duration
+            </th>
+            <th>
+              Sponsoring
+            </th>
+            <th>
+              Agency
+            </th>
+          </tr>
+        </thead>
+        <tbody id="Seminar-attended">
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-sm btn-default" id="Seminar-attended-add-row">Add&nbsp; &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+    </div>
+  </div>
+
+
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
       Faculty development programs attended
     </div>
     <div class="panel-body">
@@ -51,6 +123,7 @@
       <button type="button" class="btn btn-sm btn-default" id="FDP-attended-add-row">Add&nbsp; &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
     </div>
   </div>
+
   <div class="panel panel-default">
     <div class="panel-heading">
       Faculty development programs conducted as coordinator

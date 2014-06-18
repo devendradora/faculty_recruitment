@@ -24,12 +24,16 @@ class Contributions extends Recruitment_Controller {
         }
         $data['current_page'] = 'contributions';
         $data['scripts'] = array('contributions.js');
-        $data['names']=array('attended-organization','attended-program','attended-year','attended-duration','attended-sponsor','attended-agency',
+        $data['names']=array('seminar-attended-organization','seminar-attended-program','seminar-attended-year','seminar-attended-duration','seminar-attended-sponsor','seminar-attended-agency',
+            'seminar-conducted-organization','seminar-conducted-program','seminar-conducted-year','seminar-conducted-duration','seminar-conducted-sponsor','seminar-conducted-agency',
+            'attended-organization','attended-program','attended-year','attended-duration','attended-sponsor','attended-agency',
             'conducted-organization','conducted-program','conducted-year','conducted-duration','conducted-sponsor','conducted-agency',
             'FDP-faculty-organization','FDP-faculty-program','FDP-faculty-year','FDP-faculty-duration','FDP-faculty-sponsor','FDP-faculty-agency',
             'FDP-invited-faculty-organization','FDP-invited-faculty-program','FDP-invited-faculty-year','FDP-invited-faculty-duration','FDP-invited-faculty-sponsor','FDP-invited-faculty-agency'
             );
         $data['adding_functions']=array(
+            'Seminar_attended_add_row();',
+            'Seminar_conducted_add_row();',
             'FDP_attended_add_row();',
             'FDP_conducted_add_row();',
             'FDP_faculty_add_row();',
@@ -39,6 +43,8 @@ class Contributions extends Recruitment_Controller {
         $data['form_name']='contributions_form';
 
         $data['rows_calcuate']=array(
+            'seminar-attended-organization',
+            'seminar-conducted-organization',
             'attended-organization',
             'conducted-organization',
             'FDP-faculty-organization',
