@@ -14,7 +14,7 @@ class Fee extends Recruitment_Controller {
 
     public function fee_details()
     {
-        $this->check_correct_page_landing(8);
+        $this->check_correct_page_landing(9);
 
         $data['completed']=$this->get_status();
         if($data['completed']['personal'])

@@ -40,9 +40,9 @@ class Experience extends Recruitment_Controller {
             'industry-institution'
             );
         $data['form_name']='experience_form';
-        $data['names']=array('teaching-institution','teaching-position','teaching-doj','teaching-dol','teaching-duration',
-            'organization-institution','organization-position','organization-doj','organization-dol','organization-duration',
-            'industry-institution','industry-position','industry-doj','industry-dol','industry-duration');
+        $data['names']=array('teaching-institution','teaching-position','teaching-doj','teaching-dol','teaching-duration-years', 'teaching-duration-months',
+            'organization-institution','organization-position','organization-doj','organization-dol','organization-duration-years','organization-duration-months',
+            'industry-institution','industry-position','industry-doj','industry-dol','industry-duration-years','industry-duration-months');
         $this->_render_page_new('experience','custom_js/experience',$data);
     }
     public function submit()
@@ -68,7 +68,7 @@ class Experience extends Recruitment_Controller {
                 }
                 else
                 {
-                    redirect('recruitment/research','refresh');
+                    redirect('recruitment/sponsored','refresh');
                 }
             }
             else

@@ -14,6 +14,7 @@ class Applypost extends Recruitment_Controller {
 
     public function applypost()
     {
+        $this->check_correct_page_landing(2);
         if(isset($_POST['instructions']) && isset($_POST['name_of_candidate']))
         {
             $userid=$this->ion_auth->get_user_id();
@@ -25,7 +26,6 @@ class Applypost extends Recruitment_Controller {
             }
         }
         $this->status=$this->recruitment_model->status($this->ion_auth->get_user_id());
-        $this->check_correct_page_landing(2);
         $data['completed']=$this->get_status();
         if($data['completed']['applypost'])
         {

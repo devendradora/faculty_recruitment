@@ -33,7 +33,10 @@
                     Date of Leaving(DOL)
                 </th>
                 <th>
-                    Years and Months
+                    Years
+                </th>
+                <th>
+                    Months
                 </th>
             </tr>
         </thead>
@@ -63,7 +66,10 @@
                         Date of Leaving(DOL)
                     </th>
                     <th>
-                        Years and Months
+                        Years
+                    </th>
+                    <th>
+                        Months
                     </th>
                 </tr>
             </thead>
@@ -93,7 +99,10 @@
                         Date of Leaving(DOL)
                     </th>
                     <th>
-                        Years and Months
+                        Years
+                    </th>
+                    <th>
+                        Months
                     </th>
                 </tr>
             </thead>
@@ -113,7 +122,10 @@
                         Total experience
                     </th>
                     <th>
-                        Years and Months
+                        Years
+                    </th>
+                    <th>
+                        Months
                     </th>
                 </tr>
             </thead>
@@ -121,23 +133,32 @@
                 <tr>
                     <td>After award of Ph.D.</td>
                     <td>
-                        <input type="number" step="any"
+                        <!-- Years -->
+                        <input type="number" min="0" step="any"
                         <?php if($post=="AP7"): ?>
-                            min=1 data-toggle="popover" data-placement="top" data-content="<p class='text-danger'>Post-phd Experience >= 1.0 and Post-M.Tech experience >= 0 </p>"
+                            data-toggle="popover" data-placement="top" data-content="<p class='text-danger'>Post-phd Experience >= 1 years</p>"
                         <?php elseif($post=="AP8"): ?>
-                            data-toggle="popover" data-placement="top" data-content="<p class='text-danger'>Post-Phd experience >= 3.0 or Post-M.Tech experience >= 6.0</p>"
+                            data-toggle="popover" data-placement="top" data-content="<p class='text-danger'>Post-Phd experience >= 3 years or Post-M.Tech experience >=6 years</p>"
                         <?php endif ?>
-                        class="form-control input-sm" value="" name="after_phd_exp" required/>
+                        class="form-control input-sm" value="" name="after_phd_exp_years" required/>
+                    </td>
+                    <td>
+                        <!-- Months -->
+                        <input type="number" max="12" min="0" step="any" class="form-control input-sm" value="" name="after_phd_exp_months" required/>
                     </td>
                 </tr>
                 <tr>
                     <td>After M. Tech excluding PhD registration period.</td>
                     <td>
-                        <input type="number"
+                        <input type="number" min="0"
                         <?php if($post=="AP8"): ?>
-                            data-toggle="popover" data-placement="top" data-content="<p class='text-danger'>Post-Phd experience >= 3.0 or Post-M.Tech experience >=6.0</p>"
+                            data-toggle="popover" data-placement="top" data-content="<p class='text-danger'>Post-Phd experience >= 3 years or Post-M.Tech experience >=6 years</p>"
                         <?php endif ?>
-                        step="any" class="form-control input-sm" value="" name="after_mtech_exp" required/></td>
+                        step="any" class="form-control input-sm" value="" name="after_mtech_exp_years" required/>
+                    </td>
+                    <td>
+                        <input type="number" min="0" max="12" step="any" class="form-control input-sm" value="" name="after_mtech_exp_months" required/>
+                    </td>
                     </tr>
                 </tbody>
             </table>
@@ -154,47 +175,50 @@
 </form>
 <script>
     var post="<?php echo $post ?>";
-    var minimumexp1=0;
+
     $(document).ready(function(){
         $("input").popover({
             trigger :"manual",
             html:true
         });
-
     });
 <?php if(isset($saved_data)) { ?>
-    document.experience_form.after_phd_exp.value='<?php echo  $saved_data['after_phd_exp'];?>';
-    document.experience_form.after_mtech_exp.value='<?php echo $saved_data['after_mtech_exp']; ?>';
-    <?php } ?>
-    function validate(){
-        console.log('called');
+    $('form[name=experience_form] input[name=after_phd_exp_years]').val('<?php echo  $saved_data['after_phd_exp_years'];?>');
+    $('form[name=experience_form] input[name=after_phd_exp_months]').val('<?php echo  $saved_data['after_phd_exp_months'];?>');
+    $('form[name=experience_form] input[name=after_mtech_exp_years]').val('<?php echo $saved_data['after_mtech_exp_years']; ?>');
+    $('form[name=experience_form] input[name=after_mtech_exp_months]').val('<?php echo $saved_data['after_mtech_exp_months']; ?>');
+<?php } ?>
 
-        if(post=="AP7")
-        {
-            if($("input[name='after_phd_exp']").val() >=minimumexp1 && $("input[name='after_mtech_exp']").val()>=0)
-                return true;
-            $("input[name='after_phd_exp']").parent().addClass("has-error");
-            $("input[name='after_phd_exp']").focus();
-            $("input[name='after_phd_exp']").popover('show');
-            return false;
-        }
-        else if(post=="AP8")
-        {
-            if($("input[name='after_phd_exp']").val()>=3.0||$("input[name='after_mtech_exp']").val() >=6.0)
-                return true;
-            if($("input[name='after_phd_exp']").val()<3.0)
-            {
-                $("input[name='after_phd_exp']").parent().addClass("has-error");
-                $("input[name='after_phd_exp']").focus();
-                $("input[name='after_phd_exp']").popover('show');
-            }
-            else
-            {
-                $("input[name='after_mtech_exp']").parent().addClass("has-error");
-                $("input[name='after_mtech_exp']").focus();
-                $("input[name='after_mtech_exp']").popover('show');
-            }
-            return false;
-        }
+function validate(){
+    if(post=="AP7")
+    {
+        var totalExperiencePhd = $("input[name='after_phd_exp_years']").val() * 12 + $("input[name='after_phd_exp_months']").val();
+        if(totalExperiencePhd >= 12)
+            return true;
+        $("input[name='after_phd_exp_years']").parent().addClass("has-error");
+        $("input[name='after_phd_exp_years']").focus();
+        $("input[name='after_phd_exp_years']").popover('show');
+        return false;
     }
+    else if(post=="AP8")
+    {
+        var totalExperiencePhd = $("input[name='after_phd_exp_years']").val() * 12 +$("input[name='after_phd_exp_months']").val();
+        var totalExperienceMtech = $("input[name='after_mtech_exp_years']").val() * 12 +$("input[name='after_mtech_exp_months']").val();
+        if(totalExperiencePhd >= 36 || totalExperienceMtech >= 72)
+            return true;
+        if(totalExperiencePhd < 36)
+        {
+            $("input[name='after_phd_exp_years']").parent().addClass("has-error");
+            $("input[name='after_phd_exp_years']").focus();
+            $("input[name='after_phd_exp_years']").popover('show');
+        }
+        else
+        {
+            $("input[name='after_mtech_exp_years']").parent().addClass("has-error");
+            $("input[name='after_mtech_exp_years']").focus();
+            $("input[name='after_mtech_exp_years']").popover('show');
+        }
+        return false;
+    }
+}
 </script>

@@ -10,7 +10,7 @@
 			if (isset($completed['instructions']) && $completed['instructions'] === true)
 			$flag=1;
 			?>
-         	<a href="<?php echo base_url("recruitment/home/instructions"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+         	<a href="<?php echo base_url("recruitment/instructions"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 			Instructions
 			</a>
@@ -24,7 +24,7 @@
 		if (isset($completed['applypost']) && $completed['applypost'] === true)
 		$flag=1;
 		?>
-		<a href="<?php echo base_url("recruitment/home/applypost"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+		<a href="<?php echo base_url("recruitment/applypost"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 		Application
 		</a>
@@ -37,7 +37,7 @@
 	if (isset($completed['personal']) && $completed['personal'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/personal"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/personal"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Personal Information
 	</a>
@@ -50,20 +50,20 @@
 	if (isset($completed['educational']) && $completed['educational'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/educational"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/educational"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Educational Information
 	</a>
 </span>
 </li>
-<li class="<?php echo (isset($current_page) && $current_page === "sponsored_projects")?"active":""; ?>">
+<li class="<?php echo (isset($current_page) && $current_page === "sponsored")?"active":""; ?>">
 
 	<?php
 	$flag=0;
-	if (isset($completed['sponsored_projects']) && $completed['sponsored_projects'] === true)
+	if (isset($completed['sponsored']) && $completed['sponsored'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/sponsored_projects"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/sponsored"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Sponsored Projects
 	</a>
@@ -76,7 +76,7 @@
 	if (isset($completed['experience']) && $completed['experience'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/experience"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/experience"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Work Experience
 	</a>
@@ -89,7 +89,7 @@
 	if (isset($completed['research']) && $completed['research'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/research"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/research"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Visual Research Output
 	</a>
@@ -102,7 +102,7 @@
 	if (isset($completed['contributions']) && $completed['contributions'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/contributions"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/contributions"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Co-Curricular activities
 	</a>
@@ -115,7 +115,7 @@
 	if (isset($completed['fee_details']) && $completed['fee_details'] === true)
 	$flag=1;
 	?>
-	<a href="<?php echo base_url("recruitment/home/fee_details"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
+	<a href="<?php echo base_url("recruitment/fee_details"); ?>" <?php if($flag) echo 'style="color:green;"'; ?>>
 
 	Fee details
 	</a>

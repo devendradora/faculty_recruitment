@@ -14,7 +14,7 @@ class Research extends Recruitment_Controller {
 
     public function research()
     {
-        $this->check_correct_page_landing(6);
+        $this->check_correct_page_landing(7);
         $data['completed']=$this->get_status();
         if($data['completed']['research'])
         {

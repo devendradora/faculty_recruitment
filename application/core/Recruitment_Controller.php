@@ -13,7 +13,7 @@ class Recruitment_Controller extends MY_Controller {
             'personal',
             'educational',
             'experience',
-            'sponsored_projects',
+            'sponsored',
             'research',
             'contributions',
             'fee_details',

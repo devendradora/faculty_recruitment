@@ -46,9 +46,9 @@
           Work Experience
         </a>
       </li>
-      <li class="<?php echo (isset($current_page) && $current_page === "sponsored_projects")?"active":""; ?>">
+      <li class="<?php echo (isset($current_page) && $current_page === "sponsored")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/sponsored"); ?>">
-          <?php if (isset($completed['sponsored_projects']) && $completed['sponsored_projects'] === true) { ?>
+          <?php if (isset($completed['sponsored']) && $completed['sponsored'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Sponsored Projects

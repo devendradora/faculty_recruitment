@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `faculty_data` (
   `personal` text,
   `educational` text,
   `experience` text,
-  `sponsored_projects` text,
+  `sponsored` text,
   `research` text,
   `contributions` text,
   `fee_details` text,

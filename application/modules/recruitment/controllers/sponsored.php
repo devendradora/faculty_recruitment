@@ -17,11 +17,11 @@ class Sponsored extends Recruitment_Controller {
         $this->check_correct_page_landing(6);
 
         $data['completed']=$this->get_status();
-        if($data['completed']['sponsored_projects'])
+        if($data['completed']['sponsored'])
         {
-            $data['saved_data']=json_decode($this->get_data('sponsored_projects'),true);
+            $data['saved_data']=json_decode($this->get_data('sponsored'),true);
         }
-        $data['current_page'] = 'sponsored_projects';
+        $data['current_page'] = 'sponsored';
         $data['scripts'] = array('sponsored.js');
         $data['adding_functions']=array(
             'sponsored_add_row();'
@@ -49,7 +49,7 @@ class Sponsored extends Recruitment_Controller {
             $value=json_encode($_POST);
         // print_r($value);
             $userid=$this->ion_auth->get_user_id();
-            $query=$this->recruitment_model->insert_data($userid,'sponsored_projects',$value,'5');
+            $query=$this->recruitment_model->insert_data($userid,'sponsored',$value,'5');
             if($query==true)
             {
                 if($this->input->post('proceed')==0)
@@ -59,7 +59,7 @@ class Sponsored extends Recruitment_Controller {
                 }
                 else
                 {
-                    redirect('recruitment/experience','refresh');
+                    redirect('recruitment/research','refresh');
                 }
             }
             else
