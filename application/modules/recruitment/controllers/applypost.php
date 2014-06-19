@@ -14,13 +14,12 @@ class Applypost extends Recruitment_Controller {
 
     public function applypost()
     {
-        $this->check_correct_page_landing(2);
-
         $this->load->config('specializations');
         $data['departments'] = $this->config->item('departments');
         $data['fposts'] = $this->config->item('fposts');
         $data['sdspecializations'] = $this->config->item('sdspecialization');
 
+        // Initializaing data for new users
         if(isset($_POST['instructions']) && isset($_POST['name_of_candidate']))
         {
             $userid=$this->ion_auth->get_user_id();
@@ -31,6 +30,8 @@ class Applypost extends Recruitment_Controller {
                 redirect('recruitment/instructions','refresh');
             }
         }
+        // This should be here after the above
+        $this->check_correct_page_landing(2);
         $this->status=$this->recruitment_model->status($this->ion_auth->get_user_id());
         $data['completed']=$this->get_status();
         if($data['completed']['applypost'])
