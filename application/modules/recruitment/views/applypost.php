@@ -99,6 +99,8 @@ function populateOptions () {
     // getting department the applicant is applying for
 	var department_element = document.getElementById('department');
 	var department = department_element.options[department_element.selectedIndex].value;
+    // Implies form hasn't been saved before
+    if (department_element.selectedIndex === 0) {return;}
 
     console.log(fpost + " : " + department);
 
