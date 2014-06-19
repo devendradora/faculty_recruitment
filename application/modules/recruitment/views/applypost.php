@@ -93,14 +93,14 @@ var specializations;
 function populateOptions () {
     // getting the faculty position the applicant is applying for
     var fpost_element = document.getElementById('fpost');
-    var fpost = fpost_element.options[fpost_element.selectedIndex].value;
     // Implies form hasn't been saved before
     if (fpost_element.selectedIndex === 0) {return;}
+    var fpost = fpost_element.options[fpost_element.selectedIndex].value;
     // getting department the applicant is applying for
 	var department_element = document.getElementById('department');
-	var department = department_element.options[department_element.selectedIndex].value;
     // Implies form hasn't been saved before
     if (department_element.selectedIndex === 0) {return;}
+	var department = department_element.options[department_element.selectedIndex].value;
 
     console.log(fpost + " : " + department);
 
