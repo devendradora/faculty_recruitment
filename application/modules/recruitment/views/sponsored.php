@@ -40,7 +40,8 @@
     </div>
     <div class="panel">
         <div class="col-md-4 col-md-offset-1">
-            <button type="submit" id="save_details" class="btn btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> Save details</button>
+            <!-- TO BE ENABLED -->
+            <!-- <button type="submit" id="save_details" class="btn btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> Save details</button> -->
         </div>
         <div class="col-md-4 col-md-offset-1">
             <button type="submit" class="btn btn-block btn-primary">Save &amp; Continue</button>

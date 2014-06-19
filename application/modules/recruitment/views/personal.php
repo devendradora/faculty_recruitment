@@ -188,7 +188,10 @@
 </div>
 </div>
 <div class="clearfix"></div>
-<div class="col-md-6"><button type = "submit" id="save_details" class = "btn btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> Save details</button></div>
+<div class="col-md-6">
+    <!-- TO BE ENABLED -->
+    <!-- <button type = "submit" id="save_details" class = "btn btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> Save details</button> -->
+</div>
 <div class="col-md-6"><button type = "submit" class = "btn btn-block btn-primary">Save &amp; Continue</button></div>
 </form>
 <script type="text/javascript">

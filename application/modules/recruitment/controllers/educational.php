@@ -87,15 +87,8 @@ class Educational extends Recruitment_Controller {
             $query=$this->recruitment_model->insert_data($userid,'educational',$value,'3');
             if($query==true)
             {
-                if($this->input->post('proceed')==0)
-                {
-                    $this->session->set_flashdata('info', 'All form-data saved');
-                    redirect('recruitment/educational','refresh');
-                }
-                else
-                {
-                    redirect('recruitment/experience','refresh');
-                }
+                $this->session->set_flashdata('info', 'All form-data saved');
+                redirect('recruitment/experience','refresh');
             }
             else
             {
