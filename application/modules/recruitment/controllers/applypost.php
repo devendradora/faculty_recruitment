@@ -14,6 +14,7 @@ class Applypost extends Recruitment_Controller {
 
     public function applypost()
     {
+        // Getting departments, specialization info
         $this->load->config('specializations');
         $data['departments'] = $this->config->item('departments');
         $data['fposts'] = $this->config->item('fposts');
@@ -22,8 +23,7 @@ class Applypost extends Recruitment_Controller {
         // Initializaing data for new users
         if(isset($_POST['instructions']) && isset($_POST['name_of_candidate']))
         {
-            $userid=$this->ion_auth->get_user_id();
-            $query=$this->recruitment_model->insert_data($userid,'instructions',$this->input->post('name_of_candidate'),'0');
+            $query = $this->recruitment_model->insert_data($this->user_id,'instructions',$this->input->post('name_of_candidate'),'0');
             if($query==false)
             {
                 $this->session->set_flashdata('danger', 'Error in start filling form');
@@ -32,13 +32,13 @@ class Applypost extends Recruitment_Controller {
         }
         // This should be here after the above
         $this->check_correct_page_landing(2);
-        $this->status=$this->recruitment_model->status($this->ion_auth->get_user_id());
-        $data['completed']=$this->get_status();
+
+        $data['completed'] = $this->get_status();
         if($data['completed']['applypost'])
         {
-            $temp=$this->get_data();
-            $data['saved_data']=json_decode($temp['applypost'],true);
-            $data['pic']=$temp['photograph'];
+            $temp = $this->get_data();
+            $data['saved_data'] = json_decode($temp['applypost'],true);
+            $data['pic'] = $temp['photograph'];
 
         }
         $data['current_page'] = 'applypost';

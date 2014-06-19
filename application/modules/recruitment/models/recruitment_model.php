@@ -28,6 +28,10 @@ class Recruitment_model extends CI_Model
 		}
 	}
 
+	/*
+	 * Returns status field which is a bit array
+	 * It contains the status of each step in the process
+	 */
 	public function status($userid)
 	{
 		$query= $this->get_faculty_info($userid);

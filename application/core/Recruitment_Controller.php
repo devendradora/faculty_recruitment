@@ -28,6 +28,11 @@ class Recruitment_Controller extends MY_Controller {
         }
     }
 
+    /*
+     * Checks if all the steps are complete and submitted
+     *
+     * TODO: SHOULD BE IN MODELS
+     */
     function check_form_submitted()
     {
         $query = $this->recruitment_model->get_faculty_info($this->user_id);
@@ -45,15 +50,23 @@ class Recruitment_Controller extends MY_Controller {
         return 0;
     }
 
+    /*
+     * Get status if each step in the process
+     *
+     * TODO: Implement it efficiently. SHOULD BE IN MODEL
+     */
     function get_status()
     {
         foreach ($this->data as $row => $value)
         {
-            $data['completed'][$value]=$this->recruitment_model->check_filled($this->ion_auth->get_user_id(),$value);
+            $data['completed'][$value] = $this->recruitment_model->check_filled($this->user_id,$value);
         }
         return $data['completed'];
     }
 
+    /*
+     * TODO: Shift to models
+     */
     function get_data($field=null)
     {
         $query=$this->recruitment_model->get_faculty_info($this->user_id);
@@ -70,8 +83,10 @@ class Recruitment_Controller extends MY_Controller {
     {
         if(!$this->status)
         {
-            $this->session->set_flashdata('warning', 'Click on start filling form and proceed');
-            redirect('recruitment/instructions','refresh');
+            if (($this->status = $this->recruitment_model->status($this->user_id)) === FALSE) {
+                $this->session->set_flashdata('warning', 'Click on start filling form and proceed');
+                redirect('recruitment/instructions','refresh');
+            }
         }
         $check_all_previous_filled=1;
         for($i=0;$i<$pageno-1;$i++)
