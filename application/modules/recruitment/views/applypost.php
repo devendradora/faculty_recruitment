@@ -3,8 +3,18 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <?php
-    if($this->session->flashdata('other') == TRUE)
-      echo '<div class="text-danger">'.$this->session->flashdata('other').'</div>';
+    if($this->session->flashdata('other') == TRUE) {
+        echo '<div class="text-danger">'.$this->session->flashdata('other').'</div>';
+    }
+    if($this->session->flashdata('error') == TRUE) {
+        echo '<div class="text-danger">'.$this->session->flashdata('error').'</div>';
+    }
+    if($this->session->flashdata('warning') == TRUE) {
+        echo '<div class="text-danger">'.$this->session->flashdata('warning').'</div>';
+    }
+    if($this->session->flashdata('info') == TRUE) {
+        echo '<div class="text-danger">'.$this->session->flashdata('info').'</div>';
+    }
     ?>
     </div>
 </div>

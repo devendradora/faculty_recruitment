@@ -49,68 +49,56 @@ class Applypost extends Recruitment_Controller {
     public function submit()
     {
 
-        $this->form_validation->set_rules('application_post', 'Post', 'required');
-        $this->form_validation->set_rules('application_dept', 'Department', 'required');
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->session->set_flashdata('other', validation_errors());
-            redirect('recruitment/applypost','refresh');
-        }
-        else
-        {
-            $value = json_encode($_POST);
-            $userid=$this->ion_auth->get_user_id();
-            // $query=$this->recruitment_model->insert_data($userid,'applypost',$value,'1');
-            // $query2=$this->recruitment_model->insert_data($userid,'post',$_POST['application_post'],'1');
-            //var_dump($_FILES);
-            $photograph_filename='';
-            if(isset($_FILES['photograph']) )
-            {
-                $config['upload_path'] = 'uploads/';
-                $config['allowed_types'] = 'jpg|gif|png';
-                $config['max_size'] = '2024';//maximum size is 1 Mb
-                $config['overwrite']=TRUE;
-                $name=$_FILES['photograph']['name'];
-                $newname=$userid."___".str_replace(" ", "_", $name);
-                $config['file_name']=$newname;
-                $photograph_filename=$newname;
-                $this->load->library('upload',$config);
-                if(!$this->upload->do_upload('photograph'))
-                {
-                    $this->session->set_flashdata('error', $this->upload->display_errors());
-                    redirect('recruitment/applypost','refresh');
-                }
-            }
+        $value = json_encode($_POST);
+        $userid = $this->user_id;
+        $photograph_filename = '';
 
-            $data_array=array(
-                'post'=>$_POST['application_post'],
-                'dept'=>$_POST['application_dept'],
-                'applypost'=>$value,
-            );
-            if ($photograph_filename !== '') {
-                $data_array['photograph'] = $photograph_filename;
-            }
-            $query=$this->recruitment_model->update_data($userid,$data_array,'1');
-            if($query==true)
+        if(isset($_FILES['photograph']) )
+        {
+            $config['upload_path'] = 'uploads/';
+            $config['allowed_types'] = 'jpg|gif|png';
+            $config['max_size'] = '2024';//maximum size is 1 Mb
+            $config['overwrite'] = TRUE;
+            $name = $_FILES['photograph']['name'];
+            $newname = $userid."___".str_replace(" ", "_", $name);
+            $config['file_name'] = $newname;
+            $photograph_filename = $newname;
+            $this->load->library('upload',$config);
+            if(!$this->upload->do_upload('photograph'))
             {
-                if($this->input->post('proceed')==0)
-                {
-                    $this->session->set_flashdata('info', 'All form-data saved');
-                    redirect('recruitment/applypost','refresh');
-                }
-                else
-                {
-                    redirect('recruitment/personal','refresh');
-                }
+                $this->session->set_flashdata('error', $this->upload->display_errors());
+                redirect('recruitment/applypost','refresh');
+            }
+        }
+
+        $data_array=array(
+            'post'=>$_POST['application_post'],
+            'dept'=>$_POST['application_dept'],
+            'applypost'=>$value,
+        );
+        // get the newly uploaded filesname.
+        if ($photograph_filename !== '') {
+            $data_array['photograph'] = $photograph_filename;
+        }
+        $query=$this->recruitment_model->update_data($userid,$data_array,'1');
+        if($query==true)
+        {
+            if($this->input->post('proceed')==0)
+            {
+                $this->session->set_flashdata('info', 'All form-data saved');
+                redirect('recruitment/applypost','refresh');
             }
             else
             {
-                $this->session->set_flashdata('danger', 'Error in submitting data');
-                redirect('recruitment/applypost','refresh');
-
+                redirect('recruitment/personal','refresh');
             }
         }
+        else
+        {
+            $this->session->set_flashdata('danger', 'Error in submitting data');
+            redirect('recruitment/applypost','refresh');
 
+        }
     }
 
     public function delete_photograph()
