@@ -36,7 +36,7 @@ function phd_pursuing_add_row() {
     var tdsRequired = new Array("","","","","");
     var noColumns=5;
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"phd-pursuing",options);
-    console.log("yes");
+    /*
     var element=$("#phd-pursuing").find("tr").last().find("select");
     var first_one=element.first()
     ,second_one=element.last();
@@ -48,7 +48,7 @@ function phd_pursuing_add_row() {
     ,box2=second_one.parent().find("input");
     box1.hide();
     box2.hide();
-    first_one.click(function(){      
+    first_one.click(function(){
         $(this).change(function  () {
             if($(this).val()==="Yes")
             {
@@ -60,11 +60,11 @@ function phd_pursuing_add_row() {
             {
                 box1.hide();
                 box1.removeAttr('required');
-                   
+
             }
         });
     });
-    second_one.click(function(){      
+    second_one.click(function(){
         $(this).change(function  () {
             if($(this).val()==="Yes")
             {
@@ -76,10 +76,11 @@ function phd_pursuing_add_row() {
             {
                 box2.hide();
                 box2.removeAttr('required');
-                   
+
             }
         });
     });
+*/
 }
 
 $("#schooling-add-row").click(schooling_add_row);
@@ -92,10 +93,34 @@ $("#phd-pursuing-add-row").click(phd_pursuing_add_row);
 $(function(){
     $(document).on('click', '.remove-row', remove_row);
     $('body').on('focus',".datepicker_year_month", function(){
-    $(this).datepicker({
-    format: "mm-yyyy",
-    viewMode: "months", 
-    minViewMode: "months"
+        $(this).datepicker({
+            format: "mm-yyyy",
+            viewMode: "months",
+            minViewMode: "months"
+        });
     });
-    }); 
+});
+
+
+$(document).on('change', '#phd-pursuing > tr > td:nth-child(5) > select', function() {
+    var selectEl = $(this);
+    var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_thesis_submission[]" class="form-control input-sm">';
+    if (selectEl.val() === "Yes") {
+        // clear all non-select children
+        selectEl.parent().children(':not(select)').remove();
+        selectEl.parent().append(inputEl);
+    } else {
+        selectEl.parent().children(':not(select)').remove();
+    }
+});
+$(document).on('change', '#phd-pursuing > tr > td:nth-child(4) > select', function() {
+    var selectEl = $(this);
+    var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_synopsis_submission[]" class="form-control input-sm">';
+    if (selectEl.val() === "Yes") {
+        // clear all non-select children
+        selectEl.parent().children(':not(select)').remove();
+        selectEl.parent().append(inputEl);
+    } else {
+        selectEl.parent().children(':not(select)').remove();
+    }
 });
