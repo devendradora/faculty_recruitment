@@ -135,7 +135,6 @@
 	<?php if(isset($saved_data)) { ?>
 		document.fee_details_form.place.value='<?php echo $saved_data['place'] ?>';
 		document.fee_details_form.date.value='<?php echo $saved_data['date'] ?>';
-	    document.fee_details_form.fee_amount.value='<?php echo  $saved_data['fee_amount'];?>';
 	    document.fee_details_form.mode.value='<?php echo $saved_data['mode']; ?>';
 	    document.fee_details_form.transaction_no.value='<?php echo $saved_data['transaction_no']; ?>';
 		document.fee_details_form.name_branch.value='<?php echo $saved_data['name_branch']; ?>';

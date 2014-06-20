@@ -2,7 +2,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     For each publication, attach a scanned pdf copy of the header page of the publication as an attachment.
 </div> -->
-<form role="form" class="row clearfix" name="research_form" enctype="multipart/form-data" action="<?php echo base_url("recruitment/research/submit"); ?>" method="POST">
+<form role="form" class="row clearfix" name="research_form" onsubmit="return validate();" enctype="multipart/form-data" action="<?php echo base_url("recruitment/research/submit"); ?>" method="POST">
     <legend class="text-center">Publications</legend>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -35,7 +35,7 @@
 <div class="clearfix"></div>
 <br>
 <input id="proceed_val" type="hidden" value="1" name="proceed">
-<h4><b>Publications from out of PhD work</b></h4>
+<h4 id="sci-publications-outside-phd"><b>Publications from out of PhD work</b></h4>
 <div class="panel panel-default">
     <div class="panel-heading">
         SCI journal publications
@@ -370,3 +370,26 @@
         <button type="submit" class="btn btn-block btn-primary">Save &amp; Continue</button>
     </div>
 </form>
+<script type="text/javascript">
+    var post="<?php echo $post ?>";
+function validate(){
+    if(post=="AP8")
+    {
+        if($("#phd-SCI-journal").find("tr").length<2) //not qualified condition
+        {
+            var msg='<div class="alert alert-warning">'+
+                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
+                'SCI journal publications outside PhD must be greater than 2 for Assistant Professor'+ 
+            '</div>'
+            
+            $("#sci-publications-outside-phd").append(msg);
+            $('body').animate({
+                scrollTop: 0
+            },
+            1000);
+            return false;
+        }
+    }
+    return true;
+}
+</script>

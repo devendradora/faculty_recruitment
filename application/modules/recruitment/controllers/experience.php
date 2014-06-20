@@ -56,7 +56,7 @@ class Experience extends Recruitment_Controller {
         else
         {
             $value=json_encode($_POST);
-        // print_r($value);
+            // print_r($value);
             $userid=$this->ion_auth->get_user_id();
             $query=$this->recruitment_model->insert_data($userid,'experience',$value,'4');
             if($query==true)

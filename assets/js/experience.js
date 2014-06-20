@@ -6,7 +6,7 @@ function teaching_add_row(){
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"teaching");
 }
 function organization_add_row(){
-    var tdsNames = new Array("organization-institution[]","organization-position[]","organization-doj[]","organization-dol[]","organization-duration-years[]","organization-duration-years-months[]");
+    var tdsNames = new Array("organization-institution[]","organization-position[]","organization-doj[]","organization-dol[]","organization-duration-years[]","organization-duration-months[]");
     var tdsTypes = new Array("text" ,"text" ,"date" ,"date" ,"number","number");
     var tdsRequired = new Array("","","","","","");
     var noColumns=6;
