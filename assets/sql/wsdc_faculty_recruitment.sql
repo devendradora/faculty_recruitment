@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `faculty_data` (
   `status` char(10) NOT NULL DEFAULT '0000000000',
   `photograph` varchar(200) NOT NULL,
   `post` varchar(50) NOT NULL,
-  `dept` int(11) NOT NULL,
+  `dept` varchar(2) NOT NULL,
   `applypost` text,
   `personal` text,
   `educational` text,
