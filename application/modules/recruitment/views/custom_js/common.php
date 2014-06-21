@@ -35,6 +35,36 @@ else
             }
         }
     }
+
+    if($current_page=="educational") :
+        echo 'var synopsis_dates='.json_encode($phd_synopsis_submission_dates).';';
+        echo 'var thesis_dates='.json_encode($phd_thesis_submission_dates).';';
+    
+        ?>
+        i=0;
+        $("#phd-pursuing > tr > td:nth-child(4) > select").each(function () {
+            
+            if($(this).val()==="Yes")
+            {
+                var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_synopsis_submission[]" class="form-control input-sm" required value="'+synopsis_dates[i]+'">';
+                $(this).parent().children(':not(select)').remove();
+                $(this).parent().append(inputEl);
+                i++;
+            }
+        });
+        i=0;
+        $("#phd-pursuing > tr > td:nth-child(5) > select").each(function () {
+            
+            if($(this).val()==="Yes")
+            {
+                var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_thesis_submission[]" class="form-control input-sm" required value="'+thesis_dates[i]+'">';
+                $(this).parent().children(':not(select)').remove();
+                $(this).parent().append(inputEl);
+                i++;
+            }
+        });
+        <?php
+    endif;
 }
 // print_r($all_saved_files);
 
@@ -100,6 +130,7 @@ $(".delete_file").click(function(){
         }
     });
 });
+
 </script>
 </body>
 </html>

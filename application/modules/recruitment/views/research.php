@@ -35,7 +35,7 @@
 <div class="clearfix"></div>
 <br>
 <input id="proceed_val" type="hidden" value="1" name="proceed">
-<h4 id="sci-publications-outside-phd"><b>Publications from out of PhD work</b></h4>
+<h4><b>Publications from out of PhD work</b></h4>
 <div class="panel panel-default">
     <div class="panel-heading">
         SCI journal publications
@@ -118,7 +118,7 @@
 
 
 <hr>
-<h4><b>Publications outside Phd work</b></h4>
+<h4 id="sci-publications-outside-phd"><b>Publications outside Phd work</b></h4>
     <div class="panel panel-default">
         <div class="panel-heading">
             SCI journal publications
@@ -375,7 +375,7 @@
 function validate(){
     if(post=="AP8")
     {
-        if($("#phd-SCI-journal").find("tr").length<2) //not qualified condition
+        if($("#phd-outside-SCI-journal").find("tr").length<2) //not qualified condition
         {
             var msg='<div class="alert alert-warning">'+
                 '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
@@ -384,7 +384,7 @@ function validate(){
             
             $("#sci-publications-outside-phd").append(msg);
             $('body').animate({
-                scrollTop: 0
+                scrollTop: 500
             },
             1000);
             return false;

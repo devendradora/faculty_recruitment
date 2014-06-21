@@ -60,7 +60,7 @@
                         <th class="col-sm-1">Year of Passing</th>
                         <th class="col-sm-1">Class/Division</th>
                         <th class="col-sm-1">Assessment</th>
-                        <th class="col-sm-1">Score</th>
+                        <th class="col-sm-1 score" >Percentage</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -90,7 +90,7 @@
                         <th class="col-sm-1">Year of Passing</th>
                         <th class="col-sm-1">Class/Division</th>
                         <th class="col-sm-1">Assessment</th>
-                        <th class="col-sm-1">Score</th>
+                        <th class="col-sm-1 score" >Percentage</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -158,8 +158,9 @@
 
 
     <div class="panel">
+        <!-- To be enabled later -->
         <div class="col-md-4 col-md-offset-1">
-            <button type="submit" id="save_details" class="btn btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> Save details</button>
+            <!-- <button type="submit" id="save_details" class="btn btn-block btn-success"><span class="glyphicon glyphicon-ok"></span> Save details</button> -->
         </div>
         <div class="col-md-4 col-md-offset-1">
             <button type="submit" class="btn btn-block btn-primary">Save &amp; Continue</button>
@@ -170,8 +171,8 @@
 <script type="text/javascript">
 
 function undergraduation_add_row() {
-    var tdsNames = new Array("undergraduation_degree[]", "undergraduation_subject[]", "undergraduation_boardu[]", "undergraduation_yopass[]", "undergraduation_division[]","undergraduation_percentage[]","undergraduation_score[]");
-    var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text","number","number");
+    var tdsNames = new Array("undergraduation_degree[]", "undergraduation_subject[]", "undergraduation_boardu[]", "undergraduation_yopass[]", "undergraduation_division[]","undergraduation_assessment[]","undergraduation_score[]");
+    var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text","select","number");
     var tdsRequired = new Array("","","","","","","");
     var noColumns=7;
     var options=new Array(
@@ -200,8 +201,8 @@ function undergraduation_add_row() {
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options);
 }
 function masters_add_row() {
-    var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_specialization[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_percentage[]","masters_score[]");
-    var tdsTypes = new Array("select" ,"select","select","text" ,"datepicker_year_month" ,"text" ,"number","number");
+    var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_specialization[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
+    var tdsTypes = new Array("select" ,"select","select","text" ,"datepicker_year_month" ,"text" ,"select","number");
     var tdsRequired = new Array("","","","","","","");
     var noColumns=8;
     var options=new Array(
@@ -232,7 +233,7 @@ function masters_add_row() {
                 echo rtrim($output, ", ");
             ?>
         ],
-        [],[],[],[],[]
+        [],[],[],['CGPA', 'Percentage'],[]
         );
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"masters",options);
 }

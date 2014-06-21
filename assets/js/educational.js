@@ -101,10 +101,9 @@ $(function(){
     });
 });
 
-
-$(document).on('change', '#phd-pursuing > tr > td:nth-child(5) > select', function() {
+var add_synopsis_date_func=function() {
     var selectEl = $(this);
-    var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_thesis_submission[]" class="form-control input-sm">';
+    var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_synopsis_submission[]" class="form-control input-sm" required>';
     if (selectEl.val() === "Yes") {
         // clear all non-select children
         selectEl.parent().children(':not(select)').remove();
@@ -112,10 +111,10 @@ $(document).on('change', '#phd-pursuing > tr > td:nth-child(5) > select', functi
     } else {
         selectEl.parent().children(':not(select)').remove();
     }
-});
-$(document).on('change', '#phd-pursuing > tr > td:nth-child(4) > select', function() {
+};
+var add_thesis_date_func=function() {
     var selectEl = $(this);
-    var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_synopsis_submission[]" class="form-control input-sm">';
+    var inputEl = '<p>Date of submission:</p> <input type="date" name="phd_thesis_submission[]" class="form-control input-sm" required>';
     if (selectEl.val() === "Yes") {
         // clear all non-select children
         selectEl.parent().children(':not(select)').remove();
@@ -123,4 +122,6 @@ $(document).on('change', '#phd-pursuing > tr > td:nth-child(4) > select', functi
     } else {
         selectEl.parent().children(':not(select)').remove();
     }
-});
+};
+$(document).on('change', '#phd-pursuing > tr > td:nth-child(5) > select', add_thesis_date_func);
+$(document).on('change', '#phd-pursuing > tr > td:nth-child(4) > select',add_synopsis_date_func);
