@@ -373,21 +373,31 @@
 <script type="text/javascript">
     var post="<?php echo $post ?>";
 function validate(){
-    if(post=="AP8")
+    var min=0;
+
+    if(post=="AP8" || post=="AP7")
     {
-        if($("#phd-outside-SCI-journal").find("tr").length<2) //not qualified condition
+        if(post=="AP7")
+            min=1;
+        else
+            min=2;
+        if($("#phd-outside-SCI-journal").find("tr").length<min) //not qualified condition
         {
-            var msg='<div class="alert alert-warning">'+
-                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
-                'SCI journal publications outside PhD must be greater than 2 for Assistant Professor'+ 
-            '</div>'
+            // var msg='<div class="alert alert-warning">'+
+            //     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
+            //     'SCI journal publications outside PhD must be >= '+min+' for Assistant Professor'+ 
+            // '</div>'
             
-            $("#sci-publications-outside-phd").append(msg);
-            $('body').animate({
-                scrollTop: 500
-            },
-            1000);
-            return false;
+            // $("#sci-publications-outside-phd").append(msg);
+            // $('body').animate({
+            //     scrollTop: 500
+            // },
+            // 1000);
+            // return false;
+            var msg='SCI journal publications outside PhD must be >= '+min+' for Assistant Professor';
+            if(post=="AP7")
+                msg+=' on contract';
+            return confirm(msg+'. Do you want to continue?');
         }
     }
     return true;

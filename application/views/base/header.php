@@ -12,6 +12,8 @@
     <link href="<?php echo base_url()."assets/css/offcanvas.css" ?>" rel="stylesheet">
     <link href="<?php echo base_url()."assets/css/docs.min.css" ?>" rel="stylesheet">
     <link href="<?php echo base_url()."assets/css/datepicker.css" ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url()."assets/css/notify/alertify.core.css" ?>" />
+    <link rel="stylesheet" href="<?php echo base_url()."assets/css/notify/alertify.default.css" ?>"/>
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -24,6 +26,8 @@
 </script>
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
 <script src="<?php echo base_url("assets/js/bootstrap-datepicker.js"); ?>"></script>
+
+<script src="<?php echo base_url("assets/js/notify/alertify.min.js"); ?>"></script>
 
 </head>
 <body>

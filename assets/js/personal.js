@@ -5,15 +5,17 @@ var date_box='<div id="date-box" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">'+
 $("#category").change(function () {
     if(this.value == '0'){
        $('#category_pdf_cert_input > div > input').attr('required', false);
-       $("#date_box").remove();
-       $("#category_pdf_upload_div").hide();   
+       $("#date-box").remove();
+       $("#category_pdf_upload_div").hide();
+       $(".delete_file").trigger('click');   
        return;
     }
     $('#category_pdf_cert_input > div > input').attr('required', true);
     $("#category_pdf_upload_div").show();
+    $(".delete_file").trigger('click'); 
     
     if(this.value=='1')
-    {    
+    { 
       $("#category_pdf_upload_div").append(date_box);
       return;
     }

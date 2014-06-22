@@ -97,7 +97,7 @@
 
 		<!-- Displaying preview button -->
 		<div class="col-md-4 col-md-offset-1">
-			<a role="button" class="btn btn-info btn-block" href="#<?php //echo base_url("recruitment/main/generate_preview"); ?>" target="_blank">Preview application</a>
+			<a role="button" class="btn btn-info btn-block" href="<?php echo base_url("recruitment/main/generate_preview"); ?>" target="_blank">Preview application</a>
 		</div>
 		<!-- displaying submit button -->
 		<div class="col-md-4 col-md-offset-1">

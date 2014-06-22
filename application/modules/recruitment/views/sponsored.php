@@ -1,4 +1,4 @@
-<form role="form" class="row clearfix" name="sponsored_form" action="<?php echo base_url("recruitment/sponsored/submit"); ?>" method="POST" onsubmit="return validate();">
+<form role="form" class="row clearfix" id="sponsored_form_element" name="sponsored_form" action="<?php echo base_url("recruitment/sponsored/submit"); ?>" method="POST">
     <legend class="text-center">Sponsored projects</legend>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -49,7 +49,8 @@
 </div>
 </form>
 <script type="text/javascript">
-    function validate () {
+    $("#sponsored_form_element").submit(function() {
+
         var post="<?php echo $post; ?>";
         // PRC= Number of entries in Projects with value >= 100000 and status ongoing
         
@@ -62,7 +63,7 @@
             if(valueField.val()>=100000 && statusField.val()=="Ongoing")
                 PRC++;
         });
-        console.log(PRC);
+        // console.log(PRC);
         // if post == AP6 or AP7
         //     PRS = T
         // else 
@@ -74,7 +75,18 @@
             return true;
         }
         else
-            return false;
+        {
+            var pass=confirm("Number of entries in Projects with value >= 100000 and status ongoing should be greater than or equal to 1. Do you want to continue?");
+            return pass;
+            // alertify.confirm("Number of entries in Projects with value >= 100000 and status ongoing should be greater than or equal to 1", function (e) {
+            //     if (e) {
+            //         return true;
+            //     } else {
+            //         return false;
+            //     }
+            // });
+            // return false;
+        }
         
-    }
+    });
 </script>

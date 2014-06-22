@@ -32,6 +32,12 @@ class Educational extends Recruitment_Controller {
             $data['post']=$temp_data['post'];
             $data['dept']=$temp_data['dept'];
         }
+        if($data['completed']['personal'])
+        {
+            $personal_data=json_decode($this->get_data('personal'),true);
+            $data['category']=$personal_data['category'];
+            
+        }
         // If already filled get all fields
         if($data['completed']['educational'])
         {
