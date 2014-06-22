@@ -1,0 +1,13 @@
+case "BT": echo 'Biotechnology';
+case "CH": echo 'Chemical Engineering';
+case "CY": echo 'Chemistry';
+case "CE": echo 'Civil Engineering';
+case "CS": echo 'Computer Science & Engineering';
+case "EE": echo 'Electrical Engineering';
+case "EC": echo 'Electronics and Communication Engineering';
+case "HS": echo 'Humanities and Social Sciences';
+case "MA": echo 'Mathematics';
+case "ME": echo 'Mechanical Engineering';
+case "MM": echo 'Metallurgical and Materials Engineering';
+case "PH": echo 'Physics';
+case "SM": echo 'School of Management';
