@@ -264,11 +264,11 @@
     if(FDAssessment=="Percentage")
         FDP=parseInt($("#undergraduation > tr > td:nth-child(7) >input").val()); //(First Degree Percentage)
     else
-        FDG= parseInt($("#undergraduation > tr > td:nth-child(7) >input").val());//(First Degree CGPA)
+        FDG= parseFloat($("#undergraduation > tr > td:nth-child(7) >input").val());//(First Degree CGPA)
     if(SDAssessment=="Percentage")
-        SDP =parseInt($("#undergraduation > tr > td:nth-child(8) >input").val());//(Second Degree Percentage)
+        SDP =parseInt($("#masters > tr > td:nth-child(7) >input").val());//(Second Degree Percentage)
     else
-        SDG =parseInt($("#undergraduation > tr > td:nth-child(8) >input").val());//(Second Degree CGPA)
+        SDG =parseFloat($("#masters > tr > td:nth-child(7) >input").val());//(Second Degree CGPA)
 
     var FDQ=false; //(First Degree Qualified)
     var SDQ=false; //(Second Degree Qualified)

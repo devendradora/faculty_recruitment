@@ -127,6 +127,7 @@ class Main extends MY_Controller
 		// print_r($result);
 		$data['applypost']=json_decode($result[0]['applypost'],true);
 		$data['personal']=json_decode($result[0]['personal'],true);
+		$data['category']=$data['personal']['category'];
 		$data['photograph_name']=$result[0]['photograph'];
 		$data['personal_lang']=
 		array(

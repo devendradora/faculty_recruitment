@@ -177,12 +177,12 @@
 <script>
     var post="<?php echo $post ?>";
 
-    $(document).ready(function(){
-        $("input").popover({
-            trigger :"manual",
-            html:true
-        });
-    });
+    // $(document).ready(function(){
+    //     $("input").popover({
+    //         trigger :"manual",
+    //         html:true
+    //     });
+    // });
 <?php if(isset($saved_data)) { ?>
     $('form[name=experience_form] input[name=after_phd_exp_years]').val('<?php echo  $saved_data['after_phd_exp_years'];?>');
     $('form[name=experience_form] input[name=after_phd_exp_months]').val('<?php echo  $saved_data['after_phd_exp_months'];?>');
@@ -196,10 +196,11 @@ function validate(){
         var totalExperiencePhd = parseInt($("input[name='after_phd_exp_years']").val()) * 12 + parseInt($("input[name='after_phd_exp_months']").val());
         if(totalExperiencePhd >= 12)
             return true;
-        $("input[name='after_phd_exp_years']").parent().addClass("has-error");
-        $("input[name='after_phd_exp_years']").focus();
-        $("input[name='after_phd_exp_years']").popover('show');
-        return false;
+        // $("input[name='after_phd_exp_years']").parent().addClass("has-error");
+        // $("input[name='after_phd_exp_years']").focus();
+        // $("input[name='after_phd_exp_years']").popover('show');
+        // return false;
+        return confirm("You seem to be not satisfying the experience criteria i.e Post-Phd experience >= 1 year");
     }
     else if(post=="AP8")
     {
@@ -207,19 +208,20 @@ function validate(){
         var totalExperienceMtech = parseInt($("input[name='after_mtech_exp_years']").val()) * 12 +parseInt($("input[name='after_mtech_exp_months']").val());
         if(totalExperiencePhd >= 36 || totalExperienceMtech >= 72)
             return true;
-        if(totalExperiencePhd < 36)
-        {
-            $("input[name='after_phd_exp_years']").parent().addClass("has-error");
-            $("input[name='after_phd_exp_years']").focus();
-            $("input[name='after_phd_exp_years']").popover('show');
-        }
-        else
-        {
-            $("input[name='after_mtech_exp_years']").parent().addClass("has-error");
-            $("input[name='after_mtech_exp_years']").focus();
-            $("input[name='after_mtech_exp_years']").popover('show');
-        }
-        return false;
+        // if(totalExperiencePhd < 36)
+        // {
+        //     $("input[name='after_phd_exp_years']").parent().addClass("has-error");
+        //     $("input[name='after_phd_exp_years']").focus();
+        //     $("input[name='after_phd_exp_years']").popover('show');
+        // }
+        // else
+        // {
+        //     $("input[name='after_mtech_exp_years']").parent().addClass("has-error");
+        //     $("input[name='after_mtech_exp_years']").focus();
+        //     $("input[name='after_mtech_exp_years']").popover('show');
+        // }
+        // return false;
+        return confirm("You seem to be not satisfying the experience criteria i.e Post-Phd experience >= 3 years or Post-M.Tech experience >=6 years. Do you still want to continue?");
     }
 }
 </script>

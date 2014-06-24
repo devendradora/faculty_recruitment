@@ -67,6 +67,11 @@ function add (tdsNames,tdsTypes,tdsRequired,noColumns,id,options) {
                 inputfield.setAttribute("data-date-format","mm/yy");
                 inputfield.className = inputfield.className + "datepicker_year_month ";
         }
+        else if(tdsTypes[i]=="datepicker_year")
+        {
+            inputfield.setAttribute("type","text");
+            inputfield.className = inputfield.className + "datepicker_year ";
+        }
         else
             inputfield.setAttribute("type", tdsTypes[i]);
         inputfield.setAttribute("name", tdsNames[i]);

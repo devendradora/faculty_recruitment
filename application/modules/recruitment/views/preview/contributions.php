@@ -151,17 +151,23 @@ foreach ($temp_FDP as $key => $value) {
 						</div>
 						<div class="clearfix"></div>
 						<br>
-						<div class="col-md-6  col-lg-6 col-sm-12 col-xs-12">
+						<div class="col-md-4">
 							<div class="row">
-								<label class="col-md-6">Place:</label>
+								<label class="col-md-3">Place:</label>
 								<span><strong><?php echo $fee_details['place']; ?></strong></span>
 							</div>
 
 						</div>
-						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+						<div class="col-md-4">
 							<div class="row">
-								<label class="col-md-6">Date:</label>
+								<label class="col-md-3">Date:</label>
 								<span><strong><?php echo $fee_details['date']; ?></strong></span>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="row">
+								<label class="col-md-4">Signature:</label>
+								<span> ---------------------- </span>
 							</div>
 						</div>
 					</div>

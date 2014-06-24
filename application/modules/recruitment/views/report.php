@@ -15,7 +15,7 @@
 </div> -->
 <div class="panel panel-default">
 	<div class="panel-heading">
-	<p class="text-center lead"></p>
+		<p class="text-center lead"></p>
 	</div>
 	<div class="panel-body">
 		<ul>
@@ -27,11 +27,16 @@
 			<!-- <li class="lead"></li> -->
 			<li>
 
-				Take a print copy and send by post to Registrar, NIT Warangal
-
-				– 506004, Telangana State along with Demand Draft (if fee is paid through DD) so as to reach 
+				Take a print copy and send by post to following address along with Demand Draft (if fee is paid through DD) so as to reach 
 
 				on or before ________.
+				<address>
+					<strong>Registrar</strong><br>
+					NIT Warangal<br>
+					Warangal<br>
+					Telangana State,506004<br>
+				</address>
+				
 			</li>
 
 		</ul>

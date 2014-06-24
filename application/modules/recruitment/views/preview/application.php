@@ -107,7 +107,15 @@
 		<div class="col-md-6 column">
 			<div class="row">
 				<label class="col-md-6">Fee Amount:</label>
-				<span class="col-md-6"><?php echo $fee_details['fee_amount']; ?></span>
+				<span class="col-md-6"><?php 
+					if(isset($category))
+					{
+						if($category == 0 || $category == 1) {
+							echo "Rs 500";
+						} else {
+							echo "Rs 200";
+						}
+					} ?></span>
 			</div>
 			<div class="row">
 				<label class="col-md-6">Name of the bank:</label>
