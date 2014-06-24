@@ -36,13 +36,19 @@ class Educational extends Recruitment_Controller {
         {
             $personal_data=json_decode($this->get_data('personal'),true);
             $data['category']=$personal_data['category'];
-            
+
         }
         // If already filled get all fields
         if($data['completed']['educational'])
         {
             $data['saved_data']=json_decode($this->get_data('educational'),true);
-            $data['phd_synopsis_submission_dates']=$data['saved_data']['phd_synopsis_submission'];
+            if (!isset($data['saved_data']['phd_synopsis_submission'])) {
+                $data['saved_data']['phd_synopsis_submission'] = NULL;
+            }
+            $data['phd_synopsis_submission_dates'] = $data['saved_data']['phd_synopsis_submission'];
+            if (!isset($data['saved_data']['phd_thesis_submission'])) {
+                $data['saved_data']['phd_thesis_submission'] = NULL;
+            }
             $data['phd_thesis_submission_dates']=$data['saved_data']['phd_thesis_submission'];
         }
 
