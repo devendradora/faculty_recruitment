@@ -94,7 +94,7 @@
 							</th>
 							<th>Degree</th>
 							<th>Branch</th>
-							<th>Specialization</th>
+							<!-- <th>Specialization</th> -->
 							<th>Board/University</th>
 							<th>Year of Passing</th>
 							<th>Class/Division</th>
@@ -112,7 +112,6 @@
 								<td><?php echo $count; ?></td>
 								<td><?php echo $value; ?></td>
 								<td><?php echo $education['masters_subject'][$key] ?></td>
-								<td><?php echo $education['masters_specialization'][$key] ?></td>
 								<td><?php echo $education['masters_boardu'][$key] ?></td>
 								<td><?php echo $education['masters_yopass'][$key] ?></td>
 								<td><?php echo $education['masters_division'][$key] ?></td>
