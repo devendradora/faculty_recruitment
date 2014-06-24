@@ -54,13 +54,13 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="col-sm-2">Degree</th>
+                        <th class="col-sm-1">Degree</th>
                         <th class="col-sm-3">Branch</th>
                         <th class="col-sm-3">University/Institution</th>
                         <th class="col-sm-1">Year of Passing</th>
                         <th class="col-sm-1">Class/Division</th>
                         <th class="col-sm-1">Assessment</th>
-                        <th class="col-sm-1 score" >Score</th>
+                        <th class="col-sm-2 score" >Score</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -84,13 +84,13 @@
                 <thead>
                     <tr>
                         <th class="col-sm-1">Degree</th>
-                        <th class="col-sm-3">Branch</th>
-                        <th class="col-sm-3">Specialization</th>
-                        <th class="col-sm-1">University/Institution</th>
+                        <th class="col-sm-3">Branch / Specialization</th>
+                        <!-- <th class="col-sm-3">Specialization</th> -->
+                        <th class="col-sm-2">University/Institution</th>
                         <th class="col-sm-1">Year of Passing</th>
                         <th class="col-sm-1">Class/Division</th>
                         <th class="col-sm-1">Assessment</th>
-                        <th class="col-sm-1 score" >Score</th>
+                        <th class="col-sm-2 score" >Score</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -201,10 +201,10 @@
         add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options);
     }
     function masters_add_row() {
-        var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_specialization[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
-        var tdsTypes = new Array("select" ,"select","select","text" ,"datepicker_year_month" ,"text" ,"select","number");
-        var tdsRequired = new Array("","","","","","","");
-        var noColumns=8;
+        var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
+        var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text" ,"select","number");
+        var tdsRequired = new Array("","","","","","");
+        var noColumns=7;
         var options=new Array(
             [
             <?php
@@ -219,15 +219,6 @@
             <?php
             $output = '';
             foreach ($sdspecialization[$dept][$post] as $key => $spe) {
-                $output .= "'"."$spe"."', ";
-            }
-            echo rtrim($output, ", ");
-            ?>
-            ],
-            [
-            <?php
-            $output = '';
-            foreach ($sdareasofspecialization[$dept][$post] as $key => $spe) {
                 $output .= "'"."$spe"."', ";
             }
             echo rtrim($output, ", ");
@@ -271,15 +262,15 @@
     var SDAssessment=$("#masters > tr > td:nth-child(7) >select").val();
     var FDP=0,FDG=0,SDP=0,SDG=0;
     if(FDAssessment=="Percentage")
-        FDP=$("#undergraduation > tr > td:nth-child(7) >input").val(); //(First Degree Percentage) 
+        FDP=$("#undergraduation > tr > td:nth-child(7) >input").val(); //(First Degree Percentage)
     else
         FDG= $("#undergraduation > tr > td:nth-child(7) >input").val();//(First Degree CGPA)
     if(SDAssessment=="Percentage")
-        SDP =$("#undergraduation > tr > td:nth-child(8) >input").val();//(Second Degree Percentage) 
+        SDP =$("#undergraduation > tr > td:nth-child(8) >input").val();//(Second Degree Percentage)
     else
         SDG =$("#undergraduation > tr > td:nth-child(8) >input").val();//(Second Degree CGPA)
 
-    var FDQ=false; //(First Degree Qualified) 
+    var FDQ=false; //(First Degree Qualified)
     var SDQ=false; //(Second Degree Qualified)
     if(FDAssessment=="Percentage")
     {
@@ -296,7 +287,7 @@
     FDQ=(FDD ||(jQuery.inArray( dept, dcode )!=-1) );
     SDQ=SDD;
     console.log('FDQ is '+FDQ);
-    console.log('SDQ is '+SDQ); 
+    console.log('SDQ is '+SDQ);
     var cat="<?php echo $category ?>";
     var post="<?php echo $post ?>";
     if(cat==2 || cat==3)
@@ -320,8 +311,8 @@
         EQS = FDQ || SDQ || (PHS > 1);
     }
     console.log('FDQ is '+FDQ);
-    console.log('SDQ is '+SDQ); 
-    console.log('EQS is '+EQS); 
+    console.log('SDQ is '+SDQ);
+    console.log('EQS is '+EQS);
     if(EQS==false)
     {
         return confirm("You seem to be not satisfying the educational qualification for the post. Do you want to continue?");
