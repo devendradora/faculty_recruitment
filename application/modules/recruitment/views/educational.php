@@ -257,18 +257,18 @@
     console.log('FDD is '+FDD);
     console.log('SDD is '+SDD);
 
-    console.log('PHSis '+PHS);
+    console.log('PHS is '+PHS);
     var FDAssessment=$("#undergraduation > tr > td:nth-child(6) >select").val();
     var SDAssessment=$("#masters > tr > td:nth-child(7) >select").val();
     var FDP=0,FDG=0,SDP=0,SDG=0;
     if(FDAssessment=="Percentage")
-        FDP=$("#undergraduation > tr > td:nth-child(7) >input").val(); //(First Degree Percentage)
+        FDP=parseInt($("#undergraduation > tr > td:nth-child(7) >input").val()); //(First Degree Percentage)
     else
-        FDG= $("#undergraduation > tr > td:nth-child(7) >input").val();//(First Degree CGPA)
+        FDG= parseInt($("#undergraduation > tr > td:nth-child(7) >input").val());//(First Degree CGPA)
     if(SDAssessment=="Percentage")
-        SDP =$("#undergraduation > tr > td:nth-child(8) >input").val();//(Second Degree Percentage)
+        SDP =parseInt($("#undergraduation > tr > td:nth-child(8) >input").val());//(Second Degree Percentage)
     else
-        SDG =$("#undergraduation > tr > td:nth-child(8) >input").val();//(Second Degree CGPA)
+        SDG =parseInt($("#undergraduation > tr > td:nth-child(8) >input").val());//(Second Degree CGPA)
 
     var FDQ=false; //(First Degree Qualified)
     var SDQ=false; //(Second Degree Qualified)
@@ -286,8 +286,7 @@
     var dcode=['MA', 'ME', 'MM', 'PH'];
     FDQ=(FDD ||(jQuery.inArray( dept, dcode )!=-1) );
     SDQ=SDD;
-    console.log('FDQ is '+FDQ);
-    console.log('SDQ is '+SDQ);
+    
     var cat="<?php echo $category ?>";
     var post="<?php echo $post ?>";
     if(cat==2 || cat==3)
@@ -300,13 +299,15 @@
         FDQ = FDQ || (FDP >=60 || FDG >= 6.5);
         SDQ = SDQ || (SDP >=60 || SDG >= 6.5);
     }
+    console.log('FDQ is '+FDQ);
+    console.log('SDQ is '+SDQ);
     var EQS=false;
 
-    if(post="AP6")
+    if(post=="AP6")
     {
         EQS = FDQ && SDQ && (PHS > 0);
     }
-    else
+    else if(post=="AP7" || post=="AP8")
     {
         EQS = FDQ && SDQ && (PHS > 1);
     }
