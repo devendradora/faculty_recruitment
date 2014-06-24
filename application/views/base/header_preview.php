@@ -7,9 +7,9 @@
 <meta name="author" content="WSDC">
 <head>
     <title><?php if(!empty($title)) echo $title; else echo 'Faculty Recruitment'; ?></title>
-    <link href="<?php echo base_url()."assets/css/ubuntu.bootstrap.min.css" ?> " rel="stylesheet">
+    <link href="<?php echo base_url()."assets/css/ubuntu.bootstrap.min.css" ?> " rel="stylesheet" media="all">
     <!-- <link href="<?php //echo base_url()."assets/css/introjs.min.css" ?>" rel="stylesheet"> -->
-    <link href="<?php echo base_url()."assets/css/offcanvas.css" ?>" rel="stylesheet">
+    <link href="<?php echo base_url()."assets/css/offcanvas.css" ?>" rel="stylesheet" media="all">
     <link href="<?php echo base_url()."assets/css/datepicker.css" ?>" rel="stylesheet">
     <!-- Notify CSS -->
     <!-- <link href="<?php //echo base_url()."assets/css/bootstrap-notify.css" ?>" rel="stylesheet"> -->
@@ -27,6 +27,8 @@
   ga('send', 'pageview');
 
 </script>
+<script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
+
 </head>
 <body>
     <div class="container-fluid">

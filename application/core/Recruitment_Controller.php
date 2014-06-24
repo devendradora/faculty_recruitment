@@ -24,7 +24,7 @@ class Recruitment_Controller extends MY_Controller {
         $this->status = $this->recruitment_model->status($this->user_id);
         if($this->check_form_submitted() == 1)
         {
-            redirect('recruitment/main');
+            redirect('recruitment/main/report');
         }
     }
 

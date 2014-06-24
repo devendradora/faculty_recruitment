@@ -193,7 +193,7 @@
 function validate(){
     if(post=="AP7")
     {
-        var totalExperiencePhd = $("input[name='after_phd_exp_years']").val() * 12 + $("input[name='after_phd_exp_months']").val();
+        var totalExperiencePhd = parseInt($("input[name='after_phd_exp_years']").val()) * 12 + parseInt($("input[name='after_phd_exp_months']").val());
         if(totalExperiencePhd >= 12)
             return true;
         $("input[name='after_phd_exp_years']").parent().addClass("has-error");
@@ -203,8 +203,8 @@ function validate(){
     }
     else if(post=="AP8")
     {
-        var totalExperiencePhd = $("input[name='after_phd_exp_years']").val() * 12 +$("input[name='after_phd_exp_months']").val();
-        var totalExperienceMtech = $("input[name='after_mtech_exp_years']").val() * 12 +$("input[name='after_mtech_exp_months']").val();
+        var totalExperiencePhd = parseInt($("input[name='after_phd_exp_years']").val()) * 12 +parseInt($("input[name='after_phd_exp_months']").val());
+        var totalExperienceMtech = parseInt($("input[name='after_mtech_exp_years']").val()) * 12 +parseInt($("input[name='after_mtech_exp_months']").val());
         if(totalExperiencePhd >= 36 || totalExperienceMtech >= 72)
             return true;
         if(totalExperiencePhd < 36)

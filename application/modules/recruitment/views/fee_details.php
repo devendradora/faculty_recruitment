@@ -48,6 +48,15 @@
 						}
 					}?>
 				</p>
+				<input type="hidden" name="fee_amount" value="<?php
+					if(isset($category))
+					{
+						if($category == 0 || $category == 1) {
+							echo "Rs 500";
+						} else {
+							echo "Rs 200";
+						}
+					}?>"/>
 			</div>
 		</div>
 		<!-- Displaying Mode of Payment -->

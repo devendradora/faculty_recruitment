@@ -54,19 +54,19 @@ class Fee extends Recruitment_Controller {
                     $query2=$this->recruitment_model->final_submission($userid);
                     if($query2==true)
                     {
-                        redirect('recruitment/main','refresh');
+                        redirect('recruitment/main/report','refresh');
                     }
                     else
                     {
                         $this->session->set_flashdata('danger', 'Error in final submission');
-                        redirect('recruitment/filled_pages','refresh');
+                        redirect('recruitment/fee_details','refresh');
                     }
                 }
                 else
                 {
                     $this->session->set_flashdata('danger', "Fill all the previous pages");
                     // print_r($this->status);
-                    redirect('recruitment/filled_pages','refresh');
+                    redirect('recruitment/fee_details','refresh');
                 }
             }
 

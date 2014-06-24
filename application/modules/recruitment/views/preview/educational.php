@@ -197,16 +197,24 @@
 										<td><?php echo $education['phd_pursuing_institution'][$key] ?></td>
 										<td><?php echo $education['phd_pursuing_department'][$key] ?></td>
 										<td>
-											<?php echo $education['phd_submission_synopsis'][$key] ?>
-											&nbsp; --- &nbsp; 
+											<?php 
+												if ($education['phd_submission_synopsis'][$key]=="Yes")
+													echo "Submitted on ";
+												else
+													echo "Not Submitted";
+											?>
 											<?php echo 
 											$education['phd_submission_synopsis'][$key]=="Yes"
 											? $education['phd_synopsis_submission'][$key] : '';
 											 ?>
 										</td>
 										<td>
-											<?php echo $education['phd_submission_thesis'][$key] ?>
-											 &nbsp; --- &nbsp;
+											<?php 
+											if ($education['phd_submission_thesis'][$key]=="Yes")
+													echo "Submitted on ";
+												else
+													echo "Not Submitted";
+											?>
 											<?php echo 
 											$education['phd_submission_thesis'][$key]=="Yes"
 											? $education['phd_thesis_submission'][$key] : '';
