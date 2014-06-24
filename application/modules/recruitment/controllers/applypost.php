@@ -18,7 +18,7 @@ class Applypost extends Recruitment_Controller {
         $this->load->config('specializations');
         $data['departments'] = $this->config->item('departments');
         $data['fposts'] = $this->config->item('fposts');
-        $data['sdspecializations'] = $this->config->item('sdspecialization');
+        $data['sdspecializations'] = $this->config->item('sdareasofspecialization');
 
         // Initializaing data for new users
         if(isset($_POST['instructions']) && isset($_POST['name_of_candidate']))
