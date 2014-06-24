@@ -304,11 +304,11 @@
 
     if(post="AP6")
     {
-        EQS = FDQ || SDQ || (PHS > 0);
+        EQS = FDQ && SDQ && (PHS > 0);
     }
     else
     {
-        EQS = FDQ || SDQ || (PHS > 1);
+        EQS = FDQ && SDQ && (PHS > 1);
     }
     console.log('FDQ is '+FDQ);
     console.log('SDQ is '+SDQ);
