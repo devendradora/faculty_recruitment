@@ -247,16 +247,13 @@ $("form[name='education_form']").submit(function(){
     // candidates who have done integrated 5 year M Tech in the same branch.
     var FDD=false;
 
-    if($("#undergraduation > tr > td:nth-child(1) >select").val()=="MTech")
-    {
+    if($("#undergraduation > tr > td:nth-child(1) >select").val()=="Direct MTech") {
         FDD=true;
     }
     //First Degree Direct
     // candidates who have done direct Ph.D
     var SDD=false;
-
-    if($("#masters > tr > td:nth-child(1) >select").val()=="Ph.D")
-    {
+    if($("#masters > tr > td:nth-child(1) >select").val()=="Direct Ph.D") {
         SDD=true;
     }
     //Phd status
@@ -267,41 +264,40 @@ $("form[name='education_form']").submit(function(){
     else if($("#phd-pursuing > tr >td:nth-child(5) >select").val()=="Yes")
         PHS=1;
 
-    console.log('FDD is '+FDD);
-    console.log('SDD is '+SDD);
-
-    console.log('PHS is '+PHS);
     var FDAssessment=$("#undergraduation > tr > td:nth-child(6) >select").val();
-    var SDAssessment=$("#masters > tr > td:nth-child(7) >select").val();
+    var SDAssessment=$("#masters > tr > td:nth-child(6) >select").val();
+
     var FDP=0,FDG=0,SDP=0,SDG=0;
     if(FDAssessment=="Percentage")
         FDP=parseInt($("#undergraduation > tr > td:nth-child(7) >input").val()); //(First Degree Percentage)
     else
         FDG= parseInt($("#undergraduation > tr > td:nth-child(7) >input").val());//(First Degree CGPA)
     if(SDAssessment=="Percentage")
-        SDP =parseInt($("#undergraduation > tr > td:nth-child(8) >input").val());//(Second Degree Percentage)
+        SDP =parseInt($("#masters > tr > td:nth-child(7) >input").val());//(Second Degree Percentage)
     else
-        SDG =parseInt($("#undergraduation > tr > td:nth-child(8) >input").val());//(Second Degree CGPA)
+        SDG =parseInt($("#masters > tr > td:nth-child(7) >input").val());//(Second Degree CGPA)
 
     var FDQ=false; //(First Degree Qualified)
     var SDQ=false; //(Second Degree Qualified)
-    if(FDAssessment=="Percentage")
-    {
+    if(FDAssessment=="Percentage") {
         console.log('FDP is '+FDP);
-    }
-    else
+    } else {
         console.log('FDG is '+FDG);
-    if(SDAssessment=="Percentage")
+    }
+    if(SDAssessment=="Percentage") {
         console.log('SDP is '+SDP);
-    else
+    } else {
         console.log('SDG is '+SDG);
+    }
     //Dcode array
     var dcode=['MA', 'ME', 'MM', 'PH'];
     FDQ=(FDD ||(jQuery.inArray( dept, dcode )!=-1) );
     SDQ=SDD;
-
+    console.log('FDQ after prelim: ' + FDQ);
+    console.log('SDQ after prelim: ' + SDQ);
     var cat="<?php echo $category ?>";
     var post="<?php echo $post ?>";
+
     if(cat==2 || cat==3)
     {
         FDQ = FDQ || (FDP >=55 || FDG >= 6.0);
@@ -312,8 +308,7 @@ $("form[name='education_form']").submit(function(){
         FDQ = FDQ || (FDP >=60 || FDG >= 6.5);
         SDQ = SDQ || (SDP >=60 || SDG >= 6.5);
     }
-    console.log('FDQ is '+FDQ);
-    console.log('SDQ is '+SDQ);
+
     var EQS=false;
 
     if(post=="AP6")
@@ -324,9 +319,7 @@ $("form[name='education_form']").submit(function(){
     {
         EQS = FDQ && SDQ && (PHS > 1);
     }
-    console.log('FDQ is '+FDQ);
-    console.log('SDQ is '+SDQ);
-    console.log('EQS is '+EQS);
+
     if(EQS==false)
     {
         return confirm("You seem to be not satisfying the educational qualification for the post. Do you want to continue?");

@@ -41,7 +41,8 @@ function add (tdsNames,tdsTypes,tdsRequired,noColumns,id,options) {
         if(tdsTypes[i]=="select")
         {
             var inputfield = document.createElement("select");
-            for (var j = options[i].length - 1; j >= 0; j--) {
+            for (var j = 0; j < options[i].length; j++) {
+            // for (var j = options[i].length - 1; j >= 0; j--) {
                 var option=document.createElement("option");
                 if (typeof options[i][j] !== "object") {
                     // If value & the option name are the same

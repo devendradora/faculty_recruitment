@@ -21,21 +21,21 @@ $fposts['AP8'] = 'Assistant professor (AGP8000)';
 
 // First degree
 
-$fdegree['BT']['AP6'] = array('M.Sc.', 'B.E.', 'B.Tech', 'Equivalent Degree');
-$fdegree['BT']['AP8'] = array('M.Sc.', 'B.E.', 'B.Tech', 'Equivalent Degree');
-$fdegree['CH']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
+$fdegree['BT']['AP6'] = array('M.Sc.', 'B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
+$fdegree['BT']['AP8'] = array('M.Sc.', 'B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
+$fdegree['CH']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
 $fdegree['CY']['AP6'] = array('---');
-$fdegree['CE']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
-$fdegree['CS']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
-$fdegree['EE']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
-$fdegree['EC']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
+$fdegree['CE']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
+$fdegree['CS']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
+$fdegree['EE']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
+$fdegree['EC']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
 $fdegree['HS']['AP6'] = array('---');
 $fdegree['MA']['AP6'] = array('---');
-$fdegree['ME']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
-$fdegree['MM']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
+$fdegree['ME']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
+$fdegree['MM']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'Direct M.Tech');
 $fdegree['PH']['AP6'] = array('---');
-$fdegree['SM']['AP6'] = array('B.E.', 'B. Tech', 'Equivalent Degree');
-$fdegree['SM']['AP7'] = array('B.E.', 'B. Tech', 'Equivalent Degree', 'BA', 'B Sc', 'B Com', 'M Com');
+$fdegree['SM']['AP6'] = array('B.E.', 'B.Tech.', 'Equivalent Degree');
+$fdegree['SM']['AP7'] = array('B.E.', 'B.Tech.', 'Equivalent Degree', 'BA', 'B Sc', 'B Com', 'M Com');
 
 
 $fdegree['BT']['AP7'] = $fdegree['BT']['AP6'];
@@ -106,22 +106,22 @@ $fdbranch['SM']['AP8'] = $fdbranch['SM']['AP7'];
 
 // Second degree
 
-$sdegree['BT']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['BT']['AP8'] = array('ME', 'M Tech', 'MS');
-$sdegree['CH']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['CY']['AP6'] = array('M. Sc.');
-$sdegree['CE']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['CS']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['EE']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['EC']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['HS']['AP6'] = array('M. A.');
-$sdegree['MA']['AP6'] = array('M.Sc.');
-$sdegree['ME']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['MM']['AP6'] = array('ME', 'M Tech', 'MS');
-$sdegree['PH']['AP6'] = array('M.Sc.',' M. Sc (Tech.)', 'M Tech');
-$sdegree['SM']['AP6'] = array('MBA');
-$sdegree['SM']['AP7'] = array('MBA');
-$sdegree['SM']['AP8'] = array('MBA');
+$sdegree['BT']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['BT']['AP8'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['CH']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['CY']['AP6'] = array('M. Sc.', 'Direct Ph.D.');
+$sdegree['CE']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['CS']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['EE']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['EC']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['HS']['AP6'] = array('M. A.', 'Direct Ph.D.');
+$sdegree['MA']['AP6'] = array('M.Sc.', 'Direct Ph.D.');
+$sdegree['ME']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['MM']['AP6'] = array('ME', 'M Tech', 'MS', 'Direct Ph.D.');
+$sdegree['PH']['AP6'] = array('M.Sc.',' M. Sc (Tech.)', 'M Tech', 'Direct Ph.D.');
+$sdegree['SM']['AP6'] = array('MBA', 'Direct Ph.D.');
+$sdegree['SM']['AP7'] = array('MBA', 'Direct Ph.D.');
+$sdegree['SM']['AP8'] = array('MBA', 'Direct Ph.D.');
 
 $sdegree['BT']['AP7'] = $sdegree['BT']['AP6'];
 $sdegree['CH']['AP7'] = $sdegree['CH']['AP6'];
