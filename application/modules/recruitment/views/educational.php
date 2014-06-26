@@ -54,13 +54,13 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="col-sm-1">Degree</th>
+                        <th class="col-sm-2">Degree</th>
                         <th class="col-sm-3">Branch</th>
                         <th class="col-sm-3">University/Institution</th>
                         <th class="col-sm-1">Year of Passing</th>
                         <th class="col-sm-1">Class/Division</th>
                         <th class="col-sm-1">Assessment</th>
-                        <th class="col-sm-2 score" >Score</th>
+                        <th class="col-sm-1 score" >Score</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -83,14 +83,14 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="col-sm-1">Degree</th>
+                        <th class="col-sm-2">Degree</th>
                         <th class="col-sm-3">Branch / Specialization</th>
                         <!-- <th class="col-sm-3">Specialization</th> -->
                         <th class="col-sm-2">University/Institution</th>
                         <th class="col-sm-1">Year of Passing</th>
                         <th class="col-sm-1">Class/Division</th>
                         <th class="col-sm-1">Assessment</th>
-                        <th class="col-sm-2 score" >Score</th>
+                        <th class="col-sm-1 score" >Score</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -105,18 +105,29 @@
     </div>
 </div>
 
+<div class="panel">
+    <div class="panel-heading">
+        Status of PhD
+    </div>
+    <div class="panel-body">
+        <select name="phd-status" id="phd-status" class="form-control">
+            <option value="pursuing">Pursuing</option>
+            <option value="awarded" selected>Awarded</option>
+        </select>
+    </div>
+</div>
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="phd-awarded-panel">
     <div class="panel-heading">Ph.D(Awarded)</div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Month &amp; Year of Award</th>
-                        <th>University/Institution</th>
-                        <th>Department</th>
-                        <th>Title of Thesis</th>
+                        <th class="col-sm-2">Month &amp; Year of Award</th>
+                        <th class="col-sm-3">University/Institution</th>
+                        <th class="col-sm-3">Department</th>
+                        <th class="col-sm-4">Title of Thesis</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -132,18 +143,18 @@
 </div>
 
 
-<div class="panel panel-default">
+<div class="panel panel-default" id="phd-pursuing-panel">
     <div class="panel-heading">Ph.D(Pursuing)</div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Date of Registration</th>
-                        <th>University/Institution</th>
-                        <th>Department</th>
-                        <th class="col-sm-1">Synopsis Submitted</th>
-                        <th class="col-sm-1">Thesis Submitted</th>
+                        <th class="col-sm-2">Date of Registration</th>
+                        <th class="col-sm-3">University/Institution</th>
+                        <th class="col-sm-3">Department</th>
+                        <th class="col-sm-2">Synopsis Submitted</th>
+                        <th class="col-sm-2">Thesis Submitted</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -170,66 +181,68 @@
 </form>
 <script type="text/javascript">
 
-    function undergraduation_add_row() {
-        var tdsNames = new Array("undergraduation_degree[]", "undergraduation_subject[]", "undergraduation_boardu[]", "undergraduation_yopass[]", "undergraduation_division[]","undergraduation_assessment[]","undergraduation_score[]");
-        var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text","select","number");
-        var tdsRequired = new Array("","","","","","","");
-        var noColumns=7;
-        var options=new Array(
-            [
-            <?php
-            $output = '';
-            foreach ($fdegree[$dept][$post] as $key => $deg) {
-                $output .= "'"."$deg"."', ";
-            }
-            echo rtrim($output, ", ");
-            ?>
-            ],
-            [
-            <?php
-            $output = '';
-            foreach ($fdbranch[$dept][$post] as $key => $bran) {
-                $output .= "'$bran', ";
-            }
+function undergraduation_add_row() {
+    var tdsNames = new Array("undergraduation_degree[]", "undergraduation_subject[]", "undergraduation_boardu[]", "undergraduation_yopass[]", "undergraduation_division[]","undergraduation_assessment[]","undergraduation_score[]");
+    var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text","select","number");
+    var tdsRequired = new Array("","","","","","","");
+    var noColumns=7;
+    var options=new Array(
+        [
+        <?php
+        $output = '';
+        foreach ($fdegree[$dept][$post] as $key => $deg) {
+            $output .= "'"."$deg"."', ";
+        }
+        echo rtrim($output, ", ");
+        ?>
+        ],
+        [
+        <?php
+        $output = '';
+        foreach ($fdbranch[$dept][$post] as $key => $bran) {
+            $output .= "'$bran', ";
+        }
 
-            echo rtrim($output, ", ");
-            ?>
-            ],
-            [],[],[],[
-            'CGPA', 'Percentage'],[]
-            );
-        add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options);
-    }
-    function masters_add_row() {
-        var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
-        var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text" ,"select","number");
-        var tdsRequired = new Array("","","","","","");
-        var noColumns=7;
-        var options=new Array(
-            [
-            <?php
-            $output = '';
-            foreach ($sdegree[$dept][$post] as $key => $deg) {
-                $output .= "'"."$deg"."', ";
-            }
-            echo rtrim($output, ", ");
-            ?>
-            ],
-            [
-            <?php
-            $output = '';
-            foreach ($sdspecialization[$dept][$post] as $key => $spe) {
-                $output .= "'"."$spe"."', ";
-            }
-            echo rtrim($output, ", ");
-            ?>
-            ],
-            [],[],[],['CGPA', 'Percentage'],[]
-            );
-        add(tdsNames,tdsTypes,tdsRequired,noColumns,"masters",options);
-    }
-    var dept="<?php echo $dept ?>";
-    $("form[name='education_form']").submit(function(){
+        echo rtrim($output, ", ");
+        ?>
+        ],
+        [],[],[],[
+        'CGPA', 'Percentage'],[]
+        );
+    add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options);
+}
+function masters_add_row() {
+    var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
+    var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text" ,"select","number");
+    var tdsRequired = new Array("","","","","","");
+    var noColumns=7;
+    var options=new Array(
+        [
+        <?php
+        $output = '';
+        foreach ($sdegree[$dept][$post] as $key => $deg) {
+            $output .= "'"."$deg"."', ";
+        }
+        echo rtrim($output, ", ");
+        ?>
+        ],
+        [
+        <?php
+        $output = '';
+        foreach ($sdspecialization[$dept][$post] as $key => $spe) {
+            $output .= "'"."$spe"."', ";
+        }
+        echo rtrim($output, ", ");
+        ?>
+        ],
+        [],[],[],['CGPA', 'Percentage'],[]
+        );
+    add(tdsNames,tdsTypes,tdsRequired,noColumns,"masters",options);
+}
+
+var dept="<?php echo $dept ?>";
+
+$("form[name='education_form']").submit(function(){
     //First Degree Direct
     // candidates who have done integrated 5 year M Tech in the same branch.
     var FDD=false;
@@ -286,7 +299,7 @@
     var dcode=['MA', 'ME', 'MM', 'PH'];
     FDQ=(FDD ||(jQuery.inArray( dept, dcode )!=-1) );
     SDQ=SDD;
-    
+
     var cat="<?php echo $category ?>";
     var post="<?php echo $post ?>";
     if(cat==2 || cat==3)
@@ -319,5 +332,16 @@
         return confirm("You seem to be not satisfying the educational qualification for the post. Do you want to continue?");
     }
     return true;
+});
+
+// Display appropriate PhD form on selection
+$('#phd-status').on('change', function() {
+    if ($(this).val() === "pursuing") {
+        $('#phd-pursuing-panel').removeClass('hidden');
+        $('#phd-awarded-panel').addClass('hidden');
+    } else if ($(this).val() === "awarded") {
+        $('#phd-awarded-panel').removeClass('hidden');
+        $('#phd-pursuing-panel').addClass('hidden');
+    }
 });
 </script>
