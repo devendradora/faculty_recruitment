@@ -143,7 +143,7 @@
 </div>
 
 
-<div class="panel panel-default" id="phd-pursuing-panel">
+<div class="panel panel-default hidden" id="phd-pursuing-panel">
     <div class="panel-heading">Ph.D(Pursuing)</div>
     <div class="panel-body">
         <div class="table-responsive">
