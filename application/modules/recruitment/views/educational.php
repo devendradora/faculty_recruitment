@@ -180,14 +180,24 @@
 
 </form>
 <script type="text/javascript">
+// function add_eqdegrees() {
+//     var input = $('input');
+//     input.attr('name', 'undergraduation_eqdegree[]');
+//     input.attr('type', 'text');
+//     var el = $('span').html('Your Equivalent Degree: ' + input.html());
+//     el.addClass('hidden');
+//     $('select[name="undergraduation_degree[]"]').each(function(){
+//         $(this).after(el);
+//     });
+// }
 
 function undergraduation_add_row() {
-    var tdsNames = new Array("undergraduation_degree[]", "undergraduation_subject[]", "undergraduation_boardu[]", "undergraduation_yopass[]", "undergraduation_division[]","undergraduation_assessment[]","undergraduation_score[]");
-    var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text","select","number");
-    var tdsRequired = new Array("","","","","","","");
+    var tdsNames = new Array(new Array("undergraduation_degree[]", "undergraduation_eqdegree[]"), "undergraduation_subject[]", "undergraduation_boardu[]", "undergraduation_yopass[]", "undergraduation_division[]","undergraduation_assessment[]","undergraduation_score[]");
+    var tdsTypes = new Array(new Array("select", "text") ,"select","text" ,"datepicker_year_month" ,"text","select","number");
+    var tdsRequired = new Array(new Array("","no"),"","","","","","");
     var noColumns=7;
     var options=new Array(
-        [
+        [[
         <?php
         $output = '';
         foreach ($fdegree[$dept][$post] as $key => $deg) {
@@ -195,7 +205,7 @@ function undergraduation_add_row() {
         }
         echo rtrim($output, ", ");
         ?>
-        ],
+        ], []],
         [
         <?php
         $output = '';
@@ -209,15 +219,17 @@ function undergraduation_add_row() {
         [],[],[],[
         'CGPA', 'Percentage'],[]
         );
-    add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options);
+    add(tdsNames,tdsTypes,tdsRequired,noColumns,"undergraduation",options,
+        [[{}, {'placeholder': 'Enter Eq degree here', 'hidden': 'hidden'}]]);
+    // Adding equivalent degree hidden field
 }
 function masters_add_row() {
-    var tdsNames = new Array("masters_degree[]","masters_subject[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
-    var tdsTypes = new Array("select" ,"select","text" ,"datepicker_year_month" ,"text" ,"select","number");
-    var tdsRequired = new Array("","","","","","");
+    var tdsNames = new Array(new Array("masters_degree[]", "masters_eqdegree[]"),"masters_subject[]","masters_boardu[]", "masters_yopass[]","masters_division[]", "masters_assessment[]","masters_score[]");
+    var tdsTypes = new Array(new Array("select", "text") ,"select","text" ,"datepicker_year_month" ,"text" ,"select","number");
+    var tdsRequired = new Array(new Array("", "no"),"","","","","");
     var noColumns=7;
     var options=new Array(
-        [
+        [[
         <?php
         $output = '';
         foreach ($sdegree[$dept][$post] as $key => $deg) {
@@ -225,7 +237,7 @@ function masters_add_row() {
         }
         echo rtrim($output, ", ");
         ?>
-        ],
+        ], []],
         [
         <?php
         $output = '';
@@ -237,12 +249,20 @@ function masters_add_row() {
         ],
         [],[],[],['CGPA', 'Percentage'],[]
         );
-    add(tdsNames,tdsTypes,tdsRequired,noColumns,"masters",options);
+    add(tdsNames,tdsTypes,tdsRequired,noColumns,"masters",options,
+        [[{}, {'placeholder': 'Enter Eq degree here', 'hidden': 'hidden'}]]);
 }
 
 var dept="<?php echo $dept ?>";
 
 $("form[name='education_form']").submit(function(){
+
+    // remove all disabled in first and second degree
+    $('#undergraduation input:disabled').prop('disabled', false);
+    $('#undergraduation select:disabled').prop('disabled', false);
+    $('#masters input:disabled').prop('disabled', false);
+    $('#masters select:disabled').prop('disabled', false);
+
     //First Degree Direct
     // candidates who have done integrated 5 year M Tech in the same branch.
     var FDD=false;
@@ -326,6 +346,54 @@ $("form[name='education_form']").submit(function(){
     }
     return true;
 });
+
+function ugeqdegree(el, yes) {
+    // Enable all form elements
+    el.parent().siblings(':not(:last-child)').each(function() {
+        $(this).children().prop('disabled', false);
+    });
+    el.next().prop('required', false);
+
+    switch(el.val()) {
+        case 'Equivalent Degree':
+            if (yes) alert('Enter equivalent degree in the box in the degree column');
+            el.next().prop('required', true).removeClass('hidden').focus();
+            break;
+        case 'Direct M.Tech':
+            el.parent().siblings(':not(:last-child)').each(function() {
+                $(this).children().prop('required', false).prop('disabled', true);
+            });// Note no break here!!
+        default:
+            el.next().addClass('hidden');
+            break;
+    }
+}
+
+function pgeqdegree(el, yes) {
+    // Enable all form elements
+    el.parent().siblings(':not(:last-child)').each(function() {
+        $(this).children().prop('disabled', false);
+    });
+    el.next().prop('required', false);
+
+    switch(el.val()) {
+        case 'Equivalent Degree':
+            if (yes) alert('Enter equivalent degree in the box in the degree column');
+            el.next().prop('required', true).removeClass('hidden').focus();
+            break;
+        case 'Direct Ph.D.':
+            el.parent().siblings(':not(:last-child)').each(function() {
+                $(this).children().prop('required', false).prop('disabled', true);
+            });
+            // Note no break here!!
+        default:
+            el.next().addClass('hidden');
+            break;
+    }
+}
+
+$(document).on('change', 'select[name="undergraduation_degree[]"]', function() {ugeqdegree($(this));});
+$(document).on('change', 'select[name="masters_degree[]"]', function() {pgeqdegree($(this));});
 
 // Display appropriate PhD form on selection
 $('#phd-status').on('change', function() {

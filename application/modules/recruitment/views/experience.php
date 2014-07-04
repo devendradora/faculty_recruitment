@@ -113,13 +113,13 @@
     </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading">Consolidated Non-overlapping Experience</div>
+    <div class="panel-heading">Total Experience</div>
     <div class="panel-body">
         <table class="table table-condensed">
             <thead>
                 <tr>
                     <th>
-                        Total experience
+                        Experience
                     </th>
                     <th>
                         Years

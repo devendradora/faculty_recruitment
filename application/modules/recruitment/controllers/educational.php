@@ -66,8 +66,8 @@ class Educational extends Recruitment_Controller {
             'schooling_boardu',
             'schooling_yopass',
             'schooling_percentage',
-            'undergraduation_degree', 'undergraduation_subject', 'undergraduation_boardu', 'undergraduation_yopass', 'undergraduation_division','undergraduation_assessment','undergraduation_score',
-            'masters_degree','masters_subject','masters_specialization','masters_boardu', 'masters_yopass','masters_division', 'masters_assessment','masters_score',
+            'undergraduation_degree','undergraduation_eqdegree', 'undergraduation_subject', 'undergraduation_boardu', 'undergraduation_yopass', 'undergraduation_division','undergraduation_assessment','undergraduation_score',
+            'masters_degree', 'masters_eqdegree','masters_subject','masters_specialization','masters_boardu', 'masters_yopass','masters_division', 'masters_assessment','masters_score',
             'phd_month_year', 'phd_awarded_institution', 'phd_awarded_department', 'phd_thesis',
             'phd_dor', 'phd_pursuing_institution', 'phd_pursuing_department', 'phd_submission_synopsis','phd_submission_synopsis_date','phd_submission_thesis','phd_submission_thesis_date'
             );

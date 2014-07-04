@@ -76,6 +76,14 @@ else
                 i++;
             }
         });
+        // Display All Undergraduate Equivalent Degrees
+        $('select[name="undergraduation_degree[]"]').each(function() {
+            ugeqdegree($(this), false);
+        });
+        // Display All Masters Equivalent Degrees
+        $('select[name="masters_degree[]"]').each(function() {
+            pgeqdegree($(this), false);
+        });
         <?php
     }
 }
