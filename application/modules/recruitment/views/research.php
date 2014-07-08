@@ -21,11 +21,17 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
-    <div class="alert alert-danger">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <p>For each publication, attach a scanned pdf copy of the header page of the publication as an attachment.
-    The size of the pdf attachment should not exceed <b>1 Mb </b></p>
-    </div>
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p>For each publication, attach a scanned pdf copy of the header page of the publication as an attachment.
+            The size of the pdf attachment should not exceed <b>1 Mb </b></p>
+        </div>
+
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p> <a href="<?php echo base_url("assets/documents/sci_citation_index.pdf"); ?>" target="_blank">For SCI Journal Number refer to this PDF</a></p>
+        </div>
+
     </div>
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
 
@@ -385,9 +391,9 @@ function validate(){
         {
             // var msg='<div class="alert alert-warning">'+
             //     '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+
-            //     'SCI journal publications outside PhD must be >= '+min+' for Assistant Professor'+ 
+            //     'SCI journal publications outside PhD must be >= '+min+' for Assistant Professor'+
             // '</div>'
-            
+
             // $("#sci-publications-outside-phd").append(msg);
             // $('body').animate({
             //     scrollTop: 500
