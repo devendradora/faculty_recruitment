@@ -37,32 +37,37 @@
             }
         }
     }
-    // print_r($all_saved_files);
-
-    if(isset($all_saved_files) && $all_saved_files!=FALSE)
-    {
-        // echo "yea";
-        foreach ($all_saved_files->result() as $key => $value) {
-            $exact_name=$value->original_name;
-            $stored_name=$value->stored_name;
-            $pdf_category=$value->pdf_col;
-            $idx=$value->idx + 1;
-            $fid=$value->id;
-            $msg='<p><span class="glyphicon glyphicon-saved"></span> <a href="'.base_url().'uploads/'.$stored_name.'" target="_blank">'.$exact_name.'</a></p>';
-            $handle='<p><button type="button" class="btn btn-danger btn-xs delete_file" data-type="'.$pdf_category.'-pdf" data-fid="'.$fid.'" data-name="'.$stored_name.'">Remove</button></p>';
-            ?>
-            $("#<?php echo $pdf_category ?>").find("tr:nth-child(<?php echo $idx ?>)")
-                    .find("td:nth-last-child(3)").find("input").remove();
-            $("#<?php echo $pdf_category ?>").find("tr:nth-child(<?php echo $idx ?>)")
-                    .find("td:nth-last-child(3)").prepend('<?php echo $msg ?>');
-
-            $("#<?php echo $pdf_category ?>").find("tr:nth-child(<?php echo $idx ?>)")
-                    .find("td:nth-last-child(3)").append('<?php echo $handle; ?>');
-            <?php
-            }
-
-    }
     ?>
+
+
+<?php
+    if(isset($files_data) && $files_data!=FALSE)
+    {
+        foreach ($files_data->result() as $key => $value) {
+            $exact_name   = $value->original_name;
+            $stored_name  = $value->stored_name;
+            $pdf_category = $value->field;
+            $fid          = $value->id;
+            $msg          = '<b>File</b><p>'
+                            .'<span class="glyphicon glyphicon-saved text-success"></span>'
+                            .' <a href="'.base_url().'uploads/'
+                            .$stored_name.'" target="_blank">'
+                            .$exact_name.'</a></p>';
+            $handle       = '<p><button type="button" class="btn btn-danger btn-xs delete_file" data-type="'
+                            .$pdf_category.'" data-fid="'
+                            .$fid.'" data-name="'.$stored_name.'">Remove</button></p>';
+            ?>
+            alert('<?php echo $msg; ?>');
+            $("#<?php echo $pdf_category ?>_upload_div").show();
+            $('#<?php echo $pdf_category ?>-cert-input').empty();
+            $('#<?php echo $pdf_category ?>-cert-input').append('<?php echo $msg ?>');
+            $('#<?php echo $pdf_category ?>-cert-input').append('<?php echo $handle ?>');
+    <?php
+        }
+    }
+?>
+
+
     $("body").on("change","input:file",function(){
        var idx=$(this).parent().parent().index();
        $(this).parent().next().find("input").val(idx);

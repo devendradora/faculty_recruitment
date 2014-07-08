@@ -44,8 +44,6 @@ class Personal extends Recruitment_Controller {
             if($query==true)
             {
                 $config['upload_path'] = 'uploads/';
-                // print_r($config['upload_path']);
-                // return;
                 $config['allowed_types'] = 'pdf|txt';
                 $config['max_size'] = '1024';//maximum size is 1 Mb
                 $config['overwrite']=TRUE;

@@ -112,6 +112,27 @@
         <button type="button" class="btn btn-default btn-sm" id="industry-add-row">Add&nbsp; &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">No Objection Certificate</div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="">Are you currently employed?</label>
+            <select name="currently_employed" class="form-control input-sm" id="currently-employed">
+                <option value="yes">Yes</option>
+                <option value="no" selected>No</option>
+            </select>
+        </div>
+        <div class="form-group hidden" id="noc_pdf-upload-div">
+            Upload No Objection Certificate from current employer here:
+            <input type="file" name="noc_pdf" class="form-control input-sm">
+            <div id="noc_pdf-cert-input">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="panel panel-default">
     <div class="panel-heading">Total Experience</div>
     <div class="panel-body">
@@ -199,7 +220,7 @@ function validate(){
         $("input[name='after_phd_exp_years']").parent().addClass("has-error");
         $("input[name='after_phd_exp_years']").focus();
         $("input[name='after_phd_exp_years']").popover('show');
-        return false;
+        return confirm("You are not qualified for the post you are applying. Do you still want to continue?");
     }
     else if(post=="AP8")
     {
@@ -219,7 +240,20 @@ function validate(){
             $("input[name='after_mtech_exp_years']").focus();
             $("input[name='after_mtech_exp_years']").popover('show');
         }
-        return false;
+        return confirm("You are not qualified for the post you are applying. Do you still want to continue?");
     }
 }
+
+$('#currently-employed').on('change', function() {
+    switch($(this).val()) {
+        case 'yes':
+            $('#noc_pdf-upload-div').removeClass('hidden');
+            $('input[name="noc_pdf"]').prop('required', true);
+            break;
+        case 'no':
+            $('#noc_pdf-upload-div').addClass('hidden');
+            $('input[name="noc_pdf"]').prop('required', false);
+            break;
+    }
+});
 </script>

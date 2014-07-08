@@ -88,9 +88,9 @@ class Recruitment_model extends CI_Model
 
 	}
 
-	public function insert_file_details($data,$type='')
+	public function insert_file_details($data,$table='')
 	{
-		$query=$this->db->insert_batch($type.'_files',$data);
+		$query=$this->db->insert_batch($table.'_files',$data);
 		return $query;
 	}
 
