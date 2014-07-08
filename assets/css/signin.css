@@ -2,7 +2,7 @@ body {
   padding-bottom: 40px;
   /*background:white url(../images/background/cream_pixels.png) repeat;*/
   background-color: white;
-  padding-top: 40px;
+  padding-top: 10px;
 }
 .alert{
   padding: 10px;
@@ -89,17 +89,6 @@ body {
   height:40%;
   margin:50px auto 100px auto ;
 }
-#full_form{
-  width:100%;
-  margin-top: 30px;
-  height:10%;
-  padding:5px 0;
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-family: arial;
-  text-align: center;
-  color:#2c3e50;
-}
 #institute_name{
   width:500px;
   letter-spacing: 1px;
@@ -149,4 +138,15 @@ body {
   left: 50%;
   margin-left: -50px;
   margin-top: -50px;
+}
+#nitw-logo {
+  margin-right: 2em;
+  width: 95px;
+}
+#details-row {
+  margin-top: 20px;
+  border-top: 1px solid #e5e5e5 ;
+}
+#login-column {
+  border-left: 1px solid #e5e5e5;
 }

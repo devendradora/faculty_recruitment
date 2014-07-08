@@ -1,14 +1,14 @@
 <form class="form form-signin" role="form" method="post" accept-charset="utf-8">
-<legend>Faculty Recruitment Portal Login</legend>
+<legend> Login</legend>
 
   <!-- <div class="alert alert-danger">The website is under maintenance. Inconvenience is deeply regretted. <br> -Abhishek Singh, WSDC Gen. Sec</div> -->
   <?php if(!empty($message)): ?>
     <div class="text-danger fade in"><?php echo $message;?></div>
   <?php else: ?>
-    <p class="text-info fade in">Please login with your username/email and password</p>
+    <!-- <p class="text-info fade in">Please login with your registered email and password</p> -->
   <?php endif; ?>
   <div class="form-group">
-    <input required="required" type="text" id="identity" name="identity" class="form-control" placeholder="Username or Email" autofocus>
+    <input required="required" type="text" id="identity" name="identity" class="form-control" placeholder="Email" autofocus>
   </div>
   <div class="form-group">
     <input required="required" type="password" id="password" name="password" class="form-control" placeholder="Password">
@@ -18,7 +18,7 @@
   </div>
 
   <div class="form-group">
-    <a  class="text-danger" href="<?php echo base_url('auth/forgot_password') ?>"  >Forgot password/username of your account?</a>
+    <a  class="text-danger" href="<?php echo base_url('auth/forgot_password') ?>"  >Forgot password of your account?</a>
   </div>
 </form>
 <div class="row" style="padding:15px;">
