@@ -41,7 +41,7 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h4>
-				Undergraduation
+				First Degree
 			</h4>
 			<table class="table table-bordered">
 				<thead>
@@ -67,12 +67,21 @@
 						?>
 						<tr>
 							<td><?php echo $count; ?></td>
-							<td><?php echo $value; ?></td>
-							<td><?php echo $education['undergraduation_subject'][$key] ?></td>
-							<td><?php echo $education['undergraduation_boardu'][$key] ?></td>
-							<td><?php echo $education['undergraduation_yopass'][$key] ?></td>
-							<td><?php echo $education['undergraduation_division'][$key] ?></td>
-							<td><?php echo $education['undergraduation_score'][$key] ?></td>
+							<td>
+							<?php
+								// incase its a equivalent degree print the equivalent degree
+								echo ($value === 'Equivalent Degree')?
+										'EQ: '.$education['undergraduation_eqdegree'][$key]:
+										$value;
+							?>
+							</td>
+							<?php if ($value !== 'Direct M.Tech') { ?>
+								<td><?php echo $education['undergraduation_subject'][$key]; ?></td>
+								<td><?php echo $education['undergraduation_boardu'][$key]; ?></td>
+								<td><?php echo $education['undergraduation_yopass'][$key]; ?></td>
+								<td><?php echo $education['undergraduation_division'][$key]; ?></td>
+								<td><?php echo $education['undergraduation_score'][$key]; ?></td>
+							<?php } ?>
 						</tr>
 						<?php } ?>
 					</tbody>
@@ -84,7 +93,7 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<h4>
-					Masters
+					Second Degree
 				</h4>
 				<table class="table table-bordered">
 					<thead>
@@ -110,13 +119,21 @@
 							?>
 							<tr>
 								<td><?php echo $count; ?></td>
-								<td><?php echo $value; ?></td>
-								<td><?php echo $education['masters_subject'][$key] ?></td>
-								<td><?php echo $education['masters_boardu'][$key] ?></td>
-								<td><?php echo $education['masters_yopass'][$key] ?></td>
-								<td><?php echo $education['masters_division'][$key] ?></td>
-								
-								<td><?php echo $education['masters_score'][$key] ?></td>
+								<td>
+								<?php
+									// incase its a equivalent degree print the equivalent degree
+									echo ($value === 'Equivalent Degree')?
+											'EQ: '.$education['masters_eqdegree'][$key]:
+											$value;
+								?>
+								</td>
+								<?php if ($value !== 'Direct Ph.D.') { ?>
+									<td><?php echo $education['masters_subject'][$key] ?></td>
+									<td><?php echo $education['masters_boardu'][$key] ?></td>
+									<td><?php echo $education['masters_yopass'][$key] ?></td>
+									<td><?php echo $education['masters_division'][$key] ?></td>
+									<td><?php echo $education['masters_score'][$key] ?></td>
+								<?php } ?>
 							</tr>
 							<?php }  ?>
 						</tbody>
@@ -124,6 +141,8 @@
 				</div>
 			</div>
 			<?php } ?>
+
+			<!-- PhD -->
 			<?php
 			if(isset($education['phd_month_year'])){ ?>
 
@@ -196,29 +215,29 @@
 										<td><?php echo $education['phd_pursuing_institution'][$key] ?></td>
 										<td><?php echo $education['phd_pursuing_department'][$key] ?></td>
 										<td>
-											<?php 
+											<?php
 												if ($education['phd_submission_synopsis'][$key]=="Yes")
 													echo "Submitted on ";
 												else
 													echo "Not Submitted";
 											?>
-											<?php echo 
+											<?php echo
 											$education['phd_submission_synopsis'][$key]=="Yes"
 											? $education['phd_synopsis_submission'][$key] : '';
 											 ?>
 										</td>
 										<td>
-											<?php 
+											<?php
 											if ($education['phd_submission_thesis'][$key]=="Yes")
 													echo "Submitted on ";
 												else
 													echo "Not Submitted";
 											?>
-											<?php echo 
+											<?php echo
 											$education['phd_submission_thesis'][$key]=="Yes"
 											? $education['phd_thesis_submission'][$key] : '';
 											 ?>
-											
+
 										</td>
 									</tr>
 									<?php }  ?>
@@ -227,3 +246,4 @@
 						</div>
 					</div>
 					<?php } ?>
+					<!-- PhD ends here -->

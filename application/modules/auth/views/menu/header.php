@@ -56,7 +56,7 @@
                                 To fill the application form you need to create a account on this site first.
                             </li>
                             <li>
-                                You will require a working email-id to create and use a account.
+                                You will require a working email-id to fill the application form.
                             </li>
                             <li>
                                 Before filling up the application please ensure that you have the following documents ready.

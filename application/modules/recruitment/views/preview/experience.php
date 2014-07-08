@@ -86,21 +86,21 @@
                 <tr>
                     <td>After award of Ph.D.</td>
                     <td>
-                        <?php  echo ($experience['after_phd_exp_years'] != '0')
-										? $experience['after_phd_exp_years'].' years and ' : '';
-									echo ($experience['after_phd_exp_months'] != '0')
-									? $experience['after_phd_exp_months'].' months' : '';
-									?>
+                        <?php
+                        echo ($experience['after_phd_exp_years'] != '0') ? $experience['after_phd_exp_years'].' years ' : '';
+						echo ($experience['after_phd_exp_months'] != '0') ? $experience['after_phd_exp_months'].' months' : '';
+                        echo ($experience['after_phd_exp_years'] === '0' && $experience['after_phd_exp_months'] === '0')? 'NIL' : '';
+						?>
                     </td>
 
                 </tr>
                 <tr>
                     <td>After M. Tech excluding PhD registration period.</td>
                     <td>
-                    	<?php echo ($experience['after_mtech_exp_years'] != '0')
-										? $experience['after_mtech_exp_years'].' years and ' : '';
-									echo ($experience['after_mtech_exp_months'] != '0')
-									? $experience['after_mtech_exp_months'].' months' : '';
+                    	<?php
+                        echo ($experience['after_mtech_exp_years'] != '0') ? $experience['after_mtech_exp_years'].' years ' : '';
+						echo ($experience['after_mtech_exp_months'] != '0') ? $experience['after_mtech_exp_months'].' months' : '';
+                        echo ($experience['after_mtech_exp_years'] === '0' && $experience['after_mtech_exp_months'] === '0')? 'NIL' : '';
 						?>
                     </td>
 

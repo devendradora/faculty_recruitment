@@ -3,13 +3,6 @@
 	<hr>
 </h3>
 
-<?php  if (isset($sponsored['sponsored_agency'])) : ?>
-
-<?php
-$count=1;
-foreach ($sponsored['sponsored_agency'] as $key => $value) :
-?>
-
 <table class="table table-bordered">
 	<thead>
 		<tr>
@@ -26,22 +19,34 @@ foreach ($sponsored['sponsored_agency'] as $key => $value) :
 		</tr>
 	</thead>
 	<tbody>
+
+<?php
+if (isset($sponsored['sponsored_agency'])) {
+	$count = 1;
+	foreach ($sponsored['sponsored_agency'] as $key => $value) {
+?>
 		<tr>
 			<td><?php echo $count; ?></td>
 			<td><?php echo $value; ?></td>
-			<td><?php echo $sponsored['sponsored_coinvestigator'][$key] ?></td>
-			<td><?php echo $sponsored['sponsored_title'][$key] ?></td>
-			<td><?php echo $sponsored['sponsored_date_of_sanction'][$key] ?></td>
-			<td><?php echo $sponsored['sponsored_amount'][$key] ?></td>
-			<td><?php echo $sponsored['sponsored_status'][$key] ?></td>
+			<td><?php echo $sponsored['sponsored_coinvestigator'][$key]; ?></td>
+			<td><?php echo $sponsored['sponsored_title'][$key]; ?></td>
+			<td><?php echo $sponsored['sponsored_date_of_sanction'][$key]; ?></td>
+			<td><?php echo $sponsored['sponsored_amount'][$key]; ?></td>
+			<td><?php echo $sponsored['sponsored_status'][$key]; ?></td>
 
 		</tr>
-	</tbody>
-</table>
 
 <?php
-endforeach;
-$count++;
-
-endif;
+		$count++;
+	}
+} else {
+	?>
+	<tr>
+		<td colspan="7">
+			<center><i>NIL</i></td></center>
+	</tr>
+	<?php
+}
 ?>
+	</tbody>
+</table>
