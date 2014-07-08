@@ -1,10 +1,14 @@
-<?php 
-if(isset($sponsored['sponsored_agency'])) :
-	?>
 <h3 class="text-primary text-center">
 	<span>Sponsored Projects</span>
+	<hr>
 </h3>
-<?php $count=1; foreach ($sponsored['sponsored_agency'] as $key => $value) : ?>
+
+<?php  if (isset($sponsored['sponsored_agency'])) : ?>
+
+<?php
+$count=1;
+foreach ($sponsored['sponsored_agency'] as $key => $value) :
+?>
 
 <table class="table table-bordered">
 	<thead>
@@ -34,5 +38,10 @@ if(isset($sponsored['sponsored_agency'])) :
 		</tr>
 	</tbody>
 </table>
-<?php endforeach; $count++; ?>
-<?php endif; ?>
+
+<?php
+endforeach;
+$count++;
+
+endif;
+?>

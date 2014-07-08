@@ -1,12 +1,8 @@
-<?php
-if(isset($experience['teaching-institution']) ||
-	isset($experience['organization-institution']) ||
-	isset($experience['industry-institution'])
-	) {?>
+<?php //if(isset($experience['teaching-institution']) || isset($experience['organization-institution']) || isset($experience['industry-institution']) ) {?>
 	<h3 class="text-primary text-center">
 		<span>Experience</span>
 	</h3>
-	<?php } ?>
+<?php // } ?>
 	<?php
 	foreach ($tables['experience'] as $key => $value) {
 		if(isset($experience[$value.'-institution'])){
@@ -35,9 +31,9 @@ if(isset($experience['teaching-institution']) ||
 									Date of Leaving(DOL)
 								</th>
 								<th>
-									Duration	
+									Duration
 								</th>
-								
+
 							</tr>
 						</thead>
 						<tbody>
@@ -52,14 +48,14 @@ if(isset($experience['teaching-institution']) ||
 									<td><?php echo $experience[$value.'-doj'][$key2] ?></td>
 									<td><?php echo $experience[$value.'-dol'][$key2] ?></td>
 									<td>
-									<?php 
-									
+									<?php
+
 									echo ($experience[$value.'-duration-years'][$key2] != '0')
 										? $experience[$value.'-duration-years'][$key2].' years and ' : '';
 									echo ($experience[$value.'-duration-months'][$key2] != '0')
 									? $experience[$value.'-duration-months'][$key2].' months' : '';
 									 ?>
-									
+
 									</td>
 
 								</tr>
@@ -72,7 +68,7 @@ if(isset($experience['teaching-institution']) ||
 			}
 			?>
 <div class="panel panel-default">
-    <div class="panel-heading">Consolidated Non-overlapping Experience</div>
+    <div class="panel-heading">Total Experience</div>
     <div class="panel-body">
         <table class="table table-condensed">
             <thead>
@@ -83,31 +79,31 @@ if(isset($experience['teaching-institution']) ||
                     <th>
                         Duration
                     </th>
-                    
+
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>After award of Ph.D.</td>
                     <td>
-                        <?php  echo ($experience['after_phd_exp_years'][$key2] != '0')
-										? $experience['after_phd_exp_years'][$key2].' years and ' : '';
-									echo ($experience['after_phd_exp_months'][$key2] != '0')
-									? $experience['after_phd_exp_months'][$key2].' months' : '';
+                        <?php  echo ($experience['after_phd_exp_years'] != '0')
+										? $experience['after_phd_exp_years'].' years and ' : '';
+									echo ($experience['after_phd_exp_months'] != '0')
+									? $experience['after_phd_exp_months'].' months' : '';
 									?>
                     </td>
-                    
+
                 </tr>
                 <tr>
                     <td>After M. Tech excluding PhD registration period.</td>
                     <td>
-                    	<?php echo ($experience['after_mtech_exp_years'][$key2] != '0')
-										? $experience['after_mtech_exp_years'][$key2].' years and ' : '';
-									echo ($experience['after_mtech_exp_months'][$key2] != '0')
-									? $experience['after_mtech_exp_months'][$key2].' months' : '';
+                    	<?php echo ($experience['after_mtech_exp_years'] != '0')
+										? $experience['after_mtech_exp_years'].' years and ' : '';
+									echo ($experience['after_mtech_exp_months'] != '0')
+									? $experience['after_mtech_exp_months'].' months' : '';
 						?>
                     </td>
-                    
+
                     </tr>
                 </tbody>
             </table>

@@ -140,7 +140,11 @@ class Main extends MY_Controller
 			'address_line_1' =>'Address line 1',
 			'address_line_2' =>'Address line 2',
 			'address_city' =>'Address city',
-			'State' =>'State'
+			'State' =>'State',
+            'reference1_name' => 'Name of Reference 1',
+            'reference1_address' => 'Address of Reference 1',
+            'reference2_name' => 'Name of Reference 2',
+            'reference2_address' => 'Address of Reference 2'
 			);
 		$data['education']=json_decode($result[0]['educational'],true);
 		$data['tables']['experience']=array(
@@ -158,7 +162,7 @@ class Main extends MY_Controller
 		$data['application_no']=$data['applypost']['application_dept'].$data['applypost']['application_post'][2];
 		//generate 3 digit unique number
 		$digitsCount=sizeof($userid);
-		for ($i=0; $i < 3-$digitsCount; $i++) { 
+		for ($i=0; $i < 3-$digitsCount; $i++) {
 			$data['application_no'].='0';
 		}
 		$data['application_no'].=$userid;
