@@ -42,24 +42,25 @@ class Research extends Recruitment_Controller {
             );
         $data['initialize']=array();
         $data['names']=array(
-            'phd-SCI-journal-coauthors','phd-SCI-journal-title','phd-SCI-journal-name','phd-SCI-journal-vol','phd-SCI-journal-year','phd-SCI-journal-citations','phd-SCI-journal-impact','phd-SCI-journal-SCI-no',
-            'phd-non-SCI-journal-coauthors','phd-non-SCI-journal-title','phd-non-SCI-journal-name','phd-non-SCI-journal-vol','phd-non-SCI-journal-year','phd-non-SCI-journal-citations','phd-non-SCI-journal-impact',
-            'phd-outside-SCI-journal-coauthors','phd-outside-SCI-journal-title','phd-outside-SCI-journal-name','phd-outside-SCI-journal-vol','phd-outside-SCI-journal-year','phd-outside-SCI-journal-citations','phd-outside-SCI-journal-impact','phd-outside-SCI-journal-SCI-no',
-            'phd-outside-non-SCI-journal-coauthors','phd-outside-non-SCI-journal-title','phd-outside-non-SCI-journal-name','phd-outside-non-SCI-journal-vol','phd-outside-non-SCI-journal-year','phd-outside-non-SCI-journal-citations','phd-outside-non-SCI-journal-impact',
-            'hard-copy-peer-journal-coauthors','hard-copy-peer-journal-title','hard-copy-peer-journal-name','hard-copy-peer-journal-vol','hard-copy-peer-journal-year','hard-copy-peer-journal-citations','hard-copy-peer-journal-impact',
-            'soft-copy-peer-journal-coauthors','soft-copy-peer-journal-title','soft-copy-peer-journal-name','soft-copy-peer-journal-vol','soft-copy-peer-journal-year','soft-copy-peer-journal-citations','soft-copy-peer-journal-impact',
-            'conference-journal-coauthors','conference-journal-title','conference-journal-name','conference-journal-vol','conference-journal-year','conference-journal-citations','conference-journal-impact',
+            'phd-SCI-journal-title','phd-SCI-journal-name','phd-SCI-journal-vol','phd-SCI-journal-year','phd-SCI-journal-citations','phd-SCI-journal-impact','phd-SCI-journal-SCI-no',
+            'phd-non-SCI-journal-title','phd-non-SCI-journal-name','phd-non-SCI-journal-vol','phd-non-SCI-journal-year','phd-non-SCI-journal-citations','phd-non-SCI-journal-impact',
+            'phd-outside-SCI-journal-title','phd-outside-SCI-journal-name','phd-outside-SCI-journal-vol','phd-outside-SCI-journal-year','phd-outside-SCI-journal-citations','phd-outside-SCI-journal-impact','phd-outside-SCI-journal-SCI-no',
+            'phd-outside-non-SCI-journal-title','phd-outside-non-SCI-journal-name','phd-outside-non-SCI-journal-vol','phd-outside-non-SCI-journal-year','phd-outside-non-SCI-journal-citations','phd-outside-non-SCI-journal-impact',
+            'hard-copy-peer-journal-title','hard-copy-peer-journal-name','hard-copy-peer-journal-vol','hard-copy-peer-journal-year','hard-copy-peer-journal-citations','hard-copy-peer-journal-impact',
+            'soft-copy-peer-journal-title','soft-copy-peer-journal-name','soft-copy-peer-journal-vol','soft-copy-peer-journal-year','soft-copy-peer-journal-citations','soft-copy-peer-journal-impact',
+            'conference-journal-title','conference-journal-name','conference-journal-vol','conference-journal-year','conference-journal-citations','conference-journal-impact',
             'book-coauthors','book-bc','book-title','book-publisher','book-year',
-            'patents-group-or-organization','patents-name','patents-year-of-award'
+            'patents-group-or-organization','patents-name','patents-year-of-award',
+            'reference1_name','reference1_email','reference1_phone','reference1_address','reference2_name','reference2_email','reference2_phone','reference2_address'
             );
         $data['rows_calcuate']=array(
-            'phd-SCI-journal-coauthors',
-            'phd-non-SCI-journal-coauthors',
-            'phd-outside-SCI-journal-coauthors',
-            'phd-outside-non-SCI-journal-coauthors',
-            'hard-copy-peer-journal-coauthors',
-            'soft-copy-peer-journal-coauthors',
-            'conference-journal-coauthors',
+            'phd-SCI-journal-title',
+            'phd-non-SCI-journal-title',
+            'phd-outside-SCI-journal-title',
+            'phd-outside-non-SCI-journal-title',
+            'hard-copy-peer-journal-title',
+            'soft-copy-peer-journal-title',
+            'conference-journal-title',
             'book-coauthors',
             'patents-group-or-organization'
             );
@@ -72,6 +73,7 @@ class Research extends Recruitment_Controller {
             "soft-copy-journal",
             "conference-journal"
             );
+        // print_r($data['names']);
         $this->_render_page_new('research','custom_js/common',$data);
     }
 

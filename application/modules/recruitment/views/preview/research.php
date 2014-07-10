@@ -27,9 +27,6 @@ unset($research['proceed']);
 						#
 					</th>
 					<th>
-						#Co-authors
-					</th>
-					<th>
 						Title
 					</th>
 					<th>
@@ -39,13 +36,10 @@ unset($research['proceed']);
 					<th>Vol &amp; Issue</th>
 					<th>Year of publication</th>
 					<th>
-						#Citations
-					</th>
-					<th>
 						Impact Factor
 					</th>
 					<th>
-						SCI Journal Sl No
+						SCI sequence number
 					</th>
 					<!-- <th>Upload pdf</th> -->
 				</tr>
@@ -111,9 +105,6 @@ unset($research['proceed']);
 						#
 					</th>
 					<th>
-						#Co-authors
-					</th>
-					<th>
 						Title
 					</th>
 					<th>
@@ -122,9 +113,6 @@ unset($research['proceed']);
 
 					<th>Vol &amp; Issue</th>
 					<th>Year of publication</th>
-					<th>
-						#Citations
-					</th>
 					<th>
 						Impact Factor
 					</th>
@@ -201,9 +189,6 @@ unset($research['proceed']);
 						#
 					</th>
 					<th>
-						#Co-authors
-					</th>
-					<th>
 						Title
 					</th>
 					<th>
@@ -212,13 +197,10 @@ unset($research['proceed']);
 					<th>Vol &amp; Issue</th>
 					<th>Year of publication</th>
 					<th>
-						#Citations
-					</th>
-					<th>
 						Impact Factor
 					</th>
 					<th>
-						SCI Journal Sl No
+						SCI sequence number
 					</th>
 					<!-- <th>Upload pdf</th> -->
 				</tr>
@@ -285,9 +267,6 @@ unset($research['proceed']);
 						#
 					</th>
 					<th>
-						#Co-authors
-					</th>
-					<th>
 						Title
 					</th>
 					<th>
@@ -295,9 +274,6 @@ unset($research['proceed']);
 					</th>
 					<th>Vol &amp; Issue</th>
 					<th>Year of publication</th>
-					<th>
-						#Citations
-					</th>
 					<th>
 						Impact Factor
 					</th>
@@ -409,9 +385,6 @@ foreach ($temp_publications as $key => $value) {
 						#
 					</th>
 					<th>
-						#Co-authors
-					</th>
-					<th>
 						Title
 					</th>
 					<th>
@@ -419,9 +392,6 @@ foreach ($temp_publications as $key => $value) {
 					</th>
 					<th>Vol &amp; Issue</th>
 					<th>Year of publication</th>
-					<th>
-						#Citations
-					</th>
 					<th>
 						Impact Factor
 					</th>

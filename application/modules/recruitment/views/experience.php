@@ -140,7 +140,7 @@
             <thead>
                 <tr>
                     <th>
-                        Experience
+                        Period
                     </th>
                     <th>
                         Years

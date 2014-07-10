@@ -124,31 +124,6 @@
 
     <div class="clearfix"></div>
 
-    <div class="row" style="margin-bottom: 1%;">
-        <div class="col-sm-4 form-group">
-            <label for="">Name of Reference 1:</label>
-            <input  required type="text" name="reference1_name" class="form-control input-sm">
-        </div>
-        <div class="col-sm-8 form-group">
-            <label for="">Address of Reference 1:</label>
-            <textarea required name="reference1_address" class="form-control" id="" rows="2"></textarea>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
-
-    <div class="row" style="margin-bottom: 1%;">
-        <div class="col-sm-4 form-group">
-            <label for="">Name of Reference 2:</label>
-            <input  required type="text" name="reference2_name" class="form-control input-sm">
-        </div>
-        <div class="col-sm-8 form-group">
-            <label for="">Address of Reference 2:</label>
-            <textarea required name="reference2_address" class="form-control" id="" rows="2"></textarea>
-        </div>
-    </div>
-
-    <div class="clearfix"></div>
 
     <div class="row" style="margin-bottom:1%;">
         <div class="form-group col-md-4">

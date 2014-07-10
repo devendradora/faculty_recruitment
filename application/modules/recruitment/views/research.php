@@ -51,25 +51,19 @@
             <thead>
                 <tr>
                     <th>
-                        #Co-authors
-                    </th>
-                    <th>
                         Title
                     </th>
                     <th>
-                        Name Of Journal
+                        Name of Journal
                     </th>
 
                     <th>Vol &amp; Issue</th>
                     <th>Year of publication</th>
                     <th>
-                        #Citations
-                    </th>
-                    <th>
                         Impact Factor
                     </th>
                     <th>
-                        SCI Journal Sl No
+                        SCI sequence No
                     </th>
                     <th>Upload pdf</th>
                     <th></th>
@@ -92,21 +86,17 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>
-                        #Co-authors
-                    </th>
+
                     <th>
                         Title
                     </th>
                     <th>
-                        Name Of Journal
+                        Name of Journal
                     </th>
 
                     <th>Vol &amp; Issue</th>
                     <th>Year of publication</th>
-                    <th>
-                        #Citations
-                    </th>
+
                     <th>
                         Impact Factor
                     </th>
@@ -133,25 +123,21 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
-                            #Co-authors
-                        </th>
+
                         <th>
                             Title
                         </th>
                         <th>
-                            Name Of Journal
+                            Name of Journal
                         </th>
                         <th>Vol &amp; Issue</th>
                         <th>Year of publication</th>
-                        <th>
-                            #Citations
-                        </th>
+
                         <th>
                             Impact Factor
                         </th>
                         <th>
-                            SCI Journal Sl No
+                            SCI sequence No
                         </th>
                         <th>Upload pdf</th>
                         <th></th>
@@ -172,20 +158,16 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
-                            #Co-authors
-                        </th>
+
                         <th>
                             Title
                         </th>
                         <th>
-                            Name Of Journal
+                            Name of Journal
                         </th>
                         <th>Vol &amp; Issue</th>
                         <th>Year of publication</th>
-                        <th>
-                            #Citations
-                        </th>
+
                         <th>
                             Impact Factor
                         </th>
@@ -208,20 +190,16 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
-                            #Co-authors
-                        </th>
+
                         <th>
                             Title
                         </th>
                         <th>
-                            Name Of Journal
+                            Name of Journal
                         </th>
                         <th>Vol &amp; Issue</th>
                         <th>Year of publication</th>
-                        <th>
-                            #Citations
-                        </th>
+
                         <th>
                             Impact Factor
                         </th>
@@ -244,20 +222,16 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
-                            #Co-authors
-                        </th>
+
                         <th>
                             Title
                         </th>
                         <th>
-                            Name Of Journal
+                            Name of Journal
                         </th>
                         <th>Vol &amp; Issue</th>
                         <th>Year of publication</th>
-                        <th>
-                            #Citations
-                        </th>
+
                         <th>
                             Impact Factor
                         </th>
@@ -280,20 +254,16 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>
-                            #Co-authors
-                        </th>
+
                         <th>
                             Title
                         </th>
                         <th>
-                            Name Of Paper
+                            Name of Paper
                         </th>
                         <th>Vol &amp; Issue</th>
                         <th>Year of publication</th>
-                        <th>
-                            #Citations
-                        </th>
+
                         <th>
                             Impact Factor
                         </th>
@@ -365,6 +335,49 @@
                 </tbody>
             </table>
             <button type="button" class="btn btn-sm btn-default" id="patents-add-row">Add&nbsp; &nbsp;<span class="glyphicon glyphicon-plus"></span></button>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Reference's Details
+        </div>
+        <div class="panel-body">
+            <div class="row" style="margin-bottom: 1%;">
+                <div class="col-sm-4 form-group">
+                    <label for="">Name of Reference 1:</label>
+                    <input  required type="text" name="reference1_name[]" class="form-control input-sm">
+                    <label for="">Email-id of Reference 1:</label>
+                    <input required type="email" name="reference1_email[]" class="form-control input-sm">
+                    <label for="">Phone number of Reference 1:</label>
+                    <input type="phone" name="reference1_phone[]" class="form-control input-sm">
+
+                </div>
+                <div class="col-sm-8 form-group">
+                    <label for="">Address of Reference 1:</label>
+                    <textarea required name="reference1_address[]" class="form-control" id="" rows="5"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div class="clearfix"></div>
+
+            <div class="row" style="margin-bottom: 1%;">
+                <div class="col-sm-4 form-group">
+                    <label for="">Name of Reference 2:</label>
+                    <input  required type="text" name="reference2_name[]" class="form-control input-sm">
+                    <label for="">Email-id of Reference 2:</label>
+                    <input required type="email" name="reference2_email[]" class="form-control input-sm">
+                    <label for="">Phone number of Reference 2:</label>
+                    <input type="phone" name="reference2_phone[]" class="form-control input-sm">
+
+                </div>
+                <div class="col-sm-8 form-group">
+                    <label for="">Address of Reference 2:</label>
+                    <textarea required name="reference2_address[]" class="form-control" id="" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
         </div>
     </div>
 

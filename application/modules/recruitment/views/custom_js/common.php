@@ -17,7 +17,8 @@ else
                 echo $adding_functions[$key];
         }
     }
-    // print_r($saved_data);
+
+    // print_r('console.log("'.$names.'");');
     foreach ($names as $key => $name)
     {
         if(isset($saved_data[$name]))
