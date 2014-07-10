@@ -1,21 +1,21 @@
 function teaching_add_row(){
     var tdsNames = new Array("teaching-institution[]","teaching-position[]","teaching-doj[]","teaching-dol[]","teaching-duration-years[]","teaching-duration-months[]");
     var tdsTypes = new Array("text" ,"text" ,"date" ,"date" ,"number","number");
-    var tdsRequired = new Array("","","","","","");
+    var tdsRequired = new Array("","","","no","","");
     var noColumns=6;
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"teaching");
 }
 function organization_add_row(){
     var tdsNames = new Array("organization-institution[]","organization-position[]","organization-doj[]","organization-dol[]","organization-duration-years[]","organization-duration-months[]");
     var tdsTypes = new Array("text" ,"text" ,"date" ,"date" ,"number","number");
-    var tdsRequired = new Array("","","","","","");
+    var tdsRequired = new Array("","","","no","","");
     var noColumns=6;
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"organization");
 }
-function industry_add_row(){
+function industry_add_row(){text
     var tdsNames = new Array("industry-institution[]","industry-position[]","industry-doj[]","industry-dol[]","industry-duration-years[]","industry-duration-months[]");
     var tdsTypes = new Array("text" ,"text" ,"date" ,"date" ,"number","number");
-    var tdsRequired = new Array("","","","","","");
+    var tdsRequired = new Array("","","","no","","");
     var noColumns=6;
     add(tdsNames,tdsTypes,tdsRequired,noColumns,"industry");
 }

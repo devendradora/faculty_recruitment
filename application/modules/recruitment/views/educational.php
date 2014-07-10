@@ -124,7 +124,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th class="col-sm-2">Month &amp; Year of Award</th>
+                        <th class="col-sm-2">Month &amp; Year of Award (mm-yyyy) </th>
                         <th class="col-sm-3">University/Institution</th>
                         <th class="col-sm-3">Department</th>
                         <th class="col-sm-4">Title of Thesis</th>
