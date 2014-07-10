@@ -18,7 +18,7 @@ foreach ($temp_FDP as $key => $value) {
 		<div class="col-md-12 column">
 			<h4>
 				<?php echo $value; ?>
-				<span class="label label-danger">
+				<span class="label label-default">
 					<?php echo isset($contributions[$key.'-organization'])?sizeof($contributions[$key.'-organization']):'0'; ?>
 				</span>
 			</h4>
@@ -106,7 +106,7 @@ foreach ($temp_FDP as $key => $value) {
 	<div class="col-md-12 column">
 		<h4>
 			Awards / Medals awarded
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($contributions['medals-awarded-name'])?sizeof($contributions['medals-awarded-name']):'0'; ?>
 			</span>
 		</h4>

@@ -16,7 +16,7 @@ unset($research['proceed']);
 	<div class="col-md-12 column">
 		<h4>
 			SCI journal publications :
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($research['phd-SCI-journal-coauthors'])?sizeof($research['phd-SCI-journal-coauthors']): '0'; ?>
 			</span>
 		</h4>
@@ -94,7 +94,7 @@ unset($research['proceed']);
 	<div class="col-md-12 column">
 		<h4>
 			Journal publications in journals with impact factor(other than listed above) :
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($research['phd-non-SCI-journal-coauthors'])?sizeof($research['phd-non-SCI-journal-coauthors']):'0'; ?>
 			</span>
 		</h4>
@@ -167,18 +167,16 @@ unset($research['proceed']);
 
 	<!-- outside phd-->
 <div class="row clearfix">
-	<center>
 		<h4 class="text-primary">
 			<b>Publications outside Phd work</b>
 		</h4>
-	</center>
 </div>
 
 <div class="row clearfix">
 	<div class="col-md-12 column">
 		<h4>
 			SCI journal publications
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($research['phd-outside-SCI-journal-coauthors'])?sizeof($research['phd-outside-SCI-journal-coauthors']):'0'; ?>
 			</span>
 		</h4>
@@ -256,7 +254,7 @@ unset($research['proceed']);
 	<div class="col-md-12 column">
 		<h4>
 			Journal publications in journals with impact factor(other than listed above)
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($research['phd-outside-non-SCI-journal-coauthors'])?sizeof($research['phd-outside-non-SCI-journal-coauthors']):'0'; ?>
 			</span>
 		</h4>
@@ -374,7 +372,7 @@ foreach ($temp_publications as $key => $value) {
 	<div class="col-md-12 column">
 		<h4>
 			<?php echo $value; ?>
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($research[$key.'-coauthors'])?sizeof($research[$key.'-coauthors']):'0'; ?>
 			</span>
 		</h4>
@@ -465,7 +463,7 @@ foreach ($temp_publications as $key => $value) {
 	<div class="col-md-12 column">
 		<h4>
 			Books/Chapter writing
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php isset($research['book-coauthors'])?sizeof($research['book-coauthors']):'0'; ?></span>
 		</h4>
 		<table class="table table-bordered">
@@ -529,7 +527,7 @@ foreach ($temp_publications as $key => $value) {
 	<div class="col-md-12 column">
 		<h4>
 			Patents
-			<span class="label label-danger">
+			<span class="label label-default">
 				<?php echo isset($research['patents-group-or-organization'])?sizeof($research['patents-group-or-organization']):'0'; ?>
 			</span>
 		</h4>
