@@ -7,7 +7,7 @@
        <li class="text-center"><strong> APPLICATION FORM &nbsp;</strong><span class="glyphicon glyphicon-align-justify"></span></li>
        <li class="<?php echo (isset($current_page) && $current_page === "instructions")?"active":""; ?>">
          <a href="<?php echo base_url("recruitment/instructions"); ?>">
-           <?php if (isset($completed['instructions']) && $completed['instructions'] === true) { ?>
+           <?php if (isset($filled['instructions']) && $filled['instructions'] === true) { ?>
            <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
            <?php } ?>
            Instructions
@@ -16,7 +16,7 @@
 
        <li class="<?php echo (isset($current_page) && $current_page === "applypost")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/applypost"); ?>">
-          <?php if (isset($completed['applypost']) && $completed['applypost'] === true) { ?>
+          <?php if (isset($filled['applypost']) && $filled['applypost'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Application
@@ -24,7 +24,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "personal")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/personal"); ?>">
-          <?php if (isset($completed['personal']) && $completed['personal'] === true) { ?>
+          <?php if (isset($filled['personal']) && $filled['personal'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Personal Information
@@ -32,7 +32,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "educational")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/educational"); ?>">
-          <?php if (isset($completed['educational']) && $completed['educational'] === true) { ?>
+          <?php if (isset($filled['educational']) && $filled['educational'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Educational Information
@@ -40,7 +40,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "experience")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/experience"); ?>">
-          <?php if (isset($completed['experience']) && $completed['experience'] === true) { ?>
+          <?php if (isset($filled['experience']) && $filled['experience'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Work Experience
@@ -48,7 +48,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "sponsored")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/sponsored"); ?>">
-          <?php if (isset($completed['sponsored']) && $completed['sponsored'] === true) { ?>
+          <?php if (isset($filled['sponsored']) && $filled['sponsored'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Sponsored Projects
@@ -56,7 +56,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "research")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/research"); ?>">
-          <?php if (isset($completed['research']) && $completed['research'] === true) { ?>
+          <?php if (isset($filled['research']) && $filled['research'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Publications
@@ -64,7 +64,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "contributions")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/contributions"); ?>">
-          <?php if (isset($completed['contributions']) && $completed['contributions'] === true) { ?>
+          <?php if (isset($filled['contributions']) && $filled['contributions'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Co-Curricular activities
@@ -72,7 +72,7 @@
       </li>
       <li class="<?php echo (isset($current_page) && $current_page === "fee_details")?"active":""; ?>">
         <a href="<?php echo base_url("recruitment/fee"); ?>">
-          <?php if (isset($completed['fee_details']) && $completed['fee_details'] === true) { ?>
+          <?php if (isset($filled['fee_details']) && $filled['fee_details'] === true) { ?>
           <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
           <?php } ?>
           Fee details

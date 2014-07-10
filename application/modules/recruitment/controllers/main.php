@@ -86,6 +86,7 @@ class Main extends MY_Controller
 	public function report()
 	{
 		$data['completed']=$this->get_status();
+        $data['filled'] = $this->get_fills();
 		$data['current_page']='report';
 		$data['scripts'] = array();
 		$this->_render_page('report',$data);

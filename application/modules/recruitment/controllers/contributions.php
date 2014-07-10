@@ -17,6 +17,7 @@ class Contributions extends Recruitment_Controller {
         $this->check_correct_page_landing(8);
 
         $data['completed']=$this->get_status();
+        $data['filled'] = $this->get_fills();
         if($data['completed']['contributions'])
         {
             $data['saved_data']=json_decode($this->get_data('contributions'),true);

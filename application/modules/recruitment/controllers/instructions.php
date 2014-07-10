@@ -10,6 +10,7 @@ class Instructions extends Recruitment_Controller {
     public function index()
     {
         $data['completed'] = $this->get_status();
+        $data['filled'] = $this->get_fills();
         if($data['completed']['instructions'])
         {
             $data['saved_data']=$this->get_data('instructions');

@@ -25,6 +25,7 @@ class Educational extends Recruitment_Controller {
 
 
         $data['completed']=$this->get_status();
+        $data['filled'] = $this->get_fills();
         // get department & faculty post applied for
         if($data['completed']['applypost'])
         {

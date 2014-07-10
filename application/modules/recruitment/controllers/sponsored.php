@@ -17,6 +17,7 @@ class Sponsored extends Recruitment_Controller {
         $this->check_correct_page_landing(6);
 
         $data['completed']=$this->get_status();
+        $data['filled'] = $this->get_fills();
         if($data['completed']['applypost'])
         {
             $data['post']=$this->get_data('post');

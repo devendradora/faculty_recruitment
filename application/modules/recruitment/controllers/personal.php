@@ -16,6 +16,7 @@ class Personal extends Recruitment_Controller {
     {
         $this->check_correct_page_landing(3);
         $data['completed']=$this->get_status();
+        $data['filled'] = $this->get_fills();
         if($data['completed']['personal'])
         {
             $data['raw_data']=json_decode($this->get_data('personal'),true);
@@ -64,7 +65,7 @@ class Personal extends Recruitment_Controller {
                     $newname=str_replace(" ", "_", $name);
                     $filename=$userid.'_category'.uniqid().'_'.$newname;
                         // print_r($filename);
-                    $files_data[]=array(
+                    $files_data[] = array(
                         'userid'=>$userid,
                         'field'=>$value,
                         'original_name'=>$_FILES[$value]['name'],

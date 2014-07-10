@@ -53,13 +53,16 @@ class Recruitment_model extends CI_Model
 		if($query->num_rows()==1)
 		{
 			$status=$query->row()->status;
-			$status[$page]=1;
+			$status[$page] = '1';
+			for ($i = intval($page)+1; $i < strlen($status); $i++) {
+				$status[$i] = '0';
+			}
 			$query2=$this->db->update('faculty_data',array('status'=>$status,$field=>$value,'filled_pages'=>$page),array('userid'=>$userid));
 		}
 		else
 		{
 			$status='000000000';
-			$status[$page]=1;
+			$status[$page] = '1';
 			$data['status']=$status;
 			$query2=$this->db->insert('faculty_data',$data);
 		}
@@ -73,6 +76,9 @@ class Recruitment_model extends CI_Model
 		{
 			$status=$query->row()->status;
 			$status[$page]=1;
+			for ($i = intval($page)+1; $i < strlen($status); $i++) {
+				$status[$i] = '0';
+			}
 			$data['status']=$status;
 			$query2=$this->db->update('faculty_data',$data,array('userid'=>$userid));
 

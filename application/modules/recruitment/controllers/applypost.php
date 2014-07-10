@@ -34,6 +34,7 @@ class Applypost extends Recruitment_Controller {
         $this->check_correct_page_landing(2);
 
         $data['completed'] = $this->get_status();
+        $data['filled'] = $this->get_fills();
         if($data['completed']['applypost'])
         {
             $temp = $this->get_data();
