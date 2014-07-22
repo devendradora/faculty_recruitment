@@ -22,13 +22,13 @@
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
         <div class="alert alert-danger">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
             <p>For each publication, attach a scanned pdf copy of the header page of the publication as an attachment.
             The size of the pdf attachment should not exceed <b>1 Mb </b></p>
         </div>
 
         <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
             <p> <a href="<?php echo base_url("assets/documents/sci_citation_index.pdf"); ?>" target="_blank">For SCI Journal Number refer to this PDF</a></p>
         </div>
 

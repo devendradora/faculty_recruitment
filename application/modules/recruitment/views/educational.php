@@ -31,7 +31,7 @@
                         <th class="col-sm-3">Certificate</th>
                         <th class="col-sm-3">Board/University</th>
                         <th class="col-sm-3">Year of Passing</th>
-                        <th class="col-sm-3">Percentage/CGPA</th>
+                        <th class="col-sm-2">Percentage/CGPA</th>
                         <th></th>
                     </tr>
                 </thead>

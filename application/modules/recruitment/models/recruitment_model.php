@@ -129,6 +129,12 @@ class Recruitment_model extends CI_Model
 	{
 		return $this->db->get_where('faculty_data',array('userid'=>$userid));
 	}
+
+	public function get_email($userid)
+	{   $this->db->select('email')->from('users')->where('id',$userid);
+		$result= $this->db->get();
+		return $result->result_array()[0];
+	}
 }
 
 /* End of file recruitment_model.php */

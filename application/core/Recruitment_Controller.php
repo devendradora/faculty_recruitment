@@ -67,10 +67,12 @@ class Recruitment_Controller extends MY_Controller {
     function get_fills()
     {
         $status = $this->recruitment_model->status($this->user_id);
+        if ($status==false)
+            return Null;
         $status[9] = '0';
         foreach ($this->data as $row => $value)
         {
-            $t[$value] = ($status[$row] === '1')?true:false;
+           $t[$value] = ($status[$row] === '1')?true:false;
         }
         return $t;
     }

@@ -18,7 +18,6 @@
     </div>
     <br>
 
-
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -187,10 +186,10 @@
                 <input name = "pda_pdf" type="file" class="form-control input-sm">
             </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+           <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <label>Date of issue of certificate</label> <p class="text-danger">(Issued on or after 1st January 2014) </p>
                 <input type="date" min="2014-01-01" class="form-control input-sm" placeholder="YYYY-MM-DD" name="pda_cert_doi">
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -222,4 +221,10 @@
         document.personal_form.spcl_cat_pda.value='<?php echo $raw_data['spcl_cat_pda'] ?>';
         document.personal_form.skype_id.value='<?php echo isset($raw_data['skype_id']) ? $raw_data['skype_id']:""; ?>';
         <?php } ?>
+
+      document.personal_form.email_id.value='<?php echo $email?>';
+     
+
+  
+
     </script>

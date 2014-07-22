@@ -37,8 +37,9 @@
             </div>
             <div class="col-sm-8">
                 <div class="pull-left">
-                    <h3>NATIONAL INSTITUTE OF TECHNOLOGY, WARANGAL</h3>
-                    <h4>An Institute of National Importance</h4>
+                    <h3>NATIONAL INSTITUTE OF TECHNOLOGY,</h3>
+                    <font size="5px">WARANGAL </font>
+                    <h4 align="center">An Institute of National Importance</h4>
                 </div>
             </div>
         </div>

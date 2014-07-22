@@ -120,10 +120,10 @@ class Main extends MY_Controller
 	{
 		$data['current_page']='preview';
 		$this->load->model('recruitment_model','',TRUE);
-		$userid=$this->ion_auth->get_user_id();
+		$userid=$this->ion_auth->get_user_id();		
 		$query=$this->recruitment_model->get_faculty_info($userid);
 		$this->status=$this->recruitment_model->status($userid);
-		$this->check_correct_page_landing(8);
+		$this->check_correct_page_landing(9);
 		$result=$query->result_array();
 		// print_r($result);
 		$data['applypost']=json_decode($result[0]['applypost'],true);
@@ -159,6 +159,7 @@ class Main extends MY_Controller
 		// $data['all_saved_files']=$this->recruitment_model->get_all_files_info($this->ion_auth->get_user_id());
 		$data['contributions']=json_decode($result[0]['contributions'],true);
 		$data['fee_details']=json_decode($result[0]['fee_details'],true);
+		$data['submission_det']=json_decode($result[0]['submission_det'],true);
 		$data['scripts'] = array();
 		$data['application_no']=$data['applypost']['application_dept'].$data['applypost']['application_post'][2];
 		//generate 3 digit unique number

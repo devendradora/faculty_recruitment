@@ -24,7 +24,7 @@ class Personal extends Recruitment_Controller {
         }
         $data['current_page'] = 'personal';
         $data['scripts'] = array('personal.js');
-
+        $data=$this->recruitment_model->get_email($this->ion_auth->get_user_id()); 
         $this->_render_page_new('personal','custom_js/personal',$data);
     }
 

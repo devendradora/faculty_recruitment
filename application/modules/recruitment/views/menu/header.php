@@ -78,6 +78,15 @@
           Fee details
         </a>
       </li>
+
+       <li class="<?php echo (isset($current_page) && $current_page === "submission")?"active":""; ?>">
+        <a href="<?php echo base_url("recruitment/submission"); ?>">
+          <?php if (isset($filled['submission']) && $filled['submission'] === true) { ?>
+          <span class="pull-right glyphicon glyphicon-ok" style="color:green"> </span>
+          <?php } ?>
+         Submission
+        </a>
+      </li>
     </ul>
   </div><!--/span-->
 

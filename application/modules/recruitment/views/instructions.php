@@ -5,7 +5,12 @@
     <div class="panel-body">
         <ul>
             <li> Candidates applying for AP6, AP7, or AP8 will be considered for that post in that department only. In case any person wishes to apply for more than one post in more than one department, multiple applications are possible. </li>
-            <br>
+                <ul>
+                <li>AP6 :Assistant professor on contract (AGP6000)</li>
+                <li>AP7 :Assistant professor on contract (AGP7000)</li>
+                <li>AP8 :Assistant professor (AGP8000)</li>
+                 </ul>
+                 <br> 
             <li> All candidates who are currently working in teaching institutions, industry and R&D organizations have to upload “No Objection Certificate” from competent authority.</li>
             <br>
             <li> Persons employed in Government and Semi-Government organizations must apply through proper channel. All such candidates have to upload a request letter in the online application and submit the online application within the prescribed time.  The downloaded application along with all necessary documents can be sent as advance copy duly super-scribing on the envelope so as to reach on or before the last date. </li>
@@ -41,7 +46,7 @@
         abide by the decision of National Institute of Technology, Warangal with regard to my candidature for
 
         the post I have applied for.
-    <p class="text-danger">If you agree write your name in the following box and click on “agree and continue”.</p>
+    <p class="text-danger">In agreement of the above terms & conditions write your name and click on “Agree and Continue”.</p>
     </div>
     <form action="<?php echo base_url("recruitment/applypost"); ?>" method="POST" role="form" name="terms_conditions">
         <input type="hidden" value="1" name="instructions">

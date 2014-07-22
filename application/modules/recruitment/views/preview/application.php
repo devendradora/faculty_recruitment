@@ -163,7 +163,16 @@
 				</span>
 			</div>
 			<div class="row">
-				<label class="col-md-6">Transaction Number:</label>
+				<?php 
+				  switch ($fee_details['mode']){
+				  	case '1':
+						echo '<label class="col-md-6">DD Number:</label>';
+						break;
+						case '2':
+						echo '<label class="col-md-6">Transaction Number:</label>';
+						break;
+				  }?>
+				
 				<span class="col-md-6"><?php echo $fee_details['transaction_no']; ?></span>
 			</div>
 

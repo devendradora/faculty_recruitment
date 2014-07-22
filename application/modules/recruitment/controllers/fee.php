@@ -22,6 +22,7 @@ class Fee extends Recruitment_Controller {
         {
             //getting category
             $temp=json_decode($this->get_data('personal'),true);
+
             $data['category']=$temp['category'];
         }
         $data['current_page']='fee_details';
@@ -29,12 +30,13 @@ class Fee extends Recruitment_Controller {
         {
             $data['saved_data']=json_decode($this->get_data('fee_details'),true);
 
-            // print_r($data['saved_data']);
+            //print_r($data['saved_data']);
         }
+        
         $data['scripts'] = array('fee_details.js');
         $this->_render_page('fee_details',$data);
     }
-    public function final_submit()
+    public function submit()
     {
         if (empty($_POST))
         {
@@ -47,29 +49,26 @@ class Fee extends Recruitment_Controller {
             $value=json_encode($_POST);
             $userid=$this->ion_auth->get_user_id();
             $query=$this->recruitment_model->insert_data($userid,'fee_details',$value,'8');
-            $this->status=$this->recruitment_model->status($this->ion_auth->get_user_id());
+           
             if($query==true)
             {
-                if($this->status=="111111111")
+                if($this->input->post('proceed')==0)
                 {
-                    $query2=$this->recruitment_model->final_submission($userid);
-                    if($query2==true)
-                    {
-                        redirect('recruitment/main/report','refresh');
-                    }
-                    else
-                    {
-                        $this->session->set_flashdata('danger', 'Error in final submission');
-                        redirect('recruitment/fee_details','refresh');
-                    }
+                    $this->session->set_flashdata('info', 'All form-data saved');
+                    redirect('recruitment/fee','refresh');
                 }
                 else
                 {
-                    $this->session->set_flashdata('danger', "Fill all the previous pages");
-                    // print_r($this->status);
-                    redirect('recruitment/fee_details','refresh');
+                    redirect('recruitment/submission','refresh');
                 }
             }
+            else
+            {
+                $this->session->set_flashdata('danger', 'Error in submitting data');
+                redirect('recruitment/fee','refresh');
+
+            }
+            
 
         }
     }
